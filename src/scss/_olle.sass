@@ -1,0 +1,643 @@
+$red: #AB002C
+$red2: #871D33
+$lg: #EBEBEB
+
+body
+  font-size: 18px
+
+a
+  color: $red
+
+.owl-item
+  display: flex
+  justify-content: center
+
+.owl-nav
+  .owl-prev, .owl-next
+    position: absolute
+    top: calc(50% - 26px)
+    transition: all 150ms
+    z-index: 88
+    &:hover
+      transform: scale(1.3)
+    &:before
+      height: 26px
+      width: 26px
+      content: ' '
+      background-size: contain
+      background-repeat: no-repeat
+      display: block
+      background-position: center center
+  .owl-prev
+    left: -40px
+  .owl-next
+    right: -40px
+  .owl-prev:before
+    background-image: url(/wp-content/themes/rueckblende/gallery-left.svg)
+  .owl-next:before
+    background-image: url(/wp-content/themes/rueckblende/gallery-right.svg)
+.arrows-inside
+  .owl-prev
+    left: 40px
+  .owl-next
+    right: 40px
+  .owl-prev:before
+    background-image: url(/wp-content/themes/rueckblende/arrow_red_left.svg)
+  .owl-next:before
+    background-image: url(/wp-content/themes/rueckblende/arrow_red_right.svg)
+
+
+
+#debug, xmp
+  font-size: 12px
+  line-height: 1em
+  color: white
+  background: black
+  padding: 10px
+
+textarea, input, button, *:focus
+  outline: none !important
+  box-shadow: none !important
+
+#menu
+  // display: none
+  transform: translateX(-100vw)
+  transition: all 500ms
+  width: 100vw
+  height: 100vh
+  background: rgba(255,255,255,0)
+  position: fixed
+  left: 0
+  top: 0
+  z-index: 1111
+  &.is-active
+    // display: block
+    transform: translateX(0)
+    background: rgba(0,0,0,0.9)
+  .menu-wrapper
+    display: flex
+    width: 100vw
+    height: 100vh
+    justify-content: center
+    align-items: center
+    font-size: 46px
+    font-weight: bold
+    line-height: 72px
+    text-align: right
+    +mobile
+      font-size: 35px
+      line-height: 70px
+    a
+      color: white
+  .badge, .close
+    position: fixed
+    top: 50px
+  .badge
+    left: 50px
+    +mobile
+      left: 20px
+      top: auto
+      bottom: 10px
+      width: 70px
+
+  .close
+    right: 50px
+    cursor: pointer
+    +mobile
+      top: 25px
+      left: 25px
+      right: auto
+    &:hover
+      opacity: .5
+  hr
+    height: 0
+    border-bottom: 1px white solid
+    margin-left: 0
+    margin-right: 0
+  .small-links
+    font-size: 16px !important
+    line-height: 38px !important
+
+
+.flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+.flex-space-between
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+#main
+  position: relative
+  z-index: 2
+  background: white
+#pre-header-spacer
+  background: $lg
+#pre-header-spacer, #pre-header
+  width: 100vw
+  z-index: 0
+  min-height: 250px
+  // &.small
+
+.home #pre-header-spacer, .home #pre-header
+  +desktop
+    min-height: 697px
+  +mobile
+    min-height: 120vw
+
+
+#pre-header
+  position: fixed
+  top: 0
+  z-index: 0
+  .gallery
+    max-width: 1000px
+    .gallery-caption
+      padding-top: 10px
+      font-weight: bold
+      font-size: 17px
+      color: #393939
+      a
+        color: #393939
+      float: right
+      &:before
+        content: ''
+        display: inline-block
+        width: 11px
+        height: 14px
+        background-image: url(/wp-content/themes/rueckblende/build/assets/img/book/red_arrow_15x20.svg)
+        background-size: contain
+        background-repeat: no-repeat
+        margin-right: 10px
+        transform: translateY(1px)
+
+    .gallery-item
+      padding: 50px 50px 12px
+      &:before
+        content: ''
+        width: 100px
+        height: 100px
+        position: absolute
+        background-size: contain
+        background-repeat: no-repeat
+        transform: translate(-30px, -30px)
+        z-index: 99
+    .photo_winner
+      &:before
+        background-image: url(/wp-content/themes/rueckblende/build/assets/img/winners/badge_photo.svg)
+    .cartoon_winner
+      &:before
+        background-image: url(/wp-content/themes/rueckblende/build/assets/img/winners/badge_cartoon.svg)
+    .cartoon_public, .photo_public
+      &:before
+        background-image: url(/wp-content/themes/rueckblende/build/assets/img/winners/badge_audience.svg)
+
+
+
+
+
+.sticky-wrapper
+  position: relative
+  z-index: 999 !important
+#header
+  height: 70px
+  background: #FAFAFA
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50)
+  overflow: hidden
+  .flex-spacer
+    width: 100px
+  .site-title
+    margin: 10px 0 0 0
+    padding: 0
+    width: 190px
+    height: auto
+  .navbar-burger
+    padding: 0
+    margin: 0
+    border: 0 !important
+    margin-left: 0
+    display: inline
+    width: 100px
+    background: transparent !important
+    &:hover
+      background: transparent !important
+    span
+      height: 0px
+      width: 25px
+      border: 2px $red solid
+      border-radius: 3px
+    span:nth-child(1)
+      top: calc(50% - 8px)
+    span:nth-child(2)
+      top: calc(50% - 1px)
+    span:nth-child(3)
+      top: calc(50% + 6px)
+    &.is-active span:nth-child(1)
+      transform: translateY(9px) rotate(45deg)
+
+#header-logos
+  position: fixed
+  top: 0
+  width: 100vw
+  div
+    position: absolute
+    top: 30px
+    +mobile
+      top: 8px
+  .left
+    width: 100px
+    left: 30px
+    +mobile
+      left: 8px
+  .right
+    width: 94px
+    right: 30px
+    +mobile
+      right: 8px
+
+
+#katalog
+  padding: 60px
+  text-align: center
+  img
+    transform: translateX(-35px)
+  .cover img
+    width: 300px
+  h1
+    font-size: 26px
+    margin-top: 0.5em
+    margin-bottom: 1.5em
+    line-height: 1.2
+    a
+      color: black
+      &:hover
+        color: $red
+
+#intro
+  background: #303030
+  color: white
+  font-size: 1.3rem
+  padding: 60px 120px 60px 60px
+  +desktop
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+  +touch
+    padding: 2rem
+    font-size: 18px
+  a
+    color: white
+    font-size: 1.3rem
+  p
+    margin-bottom: 1em
+  .buttons
+    display: flex
+    margin-top: 2em
+    flex-wrap: nowrap
+    +touch
+      flex-direction: column
+      align-items: flex-start
+  .button
+    background-color: #4A4A4A
+    background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, #000000 100%)
+    border-radius: 75px
+    // font-size: .8em
+    color: #FFFFFF
+    border: 0
+    padding: 0 50px 0 32px
+    // margin: 0
+    margin: 0 2em 0 0
+    +touch
+      margin-bottom: 1em
+      font-size: 0.9em
+    // +mobile
+      // width: 25vw
+      // font-size: .6em
+    &:before
+      background-image: url(/wp-content/themes/rueckblende/btn_arrow.svg)
+      background-size: contain
+      background-repeat: no-repeat
+      margin-right: 16px
+      height: 20px
+      width: 15px
+      content: ''
+  .button:first-child
+    +desktop
+      margin-left: 0
+
+.tight
+  margin-bottom: 0 !important
+
+#prizes-gallery
+  +desktop
+    height: 570px !important
+    overflow-y: hidden
+  +touch
+    width: 100vw !important
+    height: auto
+  background: #3f3f3f
+  a
+    color: white
+  .gallery
+    .gallery-item
+      +desktop
+        height: 558px
+        width: 100%
+      +touch
+        width: 100vw !important
+        height: auto
+      background: #3f3f3f
+      .image
+        img
+          +desktop
+            height: 520px !important
+            width: auto
+          +touch
+            width: 100vw !important
+            height: auto
+        background-position: center
+        background-size: cover
+        background-repeat: no-repeat
+      .photo
+        background-size: cover
+      .cartoon
+        background-size: contain
+    .gallery-caption
+      background-color: #3f3f3f
+      padding: 5px 25px 0
+      font-size: 18px
+      height: 38px
+      color: white
+      display: flex
+      justify-content: space-between
+      .prize
+        font-weight: bold
+
+#events
+  background: $lg
+  .text
+    font-size: 1.5rem
+    line-height: 1.5
+    padding: 1.4em 1em
+    +mobile
+      font-size: 1em
+      padding: .5em 1em
+      border-bottom: 1px solid #d6d6d6
+  h2
+    font-weight: bold
+  .intro
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    +mobile
+      height: 80vw!important
+      font-size: 24px
+    .p1
+      font-size: 1.3rem
+      +mobile
+        margin-bottom: 2em
+    a
+      font-size: 1.3rem
+      color: black
+      +mobile
+        font-size: 22px
+      &:before
+        content: ''
+        display: inline-block
+        width: 15px
+        height: 20px
+        background-image: url(/wp-content/themes/rueckblende/build/assets/img/book/red_arrow_15x20.svg)
+        background-size: contain
+        background-repeat: no-repeat
+        margin-right: 15px
+        +mobile
+          height: 18px
+  .column
+    height: 25vw
+  .logo
+    background: $red2
+    display: flex
+    vertical-align: center
+    justify-content: center
+    +mobile
+      height: 45vw
+  .image
+    background-size: cover
+    background-position: center
+    +mobile
+      width: 100vw
+  .bw
+    filter: gray
+    -webkit-filter: grayscale(100%)
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale")
+  .med
+    font-size: .7em
+    line-height: 1.5
+    margin-top: 1em
+    +mobile
+      margin-top: .5em
+      line-height: 1.4
+      font-size: .9em
+  .sm
+    font-size: 18px
+    line-height: 28px
+    margin-top: 20px
+  .red
+    color: $red2
+
+#logos
+  img
+    margin: 20px
+    &:hover
+      opacity: .6
+  p:first-child, p.p1
+    margin: 70px 0 30px
+    font-weight: 300
+    font-size: 16px
+    line-height: 1.4em
+
+#footer
+  background: #4c4c4c
+  font-size: .9rem
+  position: relative
+  z-index: 3
+  .footer-logo-column
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+    margin-bottom: 0.8rem
+    +mobile
+      margin-bottom: 0
+  .footer-logo
+    position: absolute
+    width: 130px
+    +mobile
+      top: 3rem
+      right: 1rem
+  ul
+    display: flex
+    flex-direction: row
+    li
+      // min-width: 10vw
+      padding-right: 6vw
+  a
+    color: white
+    &:hover
+      color: #a1a1a1
+  ul.upper
+    padding: 7rem 0 0.8rem
+    display: flex
+    align-items: flex-end
+    +mobile
+      flex-direction: column
+      align-items: flex-start
+      padding: 0 1rem 1rem
+      li
+        margin-top: 1em
+  div.lower
+    background: #404040
+    padding: 0.8rem 0
+    a
+      color: #b7b7b7
+      &:hover
+        color: #6f6f6f
+    +mobile
+      padding: 1rem
+      li
+
+        // min-width: 33.333vw
+
+#searchform
+  width: 40vw
+  +mobile
+    width: 90vw
+  margin: 0 auto
+  input
+    border: 0
+    background: transparent
+  input[type="text"]
+    border-bottom: 1px #666 solid
+    font-size: 40px
+    // width: 250px
+  input[type="submit"]
+    font-size: 16px
+    padding: 10px
+    border: 1px #666 solid
+    margin-left: 20px
+    border-radius: 5px
+
+
+
+
+
+.watermark
+  &:before
+    content: ''
+    width: 100%
+    height: 100%
+    position: absolute
+    z-index: 9
+    background-size: auto 90%
+    background-position: center center
+    background-repeat: no-repeat
+    background-image: url(/wp-content/themes/rueckblende/rueckblende_watermark.svg)
+    opacity: 0.1
+    left: 0
+    top: 0
+
+.is-7 .watermark::before
+  width: 58.33333%
+
+.slider-item .watermark
+  &:before
+    background-size: auto 65%
+
+.photo.watermark
+  &:before
+    background-size: auto 85%
+    background-position: center center
++mobile
+  .photo.watermark
+    &:before
+      background-size: auto 40%
+      background-position: center 10%
+
+.single-image .photo.watermark
+  &:before
+    background-size: auto 80%
+    background-position: 50% 0
+
+
+.page-id-80 #events
+  .column
+    height: 25vw
+    width: 50vw
+    +mobile
+      height: 50vw
+      width: 50vw
+      padding: 0
+    .inner
+      display: flex
+      width: 50vw
+      +mobile
+        width: 100vw
+    .square
+      height: 25vw
+      width: 25vw
+      +mobile
+        width: 15vw
+        height: 50vw
+        border-bottom: 1px solid #e3e3e3
+    .text
+      +mobile
+        width: 85vw
+  .even .inner
+    flex-direction: row-reverse
+    +mobile
+      flex-direction: row
+
+
+.slider-section
+  padding-top: 2rem
+  padding-bottom: 3rem
+  width: 66vw
+  +mobile
+    width: 100vw
+  .year
+    font-size: 36px
+  .slider
+    margin-top: 20px !important
+
+
+
+body.page-id-19949
+  .wpuf-el, .wpuf-submit
+    display: none
+  .wpuf-el.kategorie, .wpuf-el[data-label="Custom HTML"]
+    display: block
+  .wpuf-help
+    margin-top: 2em
+  .part-2, .part-3
+    display: none
+  .part-3
+    margin-top: 3em
+  .part-1, .part-2, .part-3
+    font-size: 0.9em
+    li
+      margin: 0
+      padding: 0
+    p
+      margin: 0.5em 0
+
+body.page-id-20083
+  .success
+    font-weight: bold
+    margin-bottom: 2em
+
+.bw
+  filter: gray !important
+
+.wpuf-el.kategorie
+.wpuf-el.kategorie label.kategorie span
+  display: none !important

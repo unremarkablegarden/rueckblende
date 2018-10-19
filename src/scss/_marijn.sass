@@ -1,0 +1,78 @@
+//Preistraeger
+
+.photo_winner, .photo_runnerup, .photo_series
+	padding: 3rem 4rem
+
+.photo_winner
+	color: #fff
+	background: #4A4A4A
+	background-image: radial-gradient(48% 142%, rgba(0,0,0,0.00) 45%, rgba(0,0,0,0.50) 100%)
+	.photo
+		display: flex
+		justify-content: center
+		img
+			object-fit: contain
+	.info
+		padding-top: 3rem
+		.badge
+			width: 120px
+			margin-bottom: 1rem
+		h2.title
+			font-weight: normal
+			font-size: 1.3rem
+			margin-bottom: .2em
+			a
+				color: #fff
+		.description
+			font-weight: 300
+			color: #dadada
+
+.photo_runnerup
+	.runnerup-item
+		border-right: 1px solid #f2f2f2
+		padding: 2rem
+		position: relative
+		&:last-child
+			border: none
+		.badge
+			position: absolute
+			width: 6rem
+			top: 0
+			left: 0
+		h3
+			font-weight: bold
+		p
+			font-weight: 300
+			color: #878787
+
+.photo_series
+	border-top: 1px solid #dcdcdc
+	h3
+		font-weight: bold
+	p.description
+		font-weight: 300
+		margin-bottom: 2em
+	.loc-date
+
+.slider
+	position: relative
+	display: flex
+	.badge
+		position: absolute
+		width: 6rem
+		top: -1rem
+		left: -1rem
+		z-index: 9
+	.owl-item
+		display: flex
+		img
+			object-fit: contain
+			margin-bottom: 1rem
+			width: auto
+			height: 100%
+			max-height: 500px
+}
+		.caption
+			font-size: .9rem
+			font-weight: 300
+			color: #878787
