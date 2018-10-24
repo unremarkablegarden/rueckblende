@@ -1,6 +1,5 @@
 <?php
 get_header();?>
-
 <section class="container">
 	<div class="columns is-multiline">
 

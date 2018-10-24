@@ -1,5 +1,8 @@
 <? get_header(); ?>
 
+<? // if (!is_user_logged_in()) wp_redirect('/'); ?>
+<? wp_redirect('/'); ?>
+
 <?php
 
 // $year = date('Y', strtotime('-1 year') );
