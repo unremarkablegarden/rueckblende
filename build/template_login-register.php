@@ -31,7 +31,7 @@ $current_page = $post->post_name;
                 </p>
                 <p>
                   Erst nach der Anmeldung können Sie Bilder hochladen.
-                  Um am Wettbewerb teilnehmen zu können, benötigen wir Ihre Anmelde- und Kontaktdaten.
+                  Um am Wettbewerb teilnehmen zu können, benötigen wir Ihre Anmelde- und Kontaktdaten, über die wir Sie zuverlässig einreichen können:
                 </p>';
                 // <p>
                 //   Die mit * gekennzeichneten Felder müssen ausgefüllt werden.

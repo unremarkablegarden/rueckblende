@@ -7,6 +7,7 @@
     headerStuff();
     carouselInit();
     uploadFormStuff();
+    regFormHacks();
 
     // set default filters
     var today = new Date();
@@ -496,6 +497,7 @@
       } );
     } );
 
+
     function uploadFormStuff() {
       if ($('body').hasClass('page-id-19949')) {
         console.log('uploadFormStuff()');
@@ -593,6 +595,14 @@
       }
     }
 
+
+    function regFormHacks() {
+      if ($('body').hasClass('um-page-register')) {
+        $('#confirm_user_password-20047').attr('placeholder', 'Passwort wiederholen')
+      }
+    }
+
+
     // .page-id-20012
     // window.setTimeout(function(){
       console.log('remove pw txt');
@@ -604,4 +614,5 @@
     // .html('xxx Um Ihr Passwort zurückzusetzen, geben Sie bitte Ihre E-Mail-Adresse oder Benutzernamen unten ein.');
 
   });
+
 }(jQuery));

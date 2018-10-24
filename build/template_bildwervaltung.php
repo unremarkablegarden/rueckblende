@@ -2,6 +2,10 @@
 /**
  * Template Name: Bildwervaltung
  **/
+if (!is_user_logged_in()) {
+  wp_redirect( '/login/' );
+}
+
 get_header();
 
 global $post;
