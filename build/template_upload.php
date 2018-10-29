@@ -23,6 +23,10 @@ $state['total']['foto'] = 0;
 $state['total']['serie'] = 0;
 $state['total']['karikatur'] = 0;
 
+um_fetch_user(get_current_user_id());
+$profession = um_user('user_profession');
+$state['usertype'] = strtolower($profession[0]);
+$state['username'] = um_user('user_login');
 
 // count total series
 $args = array(
@@ -54,6 +58,8 @@ $state['totalseriescount'] = count($all_series);
 foreach($submissions as $sub) {
   $cf = get_post_custom($sub->ID);
   $kat = $cf['kategorie'][0];
+
+  // echo "<h1>".$state['serienname'] = $cf['serienname'][0]."</h1>";
 
   if(!$state['serienname']) {
     $state['serienname'] = $cf['serienname'][0];

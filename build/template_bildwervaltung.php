@@ -153,7 +153,14 @@ foreach($submissions as $sub) {
               Sie müssen für die Kategorie Fotografie/Einzelfoto <b>mindestens</b> zwei Bilddateien hochladen, <b>höchstens</b> können Sie vier Bilddateien hochladen.
 
                 <!-- <br/>You have <? echo $state['total']['foto']; $warn = true; ?> pictures -->
-            <? endif; if($state['total']['serie'] < 4 && $state['total']['serie'] > 0): ?>
+            <? endif;
+
+            if($state['total']['serie'] > 0) { ?>
+              <li>Nachdem Sie einer <b>Serie</b> mehr als <b>ein</b> Bild hinzugefügt haben, können Sie <b>den Namen nicht mehr bearbeiten</b>.</li>
+            <? }
+
+            if($state['total']['serie'] < 4 && $state['total']['serie'] > 0):
+              ?>
               <? if($warn) echo "</li>"; ?>
               <li>
               Sie müssen für die Kategorie Fotografie/Serie <b>mindestens</b> vier Bilddateien hochladen, <b>höchstens</b> können Sie sechs Bilddateien hochladen.

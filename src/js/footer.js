@@ -499,13 +499,56 @@
 
 
     function uploadFormStuff() {
-      if ($('body').hasClass('page-id-19949')) {
+      if ( $('body').hasClass('page-id-19949') || $('body').hasClass('page-id-19936') ) {
         console.log('uploadFormStuff()');
 
         // $('.wpuf-el').not('.kategorie').hide();
 
+        $('.wpuf-submit-button').click(function(){
+          setTimeout(function(){
+            $('.wpuf-error-msg').each(function(){
+              var text = $(this).text();
+              $(this).text(text.replace('is required', 'ist erforderlich'));
+              $(this).text(text.replace('Please fix the errors to proceed', 'Bitte korrigieren Sie die genannten Fehler, um fortzufahren'));
+            })
+          }, 100)
+        });
+
+        function getMeta(url, callback) {
+            var img = new Image();
+            img.src = url;
+            img.onload = function() { callback(this.width, this.height); }
+        }
+        var largeImg = false;
+        $(document).on('DOMSubtreeModified',function(){
+          if (!largeImg) {
+            var img = $('.wpuf-attachment-list .attachment-name img')
+
+            if (img.length) {
+              var src = img.attr('src');
+              if (src) foundImg = true;
+              var large = img.attr('alt');
+              var dir = src.substring(0, src.lastIndexOf("/"));
+              var ext = src.split('.').pop();
+              largeImg = dir + '/' + large + '.' + ext;
+              console.log(largeImg);
+
+              getMeta(largeImg, function(width, height) {
+                // console.log(width + 'px ' + height + 'px');
+                if (width < 1200) {
+                  alert('Dieses Bild ist zu klein. Bitte lade in höherer Auflösung hoch.');
+                  $('a.attachment-delete').trigger('click');
+                  largeImg = false;
+                }
+              });
+            }
+          }
+        });
+
         var state = $('#state').data('state');
-        // console.log(state);
+        console.log('---- state -----');
+        console.log(state);
+        console.log('----------------');
 
         var rules = {
           foto: { min: 2, max: 4 },
@@ -513,10 +556,32 @@
           karikatur: { min: 2, max: 4 }
         };
 
-        $('.wpuf-el.kategorie').on('change', function(){
+        if (state.usertype === 'fotograf') {
+          $('input[value="karikatur"]').parent().hide();
+        }
+        if (state.usertype === 'karikaturist') {
+          $('input[value="foto"]').parent().hide();
+          $('input[value="serie"]').parent().hide();
+          $('input[value="karikatur"]').prop('checked', true);
+          catChange();
+        }
 
-          var checked = $(this).find('input:checked');
-          var val = checked.val(); console.log(val);
+        $('.wpuf-el.kategorie').on('change', function(){
+          catChange();
+        });
+
+        var url = window.location.pathname;
+        var isEdit = false
+        if (url.indexOf("edit") >= 0) {
+          isEdit = true;
+          console.log('isEdit');
+          catChange();
+        }
+
+        function catChange() {
+          var checked = $('.kategorie .wpuf-fields').find('input:checked');
+          var val = checked.val();
+          console.log(val);
 
           var all = $('.datei, .post_title, .datum, .standort, .part-2, .part-3, .wpuf-submit');
           // var foto = $('.standort');
@@ -531,21 +596,29 @@
           }
 
           else if (val == 'serie') {
-
+            serie.show();
             var seriesMax = 50;
             var seriesCount = state.totalseriescount;
             var seriesLeft = seriesMax - seriesCount;
 
             // set series name if it exists, disable editing it
-            if (state.serienname) {
-              $('input[name="serienname"]').val(state.serienname);
-              // .prop('disabled', true);
+            // also hide if editing
+            // don't hide if there's only one series
+            if (state.total.serie > 1) {
+              if (state.serienname || isEdit) {
+                $('input[name="serienname"]').val(state.serienname);
+                $('li.serienname').css({ 'overflow': 'hidden', 'height': 0, 'opacity': 0, 'display': 'none !important', 'padding': 0, 'margin': 0 });
+                // $('li.serienname').css({ 'display': 'none !important'});
+              }
             }
 
             if (seriesLeft > 0) {
               var seriesCounterText = 'Es wurden bereits ' + seriesCount + ' von 50 möglichen Serien eingereicht.';
               var seriesCounterTag = '<p class="series_counter" style="border: 1px #aaa solid; background: #FFD; padding: 0.5em 1em; margin: 0 0 2em 0; font-size: 0.9em; border-radius: 4px;">' + seriesCounterText + '</p>';
-              $('.part-2').prepend(seriesCounterTag);
+
+              if ($('.series_counter').length < 1) {
+                $('.part-2').prepend(seriesCounterTag);
+              }
 
               serie.show();
             }
@@ -590,7 +663,7 @@
 
           }
 
-        });
+        }
 
       }
     }
