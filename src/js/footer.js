@@ -504,14 +504,23 @@
 
         // $('.wpuf-el').not('.kategorie').hide();
 
-        $('.wpuf-submit-button').click(function(){
+        $('.wpuf-submit-button').on('click', function(){
           setTimeout(function(){
+            console.log('fix english form errors');
             $('.wpuf-error-msg').each(function(){
               var text = $(this).text();
-              $(this).text(text.replace('is required', 'ist erforderlich'));
-              $(this).text(text.replace('Please fix the errors to proceed', 'Bitte korrigieren Sie die genannten Fehler, um fortzufahren'));
+              console.log(text);
+              if (text == 'Bildbeschriftung is required') $(this).text('Bitte Bildunterschrift hinzufügen')
+              if (text == 'Aufnahmeort is required') $(this).text('Bitte Aufnahmeort hinzufügen')
+              if (text == 'Aufnahmedatum is required') $(this).text('Bitte Aufnahmedatum hinzufügen')
+              if (text == 'Datei is required') $(this).text('Bitte Datei hinzufügen')
+              if (text == 'Please fix the errors to proceed') $(this).text('')
+              if (text == '') $(this).text('Bitte die fehlenden Felder ausfüllen um fortzufahren')
+              // if (text == '') $(this).text('')
+              
+              // $(this).text(text.replace('', ''))
             })
-          }, 100)
+          }, 100);
         });
 
         function getMeta(url, callback) {
