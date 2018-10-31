@@ -517,7 +517,7 @@
               if (text == 'Please fix the errors to proceed') $(this).text('')
               if (text == '') $(this).text('Bitte die fehlenden Felder ausfüllen um fortzufahren')
               // if (text == '') $(this).text('')
-              
+
               // $(this).text(text.replace('', ''))
             })
           }, 100);
@@ -613,8 +613,10 @@
             // set series name if it exists, disable editing it
             // also hide if editing
             // don't hide if there's only one series
-            if (state.total.serie > 1) {
+            if (state.total.serie >= 1) {
+              console.log('honk1');
               if (state.serienname || isEdit) {
+                console.log('honk2');
                 $('input[name="serienname"]').val(state.serienname);
                 $('li.serienname').css({ 'overflow': 'hidden', 'height': 0, 'opacity': 0, 'display': 'none !important', 'padding': 0, 'margin': 0 });
                 // $('li.serienname').css({ 'display': 'none !important'});
