@@ -107,7 +107,7 @@ foreach($submissions as $sub) {
 </section>
 
 <script>
-var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,mobile:false,api:2018.10,test:true };
+var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,mobile:false,api:2018.10,test:false };
 function $buo_f(){
  var e = document.createElement("script");
  e.src = "//browser-update.org/update.min.js";
