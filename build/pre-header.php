@@ -120,7 +120,8 @@ else $bigheader = false;
 		<? // AUSSTELLUNG
 		elseif ($slug === 'ausstellungen'): ?>
 			<div class="badge">
-				<img src="<? img(); ?>/badges/badge_tournee.svg" alt="">
+				<!-- <img src="<? img(); ?>/badges/badge_tournee.svg" alt=""> -->
+				<img src="<? img(); ?>/badges/badge_tournee@2x.png" alt="">
 			</div>
 
 		<? // KATALOG

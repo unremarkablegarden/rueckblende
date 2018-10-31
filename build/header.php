@@ -26,6 +26,7 @@
 <body <?php body_class(); ?>>
   <div id="page" class="hfeed site">
 
+    <? include('pre-header-submissions.php'); ?>
     <? include('pre-header.php'); ?>
 
     <header id="header" class="flex-space-between">

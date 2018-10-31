@@ -134,23 +134,78 @@ textarea, input, button, *:focus
   background: white
 #pre-header-spacer
   background: $lg
+
+
+$preheadersubmissionsHdesktop: 88px
+$preheadersubmissionsHmobile: 61px
+
+#pre-header-submissions
+  background: rgb(247,247,247)
+  position: fixed
+  top: 0
+  width: 100vw
+  overflow: hidden
+  z-index: 999
+  font-size:
+  +desktop
+    height: $preheadersubmissionsHdesktop
+  +mobile
+    height: $preheadersubmissionsHmobile
+  display: flex
+  justify-content: center
+  align-items: center
+  .arrow
+    transform: translateY(4px)
+  .text
+    font-weight: bold
+    line-height: 1em
+    +desktop
+      font-size: 1.4em
+      padding: 0 15px
+    +mobile
+      font-size: 1em
+      padding: 10px
+  .logo
+    height: 90%
+    img
+      height: 100%
+      width: auto
+
+#pre-header-spacer, #header-logos
+  +desktop
+    margin-top: $preheadersubmissionsHdesktop
+  +mobile
+    margin-top: $preheadersubmissionsHmobile
+
 #pre-header-spacer, #pre-header
   width: 100vw
   z-index: 0
-  min-height: 250px
-  // &.small
+  // min-height: 250px
+  // position: fixed
+  // top: 0
+  +desktop
+    top: $preheadersubmissionsHdesktop
+    min-height: (250px + $preheadersubmissionsHdesktop)
+  +mobile
+    top: $preheadersubmissionsHmobile
+    min-height: (250px + $preheadersubmissionsHmobile)
+
 
 .home #pre-header-spacer, .home #pre-header
   +desktop
-    min-height: 697px
+    min-height: (697px + $preheadersubmissionsHdesktop)
   +mobile
-    min-height: 120vw
+    min-height: calc(120vw + $preheadersubmissionsHmobile)
 
 
 #pre-header
   position: fixed
-  top: 0
-  z-index: 0
+  // top: 0
+  // +desktop
+  //   top: $preheadersubmissionsHdesktop
+  // +mobile
+  //   top: $preheadersubmissionsHmobile
+  // z-index: 0
   .gallery
     max-width: 1000px
     .gallery-caption
