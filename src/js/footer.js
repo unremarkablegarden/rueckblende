@@ -577,7 +577,7 @@
         var rules = {
           foto: { min: 2, max: 4 },
           serie: { min: 4, max: 6 },
-          karikatur: { min: 2, max: 4 }
+          karikatur: { min: 2, max: 6 }
         };
 
         if (state.usertype === 'fotograf') {
