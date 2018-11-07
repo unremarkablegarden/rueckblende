@@ -46,8 +46,12 @@ $current_page = $post->post_name;
         $email = $usermeta['e-mail'][0];
         if(!$email) $email = $user->data->user_email;
 
-        if (!$user->caps['administrator'] && $usermeta['first_name'][0]) {
-          // not admin, has firstname (* required at signup)
+        if (!$user->caps['administrator'] && $usermeta['first_name'][0] && $usermeta['_wp_http_referer'][0] == '/registrieren/') {
+          // not admin, has firstname (* required at signup), signed up from registration page
+
+          // echo '<xmp>';
+          // print_r($usermeta);
+          // echo '</xmp>';
 
           // count images
           $args = array(
@@ -85,12 +89,12 @@ $current_page = $post->post_name;
           }
 
           // set user array
-
           $user = array(
             'first_name' => $usermeta['first_name'][0],
             'last_name' => $usermeta['last_name'][0],
             'full_name' => $usermeta['first_name'][0]." ".$usermeta['last_name'][0],
             'e-mail' => $email,
+            // 'referrer' => $usermeta['_wp_http_referer'][0],
             // '' => $usermeta[''][0],
             'count' => $state['total'],
           );
@@ -118,7 +122,7 @@ $current_page = $post->post_name;
       // )
 
       // echo '<xmp> ';
-      // print_r($userlist);
+      // print_r($users);
       // echo '</xmp>';
       ?>
       <table id='usertable' width='100%'>
