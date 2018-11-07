@@ -151,26 +151,26 @@ foreach($submissions as $sub) {
 
             <? if($state['total']['foto'] < 2 && $state['total']['foto'] > 0): ?>
               <li>
-              Sie müssen für die Kategorie Fotografie/Einzelfoto <b>mindestens</b> zwei Bilddateien hochladen, <b>höchstens</b> können Sie vier Bilddateien hochladen.
+              ⚠️ Sie müssen für die Kategorie Fotografie/Einzelfoto <b>mindestens</b> zwei Bilddateien hochladen, <b>höchstens</b> können Sie vier Bilddateien hochladen.
 
                 <!-- <br/>You have <? echo $state['total']['foto']; $warn = true; ?> pictures -->
             <? endif;
 
             if($state['total']['serie'] > 0) { ?>
-              <li>Nachdem Sie einer <b>Serie</b> mehr als <b>ein</b> Bild hinzugefügt haben, können Sie <b>den Namen nicht mehr bearbeiten</b>.</li>
+              <li>⚠️ Nachdem Sie einer <b>Serie</b> mehr als <b>ein</b> Bild hinzugefügt haben, können Sie <b>den Namen nicht mehr bearbeiten</b>.</li>
             <? }
 
             if($state['total']['serie'] < 4 && $state['total']['serie'] > 0):
               ?>
               <? if($warn) echo "</li>"; ?>
               <li>
-              Sie müssen für die Kategorie Fotografie/Serie <b>mindestens</b> vier Bilddateien hochladen, <b>höchstens</b> können Sie sechs Bilddateien hochladen.
+              ⚠️ Sie müssen für die Kategorie Fotografie/Serie <b>mindestens</b> vier Bilddateien hochladen, <b>höchstens</b> können Sie sechs Bilddateien hochladen.
 
               <!-- <br/>You have <? echo $state['total']['serie']; $warn = true; ?> pictures -->
             <? endif; if($state['total']['karikatur'] < 2 && $state['total']['karikatur'] > 0): ?>
               <? if($warn) echo "</li>"; ?>
               <li>
-              Sie müssen für die Kategorie Karikatur <b>mindestens</b> zwei Bilddateien hochladen, <b>höchstens</b> können Sie vier Bilddateien hochladen.
+              ⚠️ Sie müssen für die Kategorie Karikatur <b>mindestens</b> zwei Bilddateien hochladen, <b>höchstens</b> können Sie vier Bilddateien hochladen.
 
               <!-- <br/>You have <? echo $state['total']['karikatur']; $warn = true; ?> pictures -->
             <? endif; ?>
@@ -181,7 +181,12 @@ foreach($submissions as $sub) {
               </ul>
             <? } else { ?>
               <p>
-                <b>Sie nehmen jetzt am Wettbewerb teil. </b>
+                <!-- <b>✅ Sie nehmen jetzt am Wettbewerb teil. </b> -->
+
+                <b>✅ Diese von Ihnen hochgeladenen Bilddateien nehmen am Wettbewerb teil.</b>
+                <br><br>
+                Sie können Ihre Auswahl noch bis zur Schließung des Wettbewerbsportals am 29. November, 12 Uhr, aktualisieren.
+                <br><br>
                 <a href="/einreichen">Noch mehr einreichen</a>?
                 <!-- Sie können noch max X Bilder hochladen. -->
               </p>
