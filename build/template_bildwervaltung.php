@@ -141,7 +141,8 @@ foreach($submissions as $sub) {
           <div class="column is-12 content">
 
             <?
-            if( ($state['total']['foto'] < 2 && $state['total']['foto'] > 0) || ($state['total']['serie'] < 4 && $state['total']['serie'] > 0) || ($state['total']['karikatur'] < 2 && $state['total']['karikatur'] > 0) ){ ?>
+            if( ($state['total']['foto'] < 2 && $state['total']['foto'] > 0) || ($state['total']['serie'] < 4 && $state['total']['serie'] > 0) || ($state['total']['karikatur'] < 2 && $state['total']['karikatur'] > 0) ){
+              ?>
               <p>Bitte achten Sie auf die jeweiligen Hinweise, die Ihnen u.a. die Anzahl der hochzuladenden Beiträge vorgeben:</p>
               <ul>
             <?

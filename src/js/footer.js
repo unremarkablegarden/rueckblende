@@ -579,8 +579,8 @@
           serie: { min: 4, max: 6 },
           karikatur: { min: 2, max: 6 }
         };
-        console.log('rules');
-        console.log(rules);
+        // console.log('rules');
+        // console.log(rules);
 
         if (state.usertype === 'fotograf') {
           $('input[value="karikatur"]').parent().hide();
