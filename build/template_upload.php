@@ -53,7 +53,7 @@ foreach($all_submissions as $sub) {
     $all_series[$array_place] = $n;
   }
 }
-$state['totalseriescount'] = count($all_series);
+$state['totalseriescount'] = count($all_series) - 1;
 
 foreach($submissions as $sub) {
   $cf = get_post_custom($sub->ID);
