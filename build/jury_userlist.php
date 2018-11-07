@@ -125,6 +125,23 @@ $current_page = $post->post_name;
       // print_r($users);
       // echo '</xmp>';
       ?>
+
+      <?
+      $people = $userlist;
+      $sortArray = array();
+      foreach($people as $person){
+          foreach($person as $key=>$value){
+              if(!isset($sortArray[$key])){
+                  $sortArray[$key] = array();
+              }
+              $sortArray[$key][] = $value;
+          }
+      }
+      $orderby = "last_name";
+      array_multisort($sortArray[$orderby],SORT_ASC,$people);
+      $userlist = $people;
+      ?>
+
       <table id='usertable' width='100%'>
         <tr>
           <td><b>Name</b></td>
