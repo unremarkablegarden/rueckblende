@@ -187,6 +187,14 @@ $current_page = $post->post_name;
   </div>
 </section>
 
+<? else: ?>
+  <section class='section'>
+    <div class='content'>
+      Zugang verweigert
+    </div>
+  </section>
+
+<? endif; ?>
 
 <style>
   .user {
@@ -203,15 +211,11 @@ $current_page = $post->post_name;
   .zero {
     opacity: 0.4;
   }
+  #pre-header-spacer {
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
 </style>
-
-<? else: ?>
-  <section class='section'>
-    <div class='content'>
-      Zugang verweigert
-    </div>
-  </section>
-
-<? endif; ?>
 
 <? get_footer(); ?>
