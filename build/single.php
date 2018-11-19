@@ -1,7 +1,19 @@
 <? get_header(); ?>
 
-<? // if (!is_user_logged_in()) wp_redirect('/'); ?>
-<? wp_redirect('/'); ?>
+<?
+$action = $_GET['action'];
+$nonce = $_GET['nonce'];
+
+if (!is_user_logged_in() || !wp_verify_nonce($nonce) || $action !== 'edit') wp_redirect('/');
+
+// echo $action." = ".$nonce."<br>";
+// echo "<xmp>";
+// print_r(wp_verify_nonce($nonce));
+// echo "</xmp>";
+
+
+?>
+<? //wp_redirect('/'); ?>
 
 <?php
 
@@ -14,18 +26,19 @@ while ( have_posts() ) : the_post();
   $uid = get_field('vorname')."/".get_field('nachname');
   $year = get_field('year');
   $category = get_field('category');
-?>
 
-<? if(get_post_type() == 'post'): ?>
+  if(get_post_type() == 'post'):
 
-    <?
-    // $cf = get_post_custom();
-    // print_r($cf);
+    $cf = get_post_custom();
     ?>
+    <xmp>
+      <? print_r($cf); ?>
+    </xmp>
+    <?
 
-<? else: ?>
+  else:
 
-  <? if($category == 'Serie'): ?>
+    if($category == 'Serie'): ?>
 
     <section class="single-image series section">
       <div class="container">
@@ -200,5 +213,13 @@ while ( have_posts() ) : the_post();
 <?
 endwhile; // End of the loop.
 ?>
+
+<style media="screen">
+#pre-header-spacer {
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+</style>
 
 <? get_footer(); ?>

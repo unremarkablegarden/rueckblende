@@ -7,6 +7,10 @@ get_header();
 global $post;
 $current_page = $post->post_name;
 
+$action = $_GET['action'];
+if ($action == 'juryedit') $juryedit = true;
+else $juryedit = false;
+
 $state = array();
 $state['id'] = get_current_user_id();
 
@@ -22,6 +26,7 @@ $submissions = get_posts( $args );
 $state['total']['foto'] = 0;
 $state['total']['serie'] = 0;
 $state['total']['karikatur'] = 0;
+$state['juryedit'] = $juryedit;
 
 um_fetch_user(get_current_user_id());
 $profession = um_user('user_profession');
@@ -91,15 +96,19 @@ foreach($submissions as $sub) {
 
 <section class="upload-page">
   <div class="columns">
-    <div class="column is-3 side-menu">
-      <? // include('cms-menu.php');  ?>
-      <?
-      wp_nav_menu(array(
-      	'menu' => 'cms',
-      	'before' => '<img class="arrow" src="/wp-content/themes/rueckblende/btn_arrow_white.svg">'
-      ));
-      ?>
-    </div>
+
+    <? if(!$juryedit): ?>
+      <div class="column is-3 side-menu">
+        <? // include('cms-menu.php');  ?>
+        <?
+        wp_nav_menu(array(
+        	'menu' => 'cms',
+        	'before' => '<img class="arrow" src="/wp-content/themes/rueckblende/btn_arrow_white.svg">'
+        ));
+        ?>
+      </div>
+    <? endif; ?>
+
     <div class="column is-9 main">
       <? the_content(); ?>
     </div>
@@ -116,5 +125,18 @@ function $buo_f(){
 try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
 catch(e){window.attachEvent("onload", $buo_f)}
 </script>
+
+<? if($juryedit): ?>
+  <style>
+    #pre-header-spacer {
+      height: 0 !important;
+      min-height: 0 !important;
+      overflow: hidden !important;
+    }
+    .wpuf_custom_html_Custom_HTML_19951 {
+      display: none;
+    }
+  </style>
+<? endif; ?>
 
 <? get_footer(); ?>

@@ -11,6 +11,11 @@ get_header();
 global $post;
 $current_page = $post->post_name;
 
+// http://165.227.164.168/edit/?action=juryedit&pid=20104&_wpnonce96e46371ff
+$ref = $_SERVER['HTTP_REFERER'];
+if (strpos($ref, 'action=juryedit') !== false) {
+  wp_redirect('/einreichung-editor');
+}
 
 $state = array();
 $state['id'] = get_current_user_id();
