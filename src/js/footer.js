@@ -8,6 +8,7 @@
     carouselInit();
     uploadFormStuff();
     regFormHacks();
+    juryZoom();
 
     // set default filters
     var today = new Date();
@@ -32,6 +33,19 @@
     //   catch(e){window.attachEvent("onload", $buo_f)}
     //
     // }
+
+    function juryZoom() {
+      $('a.zoom').on('click', function() {
+        const zoom = $(this).data('zoom');
+        const img = '<img src="' + zoom + '">';
+        $('#zoom .image').html(img);
+        $('#zoom').show();
+      })
+      $('#zoom .close').on('click', function() {
+        $('#zoom').hide();
+        $('#zoom .image img').remove();
+      })
+    }
 
     console.log('WP API > '+page);
 
@@ -410,7 +424,7 @@
         navText: [' ', ' ']
       });
 
-      $('.owl-carousel').not('#prizes-gallery .gallery, .owl-carousel.autoplay').owlCarousel({
+      $('.owl-carousel').not('#prizes-gallery .gallery, .owl-carousel.autoplay, .jury-preview').owlCarousel({
         autoWidth: false,
         smartSpeed: 1000,
         loop: true,
@@ -430,6 +444,17 @@
         loop: true,
         nav: true,
         items: 2,
+        responsiveClass: true,
+        responsive: { 0: { nav:false }, 400: { nav: true } },
+        navText: [' ', ' ']
+      });
+
+      $('.jury-preview').owlCarousel({
+        autoWidth: false,
+        smartSpeed: 1000,
+        loop: true,
+        nav: true,
+        items: 1,
         responsiveClass: true,
         responsive: { 0: { nav:false }, 400: { nav: true } },
         navText: [' ', ' ']

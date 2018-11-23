@@ -1,0 +1,191 @@
+<?
+/**
+ * Template Name: Jury — Series preview
+ **/
+get_header();
+
+global $post, $wp_query;
+$current_page = $post->post_name;
+
+$action = $_GET['action'];
+$pid = $_GET['pid'];
+?>
+
+  <section class="section user-list">
+
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+
+    <?
+    $user = wp_get_current_user();
+    $allowed_roles = array('editor', 'administrator');
+    if( array_intersect($allowed_roles, $user->roles ) ):
+    ?>
+
+      <?
+      $seriesNames = array();
+
+      // get all submissions
+      $args = array(
+        'posts_per_page'  => -1,
+        'post_type'       => 'post',
+        'year'            => date('Y'),
+        'orderby'         => 'author',
+        'order'           => 'ASC'
+      );
+      $submissions = get_posts($args);
+      $last_author = '';
+      $first = true;
+
+      $series = array();
+
+      $last = '';
+      $first = true;
+
+      echo "<div class='series-wrapper jury-preview owl-carousel'>";
+
+      foreach($submissions as $s):
+        $postID = $s->ID;
+        $meta = get_post_meta($s->ID);
+
+
+        if ($meta['kategorie'][0] == 'serie'):
+          // is series
+
+          $imgID = get_post_meta( $s->ID, 'datei', true );
+          $medium = wp_get_attachment_image_src($imgID, 'medium');
+          $large = wp_get_attachment_image_src($imgID, 'full');
+
+          $d = array();
+          $d['title'] = get_the_title($s->ID);
+          $d['standort'] = $meta['standort'][0];
+          $d['datum'] = $meta['datum'][0];
+          $d['serienname'] = $meta['serienname'][0];
+          $s = $d['serienname'];
+
+          $entry = "<div class='series'><h1>".$d['serienname']."</h1><div class='inner columns is-multiline'>";
+
+          if($last !== $s) {
+            if($first) {
+              echo $entry;
+              $first = false;
+            } else {
+              echo "</div></div>";
+              echo $entry;
+            }
+            $last = $s;
+          }
+
+          echo '<div class="column is-4"><a class="zoom" data-zoom="'.$large[0].'" target="_blank"><img src="'.$medium[0].'" /></a></div>';
+
+        endif;
+      endforeach;
+
+      echo "</div></div>";
+      ?>
+
+      </div>
+    </div>
+
+    <div id="zoom">
+      <div class="close">
+        <a class='button' href="#close">X</a>
+      </div>
+      <div class="image">
+      </div>
+    </div>
+
+
+  </section>
+
+
+<? else: ?>
+  <section class='section'>
+    <div class='content'>
+      Zugang verweigert
+    </div>
+  </section>
+<? endif; ?>
+
+<style>
+  #pre-header-spacer {
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+  .box .img-wrapper {
+    background: #EEE;
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+    border: 1px #ddd solid;
+  }
+  .box img {
+    max-height: 20vw;
+    width: auto;
+  }
+  .box .text {
+    margin: 1em 5px;
+  }
+  .box .edit {
+    display: flex;
+    /* justify-content: space-between; */
+  }
+  .box .edit .button {
+    margin-right: 1em;
+  }
+  .owl-stage {
+    /* background: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  h1 {
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .series {
+    padding: 1em;
+  }
+  #zoom {
+    display: none;
+    position: fixed;
+    /* top: 0; */
+    left: 0;
+    width: 100vw;
+    /* height: 100vh; */
+    /* background: black; */
+    z-index: 1000;
+  }
+  #zoom .close {
+    position: fixed;
+    right: 25px;
+    top: 95px;
+    z-index: 1001;
+  }
+  #zoom .close .button {
+    color: #C33;
+    font-weight: bold;
+  }
+  #zoom .image {
+    width: 100vw;
+    max-height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px red solid; */
+  }
+  #zoom .image img {
+    max-height: calc(100vh - 130px);
+    width: auto;
+    background-color: #EEE;
+  }
+
+  #pre-header-submissions, #pre-header-spacer, #footer {
+    display: none !important;
+  }
+</style>
+
+<? get_footer(); ?>
