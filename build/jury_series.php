@@ -168,6 +168,7 @@ $pid = $_GET['pid'];
   .img-wrapper img {
     max-width: 100%;
     max-height: 100%;
+    width: auto !important;
   }
 
   #zoom {
