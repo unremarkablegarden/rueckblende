@@ -76,7 +76,13 @@ $pid = $_GET['pid'];
             $last = $s;
           }
 
-          echo '<div class="column is-4"><a class="zoom" data-zoom="'.$large[0].'" target="_blank"><img src="'.$medium[0].'" /></a></div>';
+          echo '<div class="column is-4"><a class="zoom" data-zoom="'.$large[0].'" target="_blank">';
+
+            echo '<div class="img-wrapper">';
+              echo '<img src="'.$medium[0].'" />';
+            echo '</div>';
+
+          echo '</a></div>';
 
         endif;
       endforeach;
@@ -149,6 +155,21 @@ $pid = $_GET['pid'];
   .series {
     padding: 1em;
   }
+
+  .img-wrapper {
+    background: #f0f0f0;
+    border: 1px #ccc solid;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
   #zoom {
     display: none;
     position: fixed;
@@ -162,7 +183,7 @@ $pid = $_GET['pid'];
   #zoom .close {
     position: fixed;
     right: 25px;
-    top: 95px;
+    top: 118px;
     z-index: 1001;
   }
   #zoom .close .button {
@@ -175,12 +196,16 @@ $pid = $_GET['pid'];
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px red solid; */
   }
   #zoom .image img {
     max-height: calc(100vh - 130px);
+    margin: -10px 30px 0 30px;
     width: auto;
-    background-color: #EEE;
+    background-color: black;
+    /* border: 1px #bbb solid; */
+    padding: 20px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);
+    /* border: 20px white solid; */
   }
 
   #pre-header-submissions, #pre-header-spacer, #footer {
