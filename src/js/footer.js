@@ -665,11 +665,11 @@
               }
             }
 
-            if (seriesLeft > 0) {
+            if (seriesLeft > 0 || state.total.serie > 0) {
               var seriesCounterText = 'Es wurden bereits ' + seriesCount + ' von 50 möglichen Serien eingereicht.';
               var seriesCounterTag = '<p class="series_counter" style="border: 1px #aaa solid; background: #FFD; padding: 0.5em 1em; margin: 0 0 2em 0; font-size: 0.9em; border-radius: 4px;">' + seriesCounterText + '</p>';
 
-              if ($('.series_counter').length < 1) {
+              if ($('.series_counter').length < 1 && state.total.serie == 0) {
                 $('.part-2').prepend(seriesCounterTag);
               }
 
