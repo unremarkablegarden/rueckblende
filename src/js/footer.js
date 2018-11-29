@@ -648,7 +648,7 @@
 
           else if (val == 'serie') {
             serie.show();
-            var seriesMax = 60;
+            var seriesMax = 50;
             var seriesCount = state.totalseriescount;
             var seriesLeft = seriesMax - seriesCount;
 
