@@ -43,6 +43,7 @@ $pid = $_GET['pid'];
 
       $last = '';
       $first = true;
+      $counter = 1;
 
       echo "<div class='series-wrapper jury-preview owl-carousel'>";
 
@@ -65,14 +66,16 @@ $pid = $_GET['pid'];
           $d['serienname'] = $meta['serienname'][0];
           $s = $d['serienname'];
 
-          $entry = "<div class='series'><h1>".$d['serienname']."</h1><div class='inner columns is-multiline'>";
+          $entry = "<div class='series'><h1>#".$counter." — ".$d['serienname']."</h1><div class='inner columns is-multiline'>";
 
           if($last !== $s) {
             if($first) {
+              $counter++;
               echo $entry;
               $first = false;
             } else {
               echo "</div></div>";
+              $counter++;
               echo $entry;
             }
             $last = $s;
