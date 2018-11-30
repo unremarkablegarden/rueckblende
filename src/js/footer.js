@@ -1,5 +1,6 @@
 // ==== FOOTER ==== //
 
+
 // A simple wrapper for all your custom jQuery that belongs in the footer
 ;(function($){
   $(function(){
@@ -696,20 +697,20 @@
             // also hide if editing
             // don't hide if there's only one series
             if (state.total.serie >= 1) {
-              console.log('honk1');
+              // console.log('honk1');
               if (state.serienname || isEdit) {
-                console.log('honk2');
+                // console.log('honk2');
                 $('input[name="serienname"]').val(state.serienname);
                 $('li.serienname').css({ 'overflow': 'hidden', 'height': 0, 'opacity': 0, 'display': 'none !important', 'padding': 0, 'margin': 0 });
                 // $('li.serienname').css({ 'display': 'none !important'});
               }
             }
 
-            if (seriesLeft > 0 || state.total.serie > 0) {
+            if (seriesLeft > 0 || state.total.serie > 0 || isEdit) {
               var seriesCounterText = 'Es wurden bereits ' + seriesCount + ' von 50 möglichen Serien eingereicht.';
               var seriesCounterTag = '<p class="series_counter" style="border: 1px #aaa solid; background: #FFD; padding: 0.5em 1em; margin: 0 0 2em 0; font-size: 0.9em; border-radius: 4px;">' + seriesCounterText + '</p>';
 
-              if ($('.series_counter').length < 1 && state.total.serie == 0) {
+              if ($('.series_counter').length < 1 && state.total.serie == 0 && !isEdit) {
                 $('.part-2').prepend(seriesCounterTag);
               }
 
