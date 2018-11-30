@@ -12,12 +12,29 @@ $pid = $_GET['pid'];
 ?>
 
   <section class="section user-list">
+
+    <strong>Filter:</strong>
+
+    <ul>
+      <li><a href="?filter=foto">Einzelfotos</a></li>
+      <li><a href="?filter=serie">Series</a></li>
+      <li><a href="?filter=karikatur">Karikaturen</a></li>
+    </ul>
+
+    <hr>
+
     <!-- <h2><? echo $action." = ".$pid; ?></h2> -->
+
     <?
     $user = wp_get_current_user();
     $allowed_roles = array('editor', 'administrator');
-    if( array_intersect($allowed_roles, $user->roles ) ):
+    if( array_intersect($allowed_roles, $user->roles) ):
+
+      $f = $_GET['filter'];
+      if( $f == 'foto' || $f == 'karikatur' || $f == 'serie' ):
     ?>
+
+    <ul class='the-user-list'>
 
       <?
       $seriesNames = array();
@@ -28,7 +45,9 @@ $pid = $_GET['pid'];
         'post_type'       => 'post',
         'year'            => date('Y'),
         'orderby'         => 'author',
-        'order'           => 'ASC'
+        'order'           => 'ASC',
+        'meta_key' => 'kategorie',
+        'meta_value' => $_GET['filter']
       );
       $submissions = get_posts($args);
       $last_author = '';
@@ -43,8 +62,13 @@ $pid = $_GET['pid'];
           $shown[] = $author;
         }
       endforeach;
-      echo '<hr />';
+      ?>
 
+    </ul>
+
+    <hr />
+
+      <?
       foreach($submissions as $s):
         $postID = $s->ID;
         $meta = get_post_meta($s->ID);
@@ -104,6 +128,12 @@ $pid = $_GET['pid'];
         </div>
         <?
       endforeach;
+
+      else:
+        ?>
+        <!-- <li><a href="?filter=karikatur">Karikatur</a></li> -->
+        <?
+      endif;
       ?>
 
   </section>
@@ -143,6 +173,9 @@ $pid = $_GET['pid'];
   }
   .box .edit .button {
     margin-right: 1em;
+  }
+  .the-user-list {
+    columns: 3;
   }
 </style>
 
