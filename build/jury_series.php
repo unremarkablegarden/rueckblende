@@ -31,7 +31,9 @@ $pid = $_GET['pid'];
         'post_type'       => 'post',
         'year'            => date('Y'),
         'orderby'         => 'author',
-        'order'           => 'ASC'
+        'order'           => 'ASC',
+        'meta_key' => 'kategorie',
+        'meta_value' => 'serie'
       );
       $submissions = get_posts($args);
       $last_author = '';
@@ -76,13 +78,13 @@ $pid = $_GET['pid'];
             $last = $s;
           }
 
-          echo '<div class="column is-4"><a class="zoom" data-zoom="'.$large[0].'" target="_blank">';
-
-            echo '<div class="img-wrapper">';
-              echo '<img src="'.$medium[0].'" />';
-            echo '</div>';
-
-          echo '</a></div>';
+          echo '<div class="column is-4 series-image">';
+            echo '<a class="zoom" data-zoom="'.$large[0].'" target="_blank">';
+              echo '<div class="img-wrapper">';
+                echo '<img src="'.$medium[0].'" />';
+              echo '</div>';
+            echo '</a>';
+          echo '</div>';
 
         endif;
       endforeach;
@@ -207,6 +209,12 @@ $pid = $_GET['pid'];
     padding: 20px;
     box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);
     /* border: 20px white solid; */
+  }
+  #zoom {
+    /* opacity: 0.1; */
+  }
+  .series-image.current {
+    /* border: 2px red solid; */
   }
 
   #pre-header-submissions, #pre-header-spacer, #footer {

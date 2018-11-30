@@ -35,16 +35,56 @@
     // }
 
     function juryZoom() {
-      $('a.zoom').on('click', function() {
+      $('a.zoom').on('click', function(e) {
+        $(this).parent().addClass('current');
         const zoom = $(this).data('zoom');
         const img = '<img src="' + zoom + '">';
         $('#zoom .image').html(img);
         $('#zoom').show();
-      })
-      $('#zoom .close').on('click', function() {
+        e.preventDefault();
+      });
+
+      $('#zoom .close').on('click', function(e) {
         $('#zoom').hide();
         $('#zoom .image img').remove();
-      })
+        $('.current').removeClass('current');
+        e.preventDefault();
+      });
+
+      $(document).keydown(function(e) {
+        switch(e.which) {
+          case 37: // left
+            seriesMove('prev');
+          break;
+          case 39: // right
+            seriesMove('next');
+          break;
+          default: return; // exit this handler for other keys
+        }
+        e.preventDefault();
+      });
+
+      function seriesMove(dir) {
+        var c = $('.series-image.current');
+        var newImage = null;
+
+        if (dir == 'prev' && c.prev().length) {
+          newImage = c.prev().find('a.zoom').data('zoom');
+          $('.series-image.current').removeClass('current');
+          c.prev().addClass('current');
+        } else if (dir == 'next' && c.next().length) {
+          newImage = c.next().find('a.zoom').data('zoom');
+          $('.series-image.current').removeClass('current');
+          c.next().addClass('current');
+        }
+
+        // console.log(newImage);
+
+        if (newImage !== null) {
+          const img = '<img src="' + newImage + '">';
+          $('#zoom .image').html(img);
+        }
+      }
     }
 
     console.log('WP API > '+page);
