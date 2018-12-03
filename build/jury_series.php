@@ -19,7 +19,10 @@ $pid = $_GET['pid'];
     <?
     $user = wp_get_current_user();
     $allowed_roles = array('editor', 'administrator');
-    if( array_intersect($allowed_roles, $user->roles ) ):
+    // if( array_intersect($allowed_roles, $user->roles ) ):
+    // if ( ! post_password_required($post) ) :
+    if( $post->post_password && !post_password_required() ):
+
     ?>
 
       <?
@@ -113,7 +116,8 @@ $pid = $_GET['pid'];
 <? else: ?>
   <section class='section'>
     <div class='content'>
-      Zugang verweigert
+      <!-- Zugang verweigert -->
+      <? echo get_the_password_form(); ?>
     </div>
   </section>
 <? endif; ?>
