@@ -60,7 +60,10 @@ $pid = $_GET['pid'];
 
           $imgID = get_post_meta( $s->ID, 'datei', true );
           $medium = wp_get_attachment_image_src($imgID, 'medium');
-          $large = wp_get_attachment_image_src($imgID, 'full');
+          $large = wp_get_attachment_image_src($imgID, 'large');
+          $retina = wr2x_get_retina_from_url($large[0]);
+          if($retina) { $large[0] = $retina; }
+          // echo "retina: ".$retina;
 
           $d = array();
           $d['title'] = get_the_title($s->ID);
