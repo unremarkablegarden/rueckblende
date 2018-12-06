@@ -367,6 +367,9 @@ $showname = $_GET['showname'];
 
   </section>
 
+<div class="loading">
+  <img src="https://samherbert.net/svg-loaders/svg-loaders/puff.svg">
+</div>
 
 <? else: ?>
   <section class='section'>
@@ -453,6 +456,22 @@ $showname = $_GET['showname'];
     border-radius: 6px;
     margin-bottom: 2em;
     box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  }
+  .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .loading img {
+    width: 200px;
+    height: 200px;
   }
 </style>
 
