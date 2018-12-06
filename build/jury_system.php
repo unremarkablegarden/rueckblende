@@ -151,6 +151,12 @@ $showname = $_GET['showname'];
     }
     ?>
 
+    <?
+    $user = wp_get_current_user();
+    $allowed_roles = array('editor', 'administrator');
+    if( array_intersect($allowed_roles, $user->roles) ):
+    ?>
+
     <div class="buttons has-addons" style="float: left; margin-right: 1.5em;">
       <?
       $tagurl = '';
@@ -162,9 +168,6 @@ $showname = $_GET['showname'];
     </div>
 
     <?
-    $user = wp_get_current_user();
-    $allowed_roles = array('editor', 'administrator');
-    if( array_intersect($allowed_roles, $user->roles) ):
 
       $f = $_GET['filter'];
       if( $f == 'foto' || $f == 'karikatur' || $f == 'serie' ):
