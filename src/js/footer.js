@@ -55,13 +55,13 @@
     function jury_system() {
       if ($('body').hasClass('page-template-jury_system')) {
 
-        $( window ).bind( 'load', function() {
-          var load = $('.loading')
-          load.fadeOut(500);
-          setTimeout(function(){
-            load.remove();
-          }, 550);
-        });
+        // $(window).bind( 'load', function() {
+        //   var load = $('.loading')
+        //   load.fadeOut(500);
+        //   setTimeout(function(){
+        //     load.remove();
+        //   }, 550);
+        // });
 
         // bootstrap
         var total = $('div.user').length;

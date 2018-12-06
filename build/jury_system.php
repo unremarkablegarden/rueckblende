@@ -367,9 +367,9 @@ $showname = $_GET['showname'];
 
   </section>
 
-<div class="loading">
+<!-- <div class="loading">
   <img src="https://samherbert.net/svg-loaders/svg-loaders/puff.svg">
-</div>
+</div> -->
 
 <? else: ?>
   <section class='section'>
