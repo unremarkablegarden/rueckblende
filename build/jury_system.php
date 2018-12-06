@@ -43,6 +43,104 @@ $showname = $_GET['showname'];
 
 ?>
 
+
+<style>
+  #pre-header-spacer {
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+  .box .img-wrapper {
+    background: #EEE;
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+    border: 1px #ddd solid;
+  }
+  .box .zoom img {
+    max-height: 20vw;
+    width: auto;
+  }
+  .box img {
+
+  }
+  .box .text {
+    margin: 1em 5px;
+    font-size: 0.86em;
+  }
+  .box .edit {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    margin-top: 1em;
+  }
+  .box .edit .button {
+    margin: 0 0.5em 0.5em 0;
+  }
+  .the-user-list {
+    columns: 3;
+  }
+  .name-on {
+    display: none;
+  }
+  .box .text.hide {
+    display: none;
+    /* display: block; */
+    /* opacity: 0.5; */
+  }
+  .user {
+    display: none;
+  }
+  .user.show {
+    display: block;
+  }
+  /* .button.is-static {
+    min-width: 3em;
+  } */
+  #header-sticky-wrapper, #footer {
+    display: none !Important;
+  }
+  .modal-content {
+    width: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+  }
+  .dropdown-item {
+    cursor: pointer;
+  }
+  .serie .user.show .edit {
+    display: none;
+  }
+  .serie .user.show .column:last-child .edit {
+    display: block;
+  }
+  .serie .user.show {
+    border: 1px #ccc solid;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 2em;
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  }
+  .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .loading img {
+    width: 200px;
+    height: 200px;
+  }
+</style>
+
+
   <section class="section user-list <? echo $_GET['filter']; ?>">
 
     <?
@@ -378,103 +476,6 @@ $showname = $_GET['showname'];
     </div>
   </section>
 <? endif; ?>
-
-<style>
-  #pre-header-spacer {
-    height: 0 !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-  }
-  .box .img-wrapper {
-    background: #EEE;
-    line-height: 0;
-    font-size: 0;
-    text-align: center;
-    border: 1px #ddd solid;
-  }
-  .box .zoom img {
-    max-height: 20vw;
-    width: auto;
-  }
-  .box img {
-
-  }
-  .box .text {
-    margin: 1em 5px;
-    font-size: 0.86em;
-  }
-  .box .edit {
-    /* display: flex; */
-    /* justify-content: space-between; */
-    margin-top: 1em;
-  }
-  .box .edit .button {
-    margin: 0 0.5em 0.5em 0;
-  }
-  .the-user-list {
-    columns: 3;
-  }
-  .name-on {
-    display: none;
-  }
-  .box .text.hide {
-    display: none;
-    /* display: block; */
-    /* opacity: 0.5; */
-  }
-  .user {
-    display: none;
-  }
-  .user.show {
-    display: block;
-  }
-  /* .button.is-static {
-    min-width: 3em;
-  } */
-  #header-sticky-wrapper, #footer {
-    display: none !Important;
-  }
-  .modal-content {
-    width: auto !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 40px;
-  }
-  .dropdown-item {
-    cursor: pointer;
-  }
-  .serie .user.show .edit {
-    display: none;
-  }
-  .serie .user.show .column:last-child .edit {
-    display: block;
-  }
-  .serie .user.show {
-    border: 1px #ccc solid;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 2em;
-    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
-  }
-  .loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-  .loading img {
-    width: 200px;
-    height: 200px;
-  }
-</style>
-
 
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
