@@ -10,6 +10,7 @@
     uploadFormStuff();
     regFormHacks();
     juryZoom();
+    jury_system();
 
     // set default filters
     var today = new Date();
@@ -34,6 +35,152 @@
     //   catch(e){window.attachEvent("onload", $buo_f)}
     //
     // }
+
+    $('.dropdown-trigger').on('click', function(){
+      $(this).parent().toggleClass('is-active');
+    });$
+    $('.dropdown-item').on('click', function(){
+      $('.dropdown').removeClass('is-active');
+    });
+
+    $('.modal-close').on('click', function(){
+      $(this).closest('.modal').removeClass('is-active');
+    })
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27) {
+        $('.modal').removeClass('is-active');
+      }
+    });
+
+    function jury_system() {
+      if ($('body').hasClass('page-template-jury_system')) {
+
+        // bootstrap
+        var total = $('div.user').length;
+        console.log('total = ' + total);
+        if(hash()) { doJuryPager(); }
+        else { window.location.hash = '#1'; }
+        $(window).on('hashchange', function(e) { doJuryPager(); });
+        $('.counter .total').html(total);
+
+        $('a.zoom').on('click', function(){
+          $(this).closest('.wrapper').find('.modal').addClass('is-active');
+        });
+
+        function pget(name) {
+          var regexS = "[\\?&]"+name+"=([^&#]*)";
+          var regex = new RegExp ( regexS );
+          var tmpURL = window.location.href;
+          var results = regex.exec( tmpURL );
+          if( results == null )
+            return "";
+          else
+            return results[1];
+        }
+
+
+        function doJuryPager() {
+          var tag = pget('tag');
+          // console.log('tag: ' + tag);
+          // console.log('show page ' + hash());
+
+          if (!tag) {
+            $('.user.show').removeClass('show');
+            var n = hash() - 1;
+            $('.user').eq(n).addClass('show');
+            $('.counter .count').html(hash());
+          } else if(tag) {
+            $('.user').addClass('show');
+            $('h2.title').hide();
+            $('.hideOnTag').hide();
+          }
+
+
+          if(hash() == 1) {
+            $('button.prev').prop('disabled', true);
+          } else {
+            $('button.prev').prop('disabled', false);
+          }
+          if(hash() == total) {
+            $('button.next').prop('disabled', true);
+          } else {
+            $('button.next').prop('disabled', false);
+          }
+        }
+
+        $('.showname').change(function(e){
+          if($(this).is(":checked")) {
+            $('.name-off').hide();
+            $('.name-on').show();
+          } else {
+            $('.name-off').show()
+            $('.name-on').hide();
+          }
+        });
+
+        $('.showinfo').change(function(e){
+          if($(this).is(":checked")) {
+            $('.box .text.hide').removeClass('hide');
+          } else {
+            $('.box .text').addClass('hide');
+          }
+        });
+
+        $('button.pager').on('click', function(e) {
+          console.log($(this));
+          if ($(this).hasClass('next')) {
+            window.location.hash = '#' + next();
+          } else {
+            window.location.hash = '#' + prev();
+          }
+        });
+
+        $(document).keydown(function(e) {
+          switch(e.which) {
+            case 37: // left
+              modalPager('prev');
+            break;
+            case 39: // right
+              modalPager('next');
+            break;
+            default: return; // exit this handler for other keys
+          }
+          e.preventDefault();
+        });
+        function modalPager(dir) {
+          var m = $('.modal.is-active');
+          m.removeClass('is-active');
+          if (dir == 'prev') {
+            m.closest('.box').parent().prev().find('.modal').addClass('is-active');
+          }
+          if (dir == 'next') {
+            m.closest('.box').parent().next().find('.modal').addClass('is-active');
+          }
+
+        }
+
+        function prev() {
+          if (hash() > 1) {
+            return hash() - 1;
+          } else {
+            return 1;
+          }
+        }
+
+        function next() {
+          if (hash() < total) {
+            return hash() + 1;
+          } else {
+            return total;
+          }
+        }
+
+        function hash() {
+          return parseInt(window.location.hash.substring(1));
+        }
+
+      } // end if page jury_system
+    } // end jury_system()
 
     function juryZoom() {
       $('a.zoom').on('click', function(e) {
