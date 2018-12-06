@@ -273,7 +273,7 @@ $showname = $_GET['showname'];
             <div class="modal">
               <div class="modal-background"></div>
               <div class="modal-content">
-                <img src="<? echo $large; ?>">
+                <img data-src="<? echo $large; ?>">
                 <? // echo $largeImg; ?>
               </div>
               <button class="modal-close is-large" aria-label="close"></button>

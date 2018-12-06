@@ -64,7 +64,10 @@
         $('.counter .total').html(total);
 
         $('a.zoom').on('click', function(){
-          $(this).closest('.wrapper').find('.modal').addClass('is-active');
+          var m = $(this).closest('.wrapper').find('.modal');
+          m.addClass('is-active');
+          var src = m.find('img').data('src');
+          m.find('img').attr('src', src);
         });
 
         function pget(name) {
@@ -151,10 +154,16 @@
           var m = $('.modal.is-active');
           m.removeClass('is-active');
           if (dir == 'prev') {
-            m.closest('.box').parent().prev().find('.modal').addClass('is-active');
+            var l = m.closest('.box').parent().prev().find('.modal');
+            l.addClass('is-active');
+            var src = l.find('img').data('src');
+            l.find('img').attr('src', src);
           }
           if (dir == 'next') {
-            m.closest('.box').parent().next().find('.modal').addClass('is-active');
+            var l = m.closest('.box').parent().next().find('.modal');
+            l.addClass('is-active');
+            var src = l.find('img').data('src');
+            l.find('img').attr('src', src);
           }
 
         }
