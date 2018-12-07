@@ -292,7 +292,7 @@ $showname = $_GET['showname'];
       </label>
 
       <label class="checkbox" style='float: right; padding-top: 0.3em; padding-right: 1em;'>
-        <input type="checkbox" class='showinfo' style='font-size: 20px; position: relative; top: -1px; left: -3px;' checked>
+        <input type="checkbox" class='showinfo' style='font-size: 20px; position: relative; top: -1px; left: -3px;'>
         Info
       </label>
     </span>
@@ -380,7 +380,7 @@ $showname = $_GET['showname'];
               <button class="modal-close is-large" aria-label="close"></button>
             </div>
 
-            <div class="text"><!-- hide -->
+            <div class="text hide"><!-- hide -->
               <?
               foreach($details as $key => $d):
                 if($key == 'teilnehmer') {
