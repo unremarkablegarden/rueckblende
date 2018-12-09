@@ -431,11 +431,16 @@ $showname = $_GET['showname'];
                 else {
                   $ids = '&post_to_tag='.$postID;
                 }
-                ?>
 
-                <? if($isSaved):
+                if ($_GET['tag']) {
+                  $ct = '&tag='.$_GET['tag'];
+                } else {
+                  $ct = '';
+                }
 
-                  $href = '?filter='.$_GET['filter'].$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
+                if($isSaved):
+
+                  $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
                   ?>
                   <a class="button is-small is-light change-tag" href="<? echo $href; ?>">
                     <span class="icon is-small">
@@ -445,7 +450,7 @@ $showname = $_GET['showname'];
                   </a>
                 <? else: ?>
                   <?
-                  $href = '?filter='.$_GET['filter'].$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
+                  $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
                   ?>
                   <a class="button is-small change-tag" href="<? echo $href; ?>"><? echo $t->name;?></a>
                 <? endif;?>
