@@ -62,7 +62,8 @@ $showname = $_GET['showname'];
     width: auto;
   }
   .box img {
-
+    max-height: 95vh;
+    max-width: 100%;
   }
   .box .text {
     margin: 1em 5px;
