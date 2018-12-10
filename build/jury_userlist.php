@@ -6,7 +6,26 @@ get_header();
 
 global $post;
 $current_page = $post->post_name;
+
+if ($_GET['method'] == 'export') {
+  $export = true;
+} else {
+  $export = false;
+}
 ?>
+
+<? if($export): ?>
+<style>
+#pre-header-spacer {
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#header-sticky-wrapper, #footer, h1.title {
+  display: none !Important;
+}
+</style>
+<? endif; ?>
 
 <section class="section user-list">
   <div class="columns">
@@ -94,9 +113,8 @@ $current_page = $post->post_name;
             'last_name' => $usermeta['last_name'][0],
             'full_name' => $usermeta['first_name'][0]." ".$usermeta['last_name'][0],
             'e-mail' => $email,
-            // 'referrer' => $usermeta['_wp_http_referer'][0],
-            // '' => $usermeta[''][0],
             'count' => $state['total'],
+            'meta' => $usermeta
           );
 
           $userlist[] = $user;
@@ -142,46 +160,98 @@ $current_page = $post->post_name;
       $userlist = $people;
       ?>
 
-      <table id='usertable' width='100%'>
-        <tr>
-          <td><b>Name</b></td>
-          <td><b>E-Mail</b></td>
-          <td><b>Foto #</b></td>
-          <td><b>Serie #</b></td>
-          <td><b>Karikatur #</b></td>
-        </tr>
-        <? foreach($userlist as $user): ?>
+      <? if(!$export): ?>
+
+        <table id='usertable' width='100%'>
           <tr>
-            <td width='20%'>
-              <? echo $user['full_name']; ?>
-            </td>
-            <td width='50%'>
-              <? echo $user['e-mail']; ?>
-            </td>
-            <td width='10%'>
-              <?
-              $c = $user['count']['foto'];
-              if($c == 0) echo '<span class="zero">'.$c.'</span>';
-              else echo '<b>'.$c.'</b>';
-              ?>
-            </td>
-            <td width='10%'>
-              <?
-              $c = $user['count']['serie'];
-              if($c == 0) echo '<span class="zero">'.$c.'</span>';
-              else echo '<b>'.$c.'</b>';
-              ?>
-            </td>
-            <td width='10%'>
-              <?
-              $c = $user['count']['karikatur'];
-              if($c == 0) echo '<span class="zero">'.$c.'</span>';
-              else echo '<b>'.$c.'</b>';
-              ?>
-            </td>
+            <td><b>Name</b></td>
+            <td><b>E-Mail</b></td>
+            <td><b>Foto #</b></td>
+            <td><b>Serie #</b></td>
+            <td><b>Karikatur #</b></td>
           </tr>
-        <? endforeach; ?>
-      </table>
+          <? foreach($userlist as $user): ?>
+            <tr>
+              <td width='20%'>
+                <? echo $user['full_name']; ?>
+              </td>
+              <td width='50%'>
+                <? echo $user['e-mail']; ?>
+              </td>
+              <td width='10%'>
+                <?
+                $c = $user['count']['foto'];
+                if($c == 0) echo '<span class="zero">'.$c.'</span>';
+                else echo '<b>'.$c.'</b>';
+                ?>
+              </td>
+              <td width='10%'>
+                <?
+                $c = $user['count']['serie'];
+                if($c == 0) echo '<span class="zero">'.$c.'</span>';
+                else echo '<b>'.$c.'</b>';
+                ?>
+              </td>
+              <td width='10%'>
+                <?
+                $c = $user['count']['karikatur'];
+                if($c == 0) echo '<span class="zero">'.$c.'</span>';
+                else echo '<b>'.$c.'</b>';
+                ?>
+              </td>
+            </tr>
+          <? endforeach; ?>
+        </table>
+
+      <? else: ?>
+
+        <?
+        $fields = array(
+          'country',
+          'user_profession',
+          'birth_date',
+          'user_street',
+          'user_address_additional',
+          'user_postcode',
+          'user_city',
+          'phone_number',
+          'user_public-phonenumber',
+          'user_public-email'
+        );
+        ?>
+
+        <table id='usertable' width='100%'>
+          <tr>
+            <td><b>Name</b></td>
+            <td><b>E-Mail</b></td>
+            <? foreach($fields as $field) {
+              echo "<td><b>".$field."</b></td>";
+            } ?>
+          </tr>
+          <? foreach($userlist as $user): ?>
+            <tr>
+              <td width='8%'>
+                <? echo $user['full_name']; ?>
+              </td>
+              <td width='8%'>
+                <? echo $user['e-mail']; ?>
+              </td>
+
+              <? foreach($fields as $field) {
+                $data = $user['meta'][$field][0];
+
+                if (strpos($data, 'Karikaturist') !== false) { $data ='Karikaturist'; }
+                if (strpos($data, 'Fotograf') !== false) { $data ='Fotograf'; }
+                // if (strpos($data, '') !== false) { $data =''; }
+                
+                echo "<td width='8%'>".$data."</td>";
+              } ?>
+
+            </tr>
+          <? endforeach; ?>
+        </table>
+
+      <? endif; ?>
 
     </div>
   </div>
