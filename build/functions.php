@@ -89,27 +89,21 @@ function relevanssi_rest() {
       $i++; // first = 1
 
       $imgID = get_field('attachment_id', $id);
-      if(!$imgID) {
+      $imageid = get_field('imageid', $id);
+      if(!empty($imgID)) {
         // old image
-        $imageid = get_field('imageid', $id);
         $large = '/wp-content/photos/' . $year . '/' . $imageid . '.jpg';
         $thumb = '/wp-content/photos/' . $year . '/thumbs/' . $imageid . '.jpg';
       } else {
         // new image
-        $img = wp_get_attachment_image_src($imgID, 'large');
+        $largr = wp_get_attachment_image_src($imgID, 'large');
         $thumb = wp_get_attachment_image_src($imgID, 'thumbnail');
         $img = $img[0];
         $thumb = $thumb[0];
-        $retina = wr2x_get_retina_from_url($img);
+        $retina = wr2x_get_retina_from_url($large);
         $retinaT = wr2x_get_retina_from_url($thumb);
-        if($retina) {
-          $large = $retina;
-        } else {
-          $large = $img;
-        }
-        if($retinaT) {
-          $thumb = $retinaT;
-        }
+        if($retina) { $large = $retina; }
+        if($retinaT) { $thumb = $retinaT; }
       }
 
       $uid = get_field('vorname', $id)."/".get_field('nachname', $id);
