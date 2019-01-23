@@ -88,7 +88,7 @@ function relevanssi_rest() {
       // --- filter in relevanssi_hits_filter ---
       $i++; // first = 1
 
-      $imgID = get_field('attachment_id');
+      $imgID = get_field('attachment_id', $id);
       if(!$imgID) {
         // old image
         $imageid = get_field('imageid', $id);
@@ -124,8 +124,8 @@ function relevanssi_rest() {
         // 'magic' => $p->magic,
         // 'large' => '/wp-content/photos/' . $year . '/' . $imageid . '.jpg',
         // 'thumb' => '/wp-content/photos/' . $year . '/thumbs/' . $imageid . '.jpg',
-        'large' => '',
-        'thumb' => '',
+        'large' => $large,
+        'thumb' => $thumb,
         'vorname' => $vname,
         'nachname' => $nname,
         'fullname' => $vname." ".$nname,
