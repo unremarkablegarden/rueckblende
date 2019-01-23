@@ -47,12 +47,15 @@ while ( have_posts() ) : the_post();
       } else {
         
         $imgID = get_field('atttachment_id');
-        if($imgID) { 
-          $img = wp_get_attachment_image_src($imgID, 'large');
-          $img = $img[0];
-        } else {
-          $img = $content;
-        }
+        $img = wp_get_attachment_image_src($imgID, 'large');
+        $img = $img[0];
+        
+        // if($imgID) { 
+        //   $img = wp_get_attachment_image_src($imgID, 'large');
+        //   $img = $img[0];
+        // } else {
+        //   $img = $content;
+        // }
 
         $retina = wr2x_get_retina_from_url($img);
         // echo $retina;
@@ -60,13 +63,9 @@ while ( have_posts() ) : the_post();
         if($retina) {
           $pic = '<img src="'.$retina.'">';
         } else {
-          if($imgID) {
-            $pic = wp_get_attachment_image($imgID, 'large');
-          } else {
-            $pic = '<img src="'.$img.'">';
-          }
+          $pic = wp_get_attachment_image($imgID, 'large');
         }
-        echo $pic;
+        debug($pic);
       }
     }
 
