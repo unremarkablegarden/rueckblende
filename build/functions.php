@@ -127,6 +127,7 @@ function relevanssi_rest() {
         // 'magic' => $p->magic,
         // 'large' => '/wp-content/photos/' . $year . '/' . $imageid . '.jpg',
         // 'thumb' => '/wp-content/photos/' . $year . '/thumbs/' . $imageid . '.jpg',
+        'imageid' => $imageid,
         'large' => $large,
         'thumb' => $thumb,
         'vorname' => $vname,
