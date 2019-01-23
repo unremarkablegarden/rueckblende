@@ -60,7 +60,16 @@ while ( have_posts() ) : the_post();
             	if($q->have_posts()): while($q->have_posts()): $q->the_post(); ?>
                 <div class="slide">
                   <div class="photo watermark">
-                    <? echo get_the_content(); ?>
+                    <? 
+                    $content = get_the_content(); 
+                    if (strpos($content, '<img') !== false) {
+                      // image exists
+                      echo $content;
+                    } else {
+                      $imgID = wp_get_attachment_image_src(get_field('atttachment_id'));
+                      echo $imgID;
+                    }
+                    ?>
                   </div>
                   <div class="caption">
                     <? the_field('caption'); ?>
