@@ -4,7 +4,7 @@
 $action = $_GET['action'];
 $nonce = $_GET['nonce'];
 
-if (!is_user_logged_in() || !wp_verify_nonce($nonce) || $action !== 'edit') wp_redirect('/');
+// if (!is_user_logged_in() || !wp_verify_nonce($nonce) || $action !== 'edit') wp_redirect('/');
 
 // echo $action." = ".$nonce."<br>";
 // echo "<xmp>";
@@ -37,6 +37,27 @@ while ( have_posts() ) : the_post();
     <?
 
   else:
+    
+
+    function showImage($content) {
+      // echo get_the_content();
+      if (strpos($content, '<img') !== false) {
+        // image exists
+        echo $content;
+      } else {
+        // $imgID = get_field('atttachment_id');
+        $imgID = $content;
+        $imgF = wp_get_attachment_image_src($imgID, 'full');
+        $retina = wr2x_get_retina_from_url($imgF[0]);
+        if($retina) {
+          $pic = '<img src="'.$retina.'">';
+        } else {
+          $pic = wp_get_attachment_image($imgID, 'large');
+        }
+        echo $pic;
+      }
+    }
+    
 
     if($category == 'Serie'): ?>
 
@@ -61,14 +82,8 @@ while ( have_posts() ) : the_post();
                 <div class="slide">
                   <div class="photo watermark">
                     <? 
-                    $content = get_the_content(); 
-                    if (strpos($content, '<img') !== false) {
-                      // image exists
-                      echo $content;
-                    } else {
-                      $imgID = wp_get_attachment_image_src(get_field('atttachment_id'));
-                      echo $imgID;
-                    }
+                    $content = get_the_content();
+                    showImage($content);
                     ?>
                   </div>
                   <div class="caption">
@@ -90,8 +105,8 @@ while ( have_posts() ) : the_post();
           <div class="column is-10 is-offset-1 photo">
             <div class="watermark">
               <?
-              $imageContent = get_the_content();
-              echo $imageContent;
+              $content = get_the_content();
+              showImage($content);
               ?>
             </div>
           </div>
