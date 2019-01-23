@@ -95,7 +95,7 @@ function relevanssi_rest() {
         $imgID = $imageid;
         $large = wp_get_attachment_image_src($imgID, 'large');
         $thumb = wp_get_attachment_image_src($imgID, 'thumbnail');
-        $img = $img[0];
+        $large = $large[0];
         $thumb = $thumb[0];
         $retina = wr2x_get_retina_from_url($large);
         $retinaT = wr2x_get_retina_from_url($thumb);
