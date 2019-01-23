@@ -90,15 +90,15 @@ function relevanssi_rest() {
 
       // $imgID = get_field('attachment_id', $id);
       $imageid = get_field('imageid', $id);
-      if(is_numeric($image_id)) {
+      // if(is_numeric($image_id)) {
         // new image
         $large = '1';
         $thumb = '2';
-      } else {
+      // } else {
         // old image
-        $large = '/wp-content/photos/' . $year . '/' . $imageid . '.jpg';
-        $thumb = '/wp-content/photos/' . $year . '/thumbs/' . $imageid . '.jpg';
-      }
+      //   $large = '/wp-content/photos/' . $year . '/' . $imageid . '.jpg';
+      //   $thumb = '/wp-content/photos/' . $year . '/thumbs/' . $imageid . '.jpg';
+      // }
       // if(!empty($imgID)) {
       //   // old image
       //   $large = '/wp-content/photos/' . $year . '/' . $imageid . '.jpg';
