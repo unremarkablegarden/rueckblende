@@ -88,7 +88,10 @@ function relevanssi_rest() {
       // --- filter in relevanssi_hits_filter ---
       $i++; // first = 1
 
-      // $imgID = get_field('attachment_id', $id);
+      $uid = get_field('vorname', $id)."/".get_field('nachname', $id);
+      $year = get_field('year', $id);
+
+
       $imageid = get_field('imageid', $id);
       if(is_numeric($imageid)) {
         // new image
@@ -107,8 +110,6 @@ function relevanssi_rest() {
         $thumb = '/wp-content/photos/' . $year . '/thumbs/' . $imageid . '.jpg';
       }
       
-      $uid = get_field('vorname', $id)."/".get_field('nachname', $id);
-      $year = get_field('year', $id);
 
       $vname = get_field('vorname', $id);
       $nname = get_field('nachname', $id);
