@@ -25,7 +25,7 @@ while ( have_posts() ) : the_post();
   $name = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
   $uid = get_field('vorname')."/".get_field('nachname');
   $year = get_field('year');
-  $category = get_field('category');
+  $category = strtolower(get_field('category'));
 
   if(get_post_type() == 'post'):
 
@@ -63,7 +63,7 @@ while ( have_posts() ) : the_post();
     }
 
 
-    if($category == 'Serie'): ?>
+    if($category == 'serie'): ?>
 
     <section class="single-image series section">
       <div class="container">
@@ -132,7 +132,7 @@ while ( have_posts() ) : the_post();
             <?  echo $name; ?>
           </h2>
           <p class="caption">
-            <? if($category == 'Serie'):
+            <? if($category == 'serie'):
               the_field('series_name');
             else:
               the_field('caption');
