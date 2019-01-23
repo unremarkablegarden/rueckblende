@@ -8,8 +8,8 @@ $current_year = $year; // SETS THE CURRENT CONTEST'S YEAR
 
 $y = $_POST['y'];
 	if(!$y) $y = $_GET['y'];
-$c = $_POST['c'];
-	if(!$c) $c = $_GET['c'];
+$c = strtolower($_POST['c']);
+	if(!$c) $c = strtolower($_GET['c']);
 $w = $_POST['w'];
 	if(!$w) $w = $_GET['w'];
 
@@ -77,7 +77,7 @@ if($Rquery->have_posts()): while($Rquery->have_posts()) : $Rquery->the_post(); ?
 		}
 		$series_name = get_field('series_name');
 		$name = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
-		$category = get_field('category');
+		$category = strtolower(get_field('category'));
 		$year = get_field('year');
 		$thumb = get_entry_src($year, $imageid, true);
 

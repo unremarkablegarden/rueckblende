@@ -21,7 +21,7 @@ function relevanssi_rest() {
   $paged = $_GET['pg'];
   if(!$paged) $paged = 1;
   $y = $_GET['y'];
-  $c = $_GET['c'];
+  $c = strtolower($_GET['c']);
   $w = $_GET['w'];
   $uid = $_GET['uid'];
   $filter_series = $_GET['filter_series']; // bool
@@ -130,7 +130,7 @@ function relevanssi_rest() {
         'date' => get_field('date', $id),
         'location' => get_field('location', $id),
         'caption' => get_field('caption', $id),
-        'category' => get_field('category', $id),
+        'category' => strtolower(get_field('category', $id)),
         'link' => get_permalink($id),
         'series_name' => $series_name,
         'series_order' => get_field('series_order', $id),
@@ -242,7 +242,7 @@ function rlv_hits_filter($hits) {
       );
     } else { $meta_series_name = null; }
 
-    if($c == 'Serie') {
+    if($c == 'serie') {
       if($filter_series == true || $filter_series == 'true') {
         $meta_filter_series = array(
           'key'     => 'series_order',
@@ -341,7 +341,7 @@ function rlv_hits_filter($hits) {
       // $slug = $hit->post_name;
       $series_name = get_field('series_name', $id);
       if($y) $meta_y = get_field('year', $id);
-      if($c) $meta_c = get_field('category', $id);
+      if($c) $meta_c = strtolower(get_field('category', $id));
       if($uid) $meta_uid = get_field('vorname', $id)."/".get_field('nachname', $id);
 
 

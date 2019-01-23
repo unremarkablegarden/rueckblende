@@ -31,15 +31,15 @@ get_header();
 
     <div class="tabs is-centered">
       <ul>
-          <li data-category="Karikatur" class="<? if($c == 'Karikatur') echo 'is-active'; ?>">
+          <li data-category="karikatur" class="<? if($c == 'karikatur') echo 'is-active'; ?>">
               <a>Karikatur</a>
           </li>
 
-          <li data-category="Foto" class="<? if($c == 'Foto') echo 'is-active'; ?>">
+          <li data-category="foto" class="<? if($c == 'foto') echo 'is-active'; ?>">
               <a>Fotografie</a>
           </li>
 
-          <li data-category="Serie" class="<? if($c == 'Serie') echo 'is-active'; ?>">
+          <li data-category="serie" class="<? if($c == 'serie') echo 'is-active'; ?>">
               <a>Serie</a>
           </li>
       </ul>
