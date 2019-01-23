@@ -1,5 +1,8 @@
 <?php
 
+// disable ACF hiding custom fields option in WP admin post editor
+add_filter( 'acf/settings/remove_wp_meta_box', '__return_false' );
+
 // Register a REST route
 add_action( 'rest_api_init', function () {
   register_rest_route( 'relevanssi/v2', '/fetch/', array(
