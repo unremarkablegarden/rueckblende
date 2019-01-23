@@ -45,14 +45,26 @@ while ( have_posts() ) : the_post();
         // image exists
         echo $content;
       } else {
+        
         $imgID = get_field('atttachment_id');
-        if(!$imgID) $imgID = $content;
-        $imgF = wp_get_attachment_image_src($imgID, 'full');
-        $retina = wr2x_get_retina_from_url($imgF[0]);
+        if($imgID) { 
+          $img = wp_get_attachment_image_src($imgID, 'large');
+          $img = $img[0];
+        } else {
+          $img = $content;
+        }
+
+        $retina = wr2x_get_retina_from_url($img);
+        // echo $retina;
+        
         if($retina) {
           $pic = '<img src="'.$retina.'">';
         } else {
-          $pic = wp_get_attachment_image($imgID, 'large');
+          if($imgID) {
+            $pic = wp_get_attachment_image($imgID, 'large');
+          } else {
+            $pic = '<img src="'.$img.'">';
+          }
         }
         echo $pic;
       }
