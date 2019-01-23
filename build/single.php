@@ -46,26 +46,19 @@ while ( have_posts() ) : the_post();
         echo $content;
       } else {
         
-        $imgID = get_field('atttachment_id');
+        $imgID = get_field('attachment_id');
         $img = wp_get_attachment_image_src($imgID, 'large');
         $img = $img[0];
         
-        // if($imgID) { 
-        //   $img = wp_get_attachment_image_src($imgID, 'large');
-        //   $img = $img[0];
-        // } else {
-        //   $img = $content;
-        // }
-
         $retina = wr2x_get_retina_from_url($img);
-        // echo $retina;
         
         if($retina) {
           $pic = '<img src="'.$retina.'">';
         } else {
           $pic = wp_get_attachment_image($imgID, 'large');
         }
-        debug($pic);
+
+        echo $pic;
       }
     }
 
