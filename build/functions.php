@@ -88,23 +88,32 @@ function relevanssi_rest() {
       // --- filter in relevanssi_hits_filter ---
       $i++; // first = 1
 
-      $imgID = get_field('attachment_id', $id);
+      // $imgID = get_field('attachment_id', $id);
       $imageid = get_field('imageid', $id);
-      if(!empty($imgID)) {
+      if(is_numeric($image_id)) {
+        // new image
+        $large = 'fuck';
+        $thumb = 'you';
+      } else {
         // old image
         $large = '/wp-content/photos/' . $year . '/' . $imageid . '.jpg';
         $thumb = '/wp-content/photos/' . $year . '/thumbs/' . $imageid . '.jpg';
-      } else {
-        // new image
-        $largr = wp_get_attachment_image_src($imgID, 'large');
-        $thumb = wp_get_attachment_image_src($imgID, 'thumbnail');
-        $img = $img[0];
-        $thumb = $thumb[0];
-        $retina = wr2x_get_retina_from_url($large);
-        $retinaT = wr2x_get_retina_from_url($thumb);
-        if($retina) { $large = $retina; }
-        if($retinaT) { $thumb = $retinaT; }
       }
+      // if(!empty($imgID)) {
+      //   // old image
+      //   $large = '/wp-content/photos/' . $year . '/' . $imageid . '.jpg';
+      //   $thumb = '/wp-content/photos/' . $year . '/thumbs/' . $imageid . '.jpg';
+      // } else {
+      //   // new image
+      //   $largr = wp_get_attachment_image_src($imgID, 'large');
+      //   $thumb = wp_get_attachment_image_src($imgID, 'thumbnail');
+      //   $img = $img[0];
+      //   $thumb = $thumb[0];
+      //   $retina = wr2x_get_retina_from_url($large);
+      //   $retinaT = wr2x_get_retina_from_url($thumb);
+      //   if($retina) { $large = $retina; }
+      //   if($retinaT) { $thumb = $retinaT; }
+      // }
 
       $uid = get_field('vorname', $id)."/".get_field('nachname', $id);
       $year = get_field('year', $id);
