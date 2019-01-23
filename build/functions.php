@@ -92,8 +92,8 @@ function relevanssi_rest() {
       $imageid = get_field('imageid', $id);
       if(is_numeric($image_id)) {
         // new image
-        $large = 'fuck';
-        $thumb = 'you';
+        $large = '1';
+        $thumb = '2';
       } else {
         // old image
         $large = '/wp-content/photos/' . $year . '/' . $imageid . '.jpg';
