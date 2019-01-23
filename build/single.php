@@ -45,8 +45,8 @@ while ( have_posts() ) : the_post();
         // image exists
         echo $content;
       } else {
-        // $imgID = get_field('atttachment_id');
-        $imgID = $content;
+        $imgID = get_field('atttachment_id');
+        if(!$imgID) $imgID = $content;
         $imgF = wp_get_attachment_image_src($imgID, 'full');
         $retina = wr2x_get_retina_from_url($imgF[0]);
         if($retina) {
@@ -57,7 +57,7 @@ while ( have_posts() ) : the_post();
         echo $pic;
       }
     }
-    
+
 
     if($category == 'Serie'): ?>
 
