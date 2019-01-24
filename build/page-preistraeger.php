@@ -324,7 +324,11 @@ $p_query = new WP_Query( $args ); ?>
     </div>
   </section>
 
-
+<style>
+.slider-item {
+  width: 100%;
+}
+</style>
 
 
 
