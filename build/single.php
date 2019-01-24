@@ -37,31 +37,6 @@ while ( have_posts() ) : the_post();
     <?
 
   else:
-    
-
-    function showImage($content) {
-      // echo get_the_content();
-      if (strpos($content, '<img') !== false) {
-        // image exists
-        echo $content;
-      } else {
-        
-        $imgID = get_field('attachment_id');
-        $img = wp_get_attachment_image_src($imgID, 'large');
-        $img = $img[0];
-        
-        $retina = wr2x_get_retina_from_url($img);
-        
-        if($retina) {
-          $pic = '<img src="'.$retina.'">';
-        } else {
-          $pic = wp_get_attachment_image($imgID, 'large');
-        }
-
-        echo $pic;
-      }
-    }
-
 
     if($category == 'serie'): ?>
 
@@ -86,8 +61,9 @@ while ( have_posts() ) : the_post();
                 <div class="slide">
                   <div class="photo watermark">
                     <? 
-                    $content = get_the_content();
-                    showImage($content);
+                    // $content = get_the_content();
+                    // showImage($content);
+                    showImage(get_the_ID());
                     ?>
                   </div>
                   <div class="caption">
@@ -109,8 +85,10 @@ while ( have_posts() ) : the_post();
           <div class="column is-10 is-offset-1 photo">
             <div class="watermark">
               <?
-              $content = get_the_content();
-              showImage($content);
+              // $content = get_the_content();
+              // showImage($content);
+              
+              showImage(get_the_ID());
               ?>
             </div>
           </div>

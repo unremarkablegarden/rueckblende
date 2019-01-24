@@ -1,5 +1,6 @@
 <? get_header();
 
+
 $year = date('Y', strtotime('-1 year') );
 
 $args = array(
@@ -26,7 +27,8 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
     <div class="columns">
       <div class="column is-7 photo">
         <a href="<? the_permalink(); ?>">
-          <img src="<? the_entry_src($year, $imageid); ?>"/>
+          <!-- <img src="<? the_entry_src($year, $imageid); ?>"/> -->
+          <? showImage(get_the_ID()); ?>
         </a>
       </div>
       <div class="column is-5 info">
@@ -111,7 +113,8 @@ $p_query = new WP_Query( $args ); ?>
             ?>
 
             <a href="<? the_permalink(); ?>">
-              <img src="<? the_entry_src($year, $imageid, true); ?>"/>
+              <!-- <img src="<? the_entry_src($year, $imageid, true); ?>"/> -->
+              <? showImage(get_the_ID()); ?>
             </a>
             <h3><a href="#honk"><? echo $name; ?></a></h3>
             <p><? the_field('caption'); ?></p>
@@ -220,9 +223,9 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
   <section class="winner-section paddy">
     <div class="columns">
       <div class="column is-7 photo">
-        <!-- <a href="<? the_permalink(); ?>"> -->
         <a href="<? the_permalink(); ?>">
-          <img src="<? the_entry_src($year, $imageid); ?>"/>
+          <!-- <img src="<? the_entry_src($year, $imageid); ?>"/> -->
+          <? showImage(get_the_ID()); ?>
         </a>
       </div>
       <div class="column is-5 info">
@@ -306,7 +309,8 @@ $p_query = new WP_Query( $args ); ?>
             ?>
 
             <a href="#imagepage">
-              <img src="<? the_entry_src($year, $imageid, true); ?>"/>
+              <!-- <img src="<? the_entry_src($year, $imageid, true); ?>"/> -->
+              <? showImage(get_the_ID()); ?>
             </a>
             <h3><a href="#honk"><? echo $name; ?></a></h3>
             <p><? the_field('caption'); ?></p>

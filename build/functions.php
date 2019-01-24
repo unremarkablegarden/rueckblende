@@ -418,6 +418,30 @@ function the_entry_src($year, $imageid, $thumb = false) {
   }
 }
 
+function showImage($postID) {
+  $content = get_the_content($postID);
+
+  if (strpos($content, '<img') !== false) {
+    // image exists
+    echo $content;
+  } else {
+    
+    $imgID = get_field('attachment_id', $postID);
+    $img = wp_get_attachment_image_src($imgID, 'large');
+    $img = $img[0];
+    
+    $retina = wr2x_get_retina_from_url($img);
+    
+    if($retina) {
+      $pic = '<img src="'.$retina.'">';
+    } else {
+      $pic = wp_get_attachment_image($imgID, 'large');
+    }
+
+    echo $pic;
+  }
+}
+
 function get_entry_src($year, $imageid, $thumb = false) {
   if($thumb === false) {
     return '/wp-content/photos/'.$year.'/'.$imageid.'.jpg';
