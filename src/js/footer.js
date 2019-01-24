@@ -297,10 +297,13 @@
       // console.log('winners');
 
       $('.tabs li:first').addClass('is-active');
+      
+      var catt = $('.tabs li:first').data('category');
+      if(catt) catt = catt.toLowerCase();
 
       var filters = {
         target: target,
-        category: $('.tabs li:first').data('category').toLowerCase(),
+        category: catt,
         year: today.getFullYear() - 1,
         search: null,
         page: page,
@@ -321,7 +324,7 @@
           target: filters.target,
           w: filters.winners,
           y: filters.year,
-          c: filters.category.toLowerCase(),
+          c: filters.category,
           s: filters.search,
           pg: filters.paged,
           pp: filters.per_page,
@@ -466,7 +469,10 @@
                 var seriesName = '';
                 var postCaption = '';
 
-                if(post.series_name && post.category.toLowerCase() === 'serie') {
+                var catt = post.category;
+                if(catt) catt = catt.toLowerCase();
+
+                if(post.series_name && catt === 'serie') {
                   seriesName = '<div class="series">' + post.series_name + '</div>';
                   var seriesClass = ' series-icon';
                 } else {
@@ -481,7 +487,7 @@
 
                 postCaption = '<div class="caption">' + post.caption + '</div><div class="shade"></div>';
 
-                if(post.series_name && post.category.toLowerCase() === 'serie') {
+                if(post.series_name && catt === 'serie') {
                   var img = '<a href="' + post.link + '"><div class="'+winnerBadge+'"><div class="image' + seriesClass + '" style="background-image: url(' + post.thumb + ')">&nbsp;</div></div><div class="name">' + post.fullname + ' <span class="year">(' + post.year + ')</span></div></a>' + seriesName + postCaption;
                 } else {
                   var img = '<a href="' + post.link + '"><div class="image' + seriesClass + winnerBadge + '" style="background-image: url(' + post.thumb + ')">&nbsp;</div><div class="name">' + post.fullname + ' <span class="year">(' + post.year + ')</span></div></a>' + seriesName + postCaption;
@@ -568,7 +574,9 @@
         var tabs = $(this).closest('.tabs');
         tabs.find('.is-active').removeClass('is-active');
         $(this).addClass('is-active');
-        var category = $(this).data('category').toLowerCase();
+        var category = $(this).data('category');
+        if(category) category = category.toLowerCase();
+
         var tab = $(this).data('tab');
         if(category) {
           filters.category = category;
