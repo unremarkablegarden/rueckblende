@@ -236,7 +236,7 @@ function rlv_hits_filter($hits) {
     if($shortlist) {
       $meta_shortlist = array(
         'key' 		=> 'shortlist',
-        'value'		=> TRUE
+        'value'		=> 'TRUE'
       );
     } else { $meta_shortlist = null; }
 
