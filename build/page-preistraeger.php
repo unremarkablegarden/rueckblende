@@ -1,230 +1,325 @@
-<? get_header(); ?>
-<section class="winner-section section">
-  <div class="container">
+<? get_header();
+
+$year = date('Y', strtotime('-1 year') );
+
+$args = array(
+  'post_type'	=> 'entry',
+  'posts_per_page' => 1,
+  'meta_query' => array(
+    'relation' => 'AND',
+    array(
+      'key'     => 'photo_prize_first',
+      'value'   => 'Yes'
+    ),
+    array(
+      'key'     => 'year',
+      'value'   => $year
+    )
+  )
+);
+$p_query = new WP_Query( $args );
+if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_post();
+  $imageid = get_field('imageid');
+  $name = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
+?>
+  <section class="winner-section paddy">
     <div class="columns">
-      <div class="column is-7">
-        <span class=" photo watermark">
-          <img src="/wp-content/photos/2017/38E534021E685D49.jpg"/>
-        </span>
+      <div class="column is-7 photo">
+        <a href="<? the_permalink(); ?>">
+          <img src="<? the_entry_src($year, $imageid); ?>"/>
+        </a>
       </div>
       <div class="column is-5 info">
-        <img class="badge" src="/wp-content/themes/rueckblende/build/assets/img/winners/badge_photo.svg"/>
+        <img class="badge" src="<? img(); ?>/winners/badge_photo.svg"/>
         <h2 class="title">
-          <a href="/entry/2017-herzau-andreas-38e534021e685d49/">Andreas Herzau</a>
+          <a href="#artist"><? echo $name; ?></a>
         </h2>
         <div class="description">
-          Prosteste gegen den G 20 Gipfel in Hamburg. Hier wird ein Haus im Schanzenviertel von der Polizei gestürmt ...</div>
+          <? the_field('caption'); ?>
+        </div>
         <div class="date">
-          Hamburg, 07.07.2017        </div>
+          <? echo get_field('location').', '.get_field('date'); ?>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+<? endwhile; endif; wp_reset_query(); ?>
 
-<section class="runnerup-section section">
-  <div class="container">
+<?
+$args = array(
+  'post_type'  => 'entry',
+  'posts_per_page' => 3,
+  'order' => 'ASC',
+  'meta_query' => array(
+    'relation' => 'AND',
+    array(
+      'relation' => 'OR',
+      // array(
+      //   'key'     => 'photo_prize_first',
+      //   'value'   => 'Yes'
+      // ),
+      array(
+        'key'     => 'photo_prize_2',
+        'value'   => 'Yes'
+      ),
+      array(
+        'key'     => 'photo_prize_3',
+        'value'   => 'Yes'
+      ),
+      array(
+        'key'     => 'das_scharfe_sehen_1',
+        'value'   => 'Yes'
+      ),
+      array(
+        'key'     => 'das_scharfe_sehen_1',
+        'value'   => 'Yes'
+      ),
+    ),
+    array(
+      'key'     => 'year',
+      'value'   => $year
+    )
+  )
+);
+
+$p_query = new WP_Query( $args ); ?>
+  <section class="runnerup-section paddy">
     <div class="columns is-multiline">
+      <? if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_post(); ?>
+      <?
+      $imageid = get_field('imageid');
+      $name = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
 
-      <div class="column is-3 runnerup-item">
-        <div class="inner">
-          <img class='badge' src='/wp-content/themes/rueckblende/build/assets/img/winners/badge_special_price.svg'>
-          <a href="/entry/2017-rattay-wolfgang-61ae9614788b6bee/">
-            <img src="/wp-content/photos/2017/thumbs/61AE9614788B6BEE.jpg"/>
-          </a>
-          <h3><a href="/entry/2017-rattay-wolfgang-61ae9614788b6bee/">Wolfgang Rattay</a></h3>
-          <p class="loc-date">
-            Hambach, 05.11.2017
-          </p>
-          <div class='caption'>
-              Eine Einsatzhundert-schaft der Polizei eilt unter einer Riesenschaufel des RWE-Braunkohletagebaus Hambach herbei, um diese gegen eindringende Aktivisten von "Ende Gelände" während des Bonner COP23 Klimagipfels zu schützen.
+      if(!empty(get_field('photo_prize_first'))) $winner = 'photo_prize_first';
+      elseif(!empty(get_field('photo_prize_2'))) $winner = 'photo_prize_2';
+      elseif(!empty(get_field('photo_prize_3'))) $winner = 'photo_prize_3';
+      elseif(!empty(get_field('das_scharfe_sehen_1'))) $winner = 'das_scharfe_sehen_1';
+      elseif(!empty(get_field('das_scharfe_sehen_2'))) $winner = 'das_scharfe_sehen_2';
+      ?>
+        <div class="column is-3 runnerup-item">
+          <div class="inner">
+            <?
+              $badge_start = "<img class='badge' src='".get_template_directory_uri()."/assets/img";
+              if($winner == 'photo_prize_first') {
+                $badge = $badge_start."/winners/badge_photo.svg'>";
+              }
+              elseif($winner == 'das_scharfe_sehen_1') {
+                $badge = $badge_start."/winners/badge_special_price.svg'>";
+              }
+
+              if($badge) echo $badge;
+            ?>
+
+            <a href="<? the_permalink(); ?>">
+              <img src="<? the_entry_src($year, $imageid, true); ?>"/>
+            </a>
+            <h3><a href="#honk"><? echo $name; ?></a></h3>
+            <p><? the_field('caption'); ?></p>
+
           </div>
-          <div class="shade"></div>
         </div>
-      </div>
-
-      <div class="column is-3 runnerup-item">
-        <div class="inner">
-          <img class='badge' src='/wp-content/themes/rueckblende/build/assets/img/winners/badge_audience.svg'>
-          <a href="/entry/2017-klug-michael-559c414cf5a90fd6/">
-            <img src="/wp-content/photos/2017/thumbs/559C414CF5A90FD6.jpg"/>
-          </a>
-          <h3><a href="/entry/2017-klug-michael-559c414cf5a90fd6/">Michael Klug</a></h3>
-          <p class="loc-date">
-            Sonneberg, 21.09.2017
-          </p>
-          <div class='caption'>
-            Deutschland vier Tage vor der Wahl: Einwohner im thüringischen Ort Sonneberg (re.) warten am Donnerstag, 21.09.17, neben syrischen Fluechtlingen auf den Bus.
-          </div>
-          <div class="shade"></div>
-        </div>
-      </div>
-
-
+      <? endwhile; endif; wp_reset_query(); ?>
     </div>
-  </div>
-</section>
+  </section>
 
 <hr>
 
+<?
+$args = array(
+  'post_type'  => 'entry',
+  'posts_per_page' => 10,
+  'order' => 'ASC',
+  'meta_query' => array(
+    'relation' => 'AND',
+    array(
+      'key'     => 'series_prize_1',
+      'value'   => 'Yes'
+    ),
+    array(
+      'key'     => 'year',
+      'value'   => $year
+    )
+  )
+);
 
-<section class="photo_series section">
-  <div class="container">
+$p_query = new WP_Query( $args );
+$series = array();
 
+if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_post();
+  $image = array();
+  $imageid = get_field('imageid');
+  $image['image'] = get_entry_src($year, $imageid);
+  $image['name'] = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
+  $image['series'] = get_field('series_name');
+  $image['location'] = get_field('location');
+  $image['date'] = get_field('date');
+  $image['caption'] = get_field('caption');
+  $series[] = $image;
+endwhile; endif; wp_reset_query();
+// debug($series);
+?>
+
+  <section class="photo_series paddy">
     <div class="columns">
       <div class="column is-4 info">
-        <img class="series_icon" src = "/wp-content/themes/rueckblende/build/assets/img/archive/icon_series.svg">
-        <h3><a href="/entry/2017-jung-hannes-43e0d24eaaac6d66/">Hannes Jung</a></h3>
+        <img class="series_icon" src = "<? img(); ?>/archive/icon_series.svg">
+        <h3><? echo $series[0]['name']; ?></h3>
         <p class="description">
+          <?
+          if($series[0]['series_name']) echo $series[0]['series_name'];
+          ?>
         </p>
         <p class="loc-date">
-          11/08/2017
+          <?
+          if($series[0]['location']) echo $series[0]['location'].', ';
+          echo $series[0]['date']; ?>
         </p>
-        <div class="caption">
-          New Right
-        </div>
       </div>
       <div class="column is-8">
         <div class="wrap">
 
-          <img class="badge" src="/wp-content/themes/rueckblende/build/assets/img/winners/badge_series.svg"/>
-
+          <img class="badge" src="<? img(); ?>/winners/badge_series.svg"/>
           <div class="owl-carousel gallery">
-
-
-            <div class="slide">
-
-            <div class="photo" style="background-image: url(/wp-content/photos/2017/43E0D24EAAAC6D66.jpg);">                </div>
-            <div class="caption">
-            Björn Höcke begrüßt die Menge bei Wahl-Auftaktkundgebung.<br />
-            (03.08.2017, Helbra, Sachsen-Anhalt)<br />
-            </div>
-            </div>
-            <div class="slide">
-
-            <div class="photo" style="background-image: url(/wp-content/photos/2017/33DD0342C09D2999.jpg);">                </div>
-            <div class="caption">
-            Applaus für Höckes Rede bei Wahlkampf-Auftakt in der „Alten Schlachthalle“<br />
-            (03.08.2017, Helbra, Sachsen-Anhalt)<br />
-            </div>
-            </div>
-            <div class="slide">
-
-            <div class="photo" style="background-image: url(/wp-content/photos/2017/E1FEF397B8755F6D.jpg);">                </div>
-            <div class="caption">
-            Auto - drapiert mit Deutschlandflagge - vor einer Wahlkundgebung mit Alice Weidel.<br />
-            (11.08.2017, Gütersloh)<br />
-            </div>
-            </div>
-            <div class="slide">
-
-            <div class="photo" style="background-image: url(/wp-content/photos/2017/8C8029DCE0E713A5.jpg);">                </div>
-            <div class="caption">
-            Portrait von Alexander Gauland in seinem Büro im Brandenburger Landtag.<br />
-            (24.07.2017, Potsdam)<br />
-            </div>
-            </div>
-            <div class="slide">
-
-            <div class="photo" style="background-image: url(/wp-content/photos/2017/4CC28BBB0F681797.jpg);">                </div>
-            <div class="caption">
-            Publikum bei Wahlveranstaltung mit Alice Weidel <br />
-            (11.08.2017, Gütersloh)<br />
-            </div>
-            </div>
-            <div class="slide">
-
-            <div class="photo" style="background-image: url(/wp-content/photos/2017/27E4468DBBC865DC.jpg);">                </div>
-            <div class="caption">
-            Björn Höcke grüßt nach seiner Rede das Publikum.<br />
-            (03.08.2017, Helbra Sachsen-Anhalt)<br />
-            </div>
-            </div>
+            <? foreach($series as $image): ?>
+              <div class="slider-item">
+                <div class="image" style="background-image: url(<? echo $image['image']; ?>)">&nbsp;</div>
+                <p class="caption"><? echo $image['caption']; ?></p>
+              </div>
+            <? endforeach; ?>
           </div>
 
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 <hr>
 
 
-<section class="winner-section section">
-  <div class="container">
-
+<?
+$args = array(
+  'post_type'	=> 'entry',
+  'posts_per_page' => 1,
+  'meta_query' => array(
+    'relation' => 'AND',
+    array(
+      'key'     => 'cartoon_prize_1',
+      'value'   => 'Yes'
+    ),
+    array(
+      'key'     => 'year',
+      'value'   => $year
+    )
+  )
+);
+$p_query = new WP_Query( $args );
+if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_post();
+  $imageid = get_field('imageid');
+  $name = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
+?>
+  <section class="winner-section paddy">
     <div class="columns">
       <div class="column is-7 photo">
-        <!-- <a href="/entry/2017-wurster-miriam-a106a33527ced712/"> -->
-        <a href="/entry/2017-wurster-miriam-a106a33527ced712/">
-          <img src="/wp-content/photos/2017/A106A33527CED712.jpg"/>
+        <!-- <a href="<? the_permalink(); ?>"> -->
+        <a href="<? the_permalink(); ?>">
+          <img src="<? the_entry_src($year, $imageid); ?>"/>
         </a>
       </div>
       <div class="column is-5 info">
-        <img class="badge" src="/wp-content/themes/rueckblende/build/assets/img/winners/badge_cartoon.svg"/>
+        <img class="badge" src="<? img(); ?>/winners/badge_cartoon.svg"/>
         <h2 class="title">
-          <a href="/entry/2017-wurster-miriam-a106a33527ced712/">Miriam Wurster</a>
+          <a href="#artist"><? echo $name; ?></a>
         </h2>
         <div class="description">
-                  </div>
+          <? the_field('caption'); ?>
+        </div>
         <div class="date">
-          Weser Kurier, 05.07.2017        </div>
+          <? echo get_field('location').', '.get_field('date'); ?>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+<? endwhile; endif; wp_reset_query(); ?>
 
-<section class="runnerup-section section">
-  <div class="container">
+<?
+$args = array(
+  'post_type'  => 'entry',
+  'order' => 'ASC',
+  'posts_per_page' => 4,
+  'meta_query' => array(
+    'relation' => 'AND',
+    array(
+      'relation' => 'OR',
+      // array(
+      //   'key'     => 'cartoon_prize_1',
+      //   'value'   => 'Yes'
+      // ),
+      array(
+        'key'     => 'cartoon_prize_2',
+        'value'   => 'Yes'
+      ),
+      array(
+        'key'     => 'cartoon_prize_3',
+        'value'   => 'Yes'
+      ),
+      array(
+        'key'     => 'auszeichnung_karikatur',
+        'value'   => 'Yes'
+      )
+    ),
+    array(
+      'key'     => 'year',
+      'value'   => $year
+    )
+  )
+);
 
+$p_query = new WP_Query( $args ); ?>
+  <section class="runnerup-section paddy">
     <div class="columns is-multiline">
-                    <div class="column is-3 runnerup-item">
-          <div class="inner">
-            <img class='badge' src='/wp-content/themes/rueckblende/build/assets/img/winners/badge_cartoon_2.svg'>
-            <a href="/entry/2017-sakurai-heiko-58a80806b4e1c3ad/">
-              <img src="/wp-content/photos/2017/thumbs/58A80806B4E1C3AD.jpg"/>
-            </a>
-            <h3><a href="/entry/2017-sakurai-heiko-58a80806b4e1c3ad/">Heiko Sakurai</a></h3>
-            <p class="loc-date">Rhein-Neckar-Zeitung, 18.10.2017</p>
-            <div class="caption">
-              Oh wie schön wär Jamaika
-            </div>
+      <? if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_post(); ?>
+      <?
+      $imageid = get_field('imageid');
+      $name = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
 
-          </div>
-        </div>
-
+      if(!empty(get_field('cartoon_prize_1'))) $winner = 'cartoon_prize_1';
+      elseif(!empty(get_field('cartoon_prize_2'))) $winner = 'cartoon_prize_2';
+      elseif(!empty(get_field('cartoon_prize_3'))) $winner = 'cartoon_prize_3';
+      elseif(!empty(get_field('auszeichnung_karikatur'))) $winner = 'auszeichnung_karikatur';
+      ?>
         <div class="column is-3 runnerup-item">
           <div class="inner">
-            <img class='badge' src='/wp-content/themes/rueckblende/build/assets/img/winners/badge_cartoon_3.svg'>
-            <a href="/entry/2017-huehn-mathias-f0b32057f7ac4416/">
-              <img src="/wp-content/photos/2017/thumbs/F0B32057F7AC4416.jpg"/>
+            <?
+              $badge_start = "<img class='badge' src='".get_template_directory_uri()."/assets/img";
+
+              if($winner == 'cartoon_prize_1') {
+                $badge = $badge_start."/winners/badge_cartoon.svg'>";
+              }
+              elseif($winner == 'cartoon_prize_2') {
+                $badge = $badge_start."/winners/badge_cartoon_2.svg'>";
+              }
+              elseif($winner == 'cartoon_prize_3') {
+                $badge = $badge_start."/winners/badge_cartoon_3.svg'>";
+              }
+
+              if($badge) echo $badge;
+            ?>
+
+            <a href="#imagepage">
+              <img src="<? the_entry_src($year, $imageid, true); ?>"/>
             </a>
-            <h3><a href="/entry/2017-huehn-mathias-f0b32057f7ac4416/">Mathias Hühn</a></h3>
-            <p class="loc-date">taz, 28.06.2017</p>
-            <div class="caption">
-                Ehe für alle
-            </div>
+            <h3><a href="#honk"><? echo $name; ?></a></h3>
+            <p><? the_field('caption'); ?></p>
+
           </div>
         </div>
+      <? endwhile; endif; wp_reset_query(); ?>
+    </div>
+  </section>
 
 
-        <div class="column is-3 runnerup-item">
-          <div class="inner">
-            <img class='badge' src='/wp-content/themes/rueckblende/build/assets/img/winners/badge_audience.svg'>
-            <a href="/entry/2017-cozacu-ioan-40dce74d98e8e049/">
-              <img src="/wp-content/photos/2017/thumbs/40DCE74D98E8E049.jpg"/>
-            </a>
-            <h3><a href="/entry/2017-cozacu-ioan-40dce74d98e8e049/">Ioan Cozacu</a></h3>
-            <p class="loc-date">TLZ Weimar, 22.11.2017</p>
-            <div class="caption">
-            </div>
-          </div>
-        </div>
 
 
-      </div>
-  </div>
-</section>
 
 
 <? get_footer(); ?>

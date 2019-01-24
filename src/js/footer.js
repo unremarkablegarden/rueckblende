@@ -300,7 +300,7 @@
 
       var filters = {
         target: target,
-        category: $('.tabs li:first').data('category'),
+        category: $('.tabs li:first').data('category').toLowerCase(),
         year: today.getFullYear() - 1,
         search: null,
         page: page,
@@ -321,7 +321,7 @@
           target: filters.target,
           w: filters.winners,
           y: filters.year,
-          c: filters.category,
+          c: filters.category.toLowerCase(),
           s: filters.search,
           pg: filters.paged,
           pp: filters.per_page,
@@ -351,7 +351,7 @@
           filters.filter_series = false;
           filters.search = '';
           filters.paged = 1;
-          filters.category = 'Foto';
+          filters.category = 'foto';
           w.find('*[data-section="winners"]').hide();
           w.find('*[data-section="archive"]').show();
         }
@@ -466,7 +466,7 @@
                 var seriesName = '';
                 var postCaption = '';
 
-                if(post.series_name && post.category === 'Serie') {
+                if(post.series_name && post.category.toLowerCase() === 'serie') {
                   seriesName = '<div class="series">' + post.series_name + '</div>';
                   var seriesClass = ' series-icon';
                 } else {
@@ -481,7 +481,7 @@
 
                 postCaption = '<div class="caption">' + post.caption + '</div><div class="shade"></div>';
 
-                if(post.series_name && post.category === 'Serie') {
+                if(post.series_name && post.category.toLowerCase() === 'serie') {
                   var img = '<a href="' + post.link + '"><div class="'+winnerBadge+'"><div class="image' + seriesClass + '" style="background-image: url(' + post.thumb + ')">&nbsp;</div></div><div class="name">' + post.fullname + ' <span class="year">(' + post.year + ')</span></div></a>' + seriesName + postCaption;
                 } else {
                   var img = '<a href="' + post.link + '"><div class="image' + seriesClass + winnerBadge + '" style="background-image: url(' + post.thumb + ')">&nbsp;</div><div class="name">' + post.fullname + ' <span class="year">(' + post.year + ')</span></div></a>' + seriesName + postCaption;
@@ -568,7 +568,7 @@
         var tabs = $(this).closest('.tabs');
         tabs.find('.is-active').removeClass('is-active');
         $(this).addClass('is-active');
-        var category = $(this).data('category');
+        var category = $(this).data('category').toLowerCase();
         var tab = $(this).data('tab');
         if(category) {
           filters.category = category;
