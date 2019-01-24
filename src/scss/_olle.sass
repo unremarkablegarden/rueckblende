@@ -399,10 +399,19 @@ $preheadersubmissionsHmobile: 0px
   background: #3f3f3f
   a
     color: white
+  .owl-stage
+    +desktop
+        height: 558px !important
+        width: 100%
+    +touch
+      width: 100vw !important
+      height: auto
+    overflow-x: hidden
+    
   .gallery
     .gallery-item
       +desktop
-        height: 558px
+        height: 558px !important
         width: 100%
       +touch
         width: 100vw !important
