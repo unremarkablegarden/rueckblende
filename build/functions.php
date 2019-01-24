@@ -330,22 +330,23 @@ function rlv_hits_filter($hits) {
     // }
 
     // filter series to just one pic per series for new series that don't necessarily have 'series_order' set (which is required for the old filter_series method to work)
-    if($filter_series == true || $filter_series == 'true') {
-      if($y >= 2017 && $c == 'serie') {
-        // one image per series
-        $series_names = array();
-        $filtered_posts = array();
-        foreach($posts as $p) {
-          $id = $p->ID;
-          $series_name = get_field('series_name', $id);
-          if( ! in_array($series_name, $series_names) ) {
-            $series_names[] = $series_name;
-            $filtered_posts[] = $p;
-          } // else skip it
-        }
-        $posts = $filtered_posts;
-      }
-    }
+      // this fucks up the pagination!!!!!!
+    // if($filter_series == true || $filter_series == 'true') {
+    //   if($y >= 2017 && $c == 'serie') {
+    //     // one image per series
+    //     $series_names = array();
+    //     $filtered_posts = array();
+    //     foreach($posts as $p) {
+    //       $id = $p->ID;
+    //       $series_name = get_field('series_name', $id);
+    //       if( ! in_array($series_name, $series_names) ) {
+    //         $series_names[] = $series_name;
+    //         $filtered_posts[] = $p;
+    //       } // else skip it
+    //     }
+    //     $posts = $filtered_posts;
+    //   }
+    // }
 
     $hits[0] = $posts;
   }
