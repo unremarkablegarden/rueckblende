@@ -223,7 +223,7 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
   $imageid = get_field('imageid');
   $name = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
 ?>
-  <section class="winner-section paddy">
+  <section class="winner-section section">
     <div class="columns">
       <div class="column is-7 photo">
         <a href="<? the_permalink(); ?>">
@@ -281,7 +281,7 @@ $args = array(
 );
 
 $p_query = new WP_Query( $args ); ?>
-  <section class="runnerup-section paddy">
+  <section class="runnerup-section section">
     <div class="columns is-multiline">
       <? if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_post(); ?>
       <?
