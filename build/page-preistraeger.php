@@ -255,7 +255,7 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
 <?
 $args = array(
   'post_type'  => 'entry',
-  'order' => 'ASC',
+  'order' => 'DESC',
   'posts_per_page' => 4,
   'meta_query' => array(
     'relation' => 'AND',
@@ -297,6 +297,8 @@ $p_query = new WP_Query( $args ); ?>
       elseif(!empty(get_field('cartoon_prize_2'))) $winner = 'cartoon_prize_2';
       elseif(!empty(get_field('cartoon_prize_3'))) $winner = 'cartoon_prize_3';
       elseif(!empty(get_field('auszeichnung_karikatur'))) $winner = 'auszeichnung_karikatur';
+
+      // sort
       ?>
         <div class="column is-3 runnerup-item">
           <div class="inner">
