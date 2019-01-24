@@ -242,7 +242,7 @@ function rlv_hits_filter($hits) {
         'relation'=> 'OR',
         array(
           'key' 		=> 'shortlist',
-          'value'   => true
+          'value'   => true,
           'compare' => '='
         ),
         array(
