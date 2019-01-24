@@ -198,6 +198,11 @@ endwhile; endif; wp_reset_query();
     </div>
   </section>
 
+<style>
+.photo_series .is-8 .wrap {
+  padding-right: 3em;
+}
+</style>
 
 <hr>
 
