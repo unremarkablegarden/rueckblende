@@ -177,7 +177,7 @@ endwhile; endif; wp_reset_query();
           <h3><? echo $series[0]['name']; ?></h3>
           <p class="description">
             <?
-            if($series[0]['series_name']) echo $series[0]['series_name'];
+            if($series[0]['series']) echo $series[0]['series'];
             ?>
           </p>
           <p class="loc-date">
