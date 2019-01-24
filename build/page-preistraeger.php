@@ -151,7 +151,10 @@ $series = array();
 if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_post();
   $image = array();
   $imageid = get_field('imageid');
-  $image['image'] = get_entry_src($year, $imageid);
+
+  // $image['image'] = get_entry_src($year, $imageid);
+  $image['image'] = getImage(get_the_ID());
+  
   $image['name'] = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
   $image['series'] = get_field('series_name');
   $image['location'] = get_field('location');

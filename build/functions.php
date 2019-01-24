@@ -442,6 +442,32 @@ function showImage($postID) {
   }
 }
 
+function getImage($postID) {
+  $content = get_the_content($postID);
+
+  if (strpos($content, '<img') !== false) {
+    // image exists
+    preg_match('/(src=["\'](.*?)["\'])/', $content, $match);  //find src="X" or src='X'
+    $split = preg_split('/["\']/', $match[0]); // split by quote
+    $src = $split[1]; // X between quotes
+
+    return $src;
+  } else {
+    
+    $imgID = get_field('attachment_id', $postID);
+    $img = wp_get_attachment_image_src($imgID, 'large');
+    $img = $img[0];
+    
+    $retina = wr2x_get_retina_from_url($img);
+    
+    if($retina) {
+      $large = $retina;
+    }
+
+    return $large;
+  }
+
+
 function get_entry_src($year, $imageid, $thumb = false) {
   if($thumb === false) {
     return '/wp-content/photos/'.$year.'/'.$imageid.'.jpg';
