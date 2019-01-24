@@ -234,9 +234,22 @@ function rlv_hits_filter($hits) {
     } else { $meta_c = null; }
 
     if($shortlist) {
+      // $meta_shortlist = array(
+      //   'key' 		=> 'shortlist',
+      //   'value'		=> 'TRUE'
+      // );
       $meta_shortlist = array(
-        'key' 		=> 'shortlist',
-        'value'		=> 'TRUE'
+        'relation'=> 'OR',
+        array(
+          'key' 		=> 'shortlist',
+          'value'   => true
+          'compare' => '='
+        ),
+        array(
+          'key' 		=> 'shortlist',
+          'value'   => 'TRUE',
+          'compare' => '='
+        ),
       );
     } else { $meta_shortlist = null; }
 
