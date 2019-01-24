@@ -27,6 +27,7 @@ function relevanssi_rest() {
   $filter_series = $_GET['filter_series']; // bool
   $series_name = $_GET['series_name'];
   $shortlist = $_GET['shortlist'];
+  if($shortlist == true || $shortlist == 1 || $shortlist == 'true') $shortlist = true;
 
   global $Rquery;
 
@@ -116,6 +117,10 @@ function relevanssi_rest() {
       $vname = mb_convert_case(mb_strtolower($vname, "UTF-8"), MB_CASE_TITLE, "UTF-8");
       $nname = mb_convert_case(mb_strtolower($nname, "UTF-8"), MB_CASE_TITLE, "UTF-8");
 
+      $shortlist = get_field('shortlist', $id);
+      if($shortlist == true || $shortlist == 1 || $shortlist == 'true') $shortlist = true;
+
+
       $entry = array(
         // 'magic' => $p->magic,
         // 'large' => '/wp-content/photos/' . $year . '/' . $imageid . '.jpg',
@@ -136,7 +141,7 @@ function relevanssi_rest() {
         'series_order' => get_field('series_order', $id),
         'winner' => $winner,
         'uid' => $uid,
-        'shortlist' => get_field('shortlist', $id),
+        'shortlist' => $shortlist,
         'filename' => get_field('filename', $id),
         'debug' => $debug,
       );
@@ -231,7 +236,7 @@ function rlv_hits_filter($hits) {
     if($shortlist) {
       $meta_shortlist = array(
         'key' 		=> 'shortlist',
-        'value'		=> true
+        'value'		=> 1
       );
     } else { $meta_shortlist = null; }
 
