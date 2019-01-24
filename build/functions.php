@@ -249,9 +249,7 @@ function rlv_hits_filter($hits) {
             'key'     => 'series_order',
             'value'   => 1
           );
-        } else {
-          // there might not be any series order entered...
-        }
+        } // else: there might not be any series_order entered after 2017...
       }
     } else { $meta_filter_series = null; }
 
@@ -333,7 +331,7 @@ function rlv_hits_filter($hits) {
 
     // filter series to just one pic per series for new series that don't necessarily have 'series_order' set (which is required for the old filter_series method to work)
     if($filter_series == true || $filter_series == 'true') {
-      if($y >= 2018) {
+      if($y >= 2017 && $c == 'serie') {
         // one image per series
         $series_names = array();
         $filtered_posts = array();
