@@ -79,6 +79,8 @@ while ( have_posts() ) : the_post();
 
   <? else: ?>
 
+              <? debug(get_field('shortlist')); ?>
+
     <section class="single-image section">
       <div class="container">
         <div class="columns">
