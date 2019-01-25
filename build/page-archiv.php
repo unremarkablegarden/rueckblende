@@ -5,7 +5,8 @@ global $post;
 $slug = $post->post_name;
 $year = date('Y', strtotime('-1 year') );
 $current_year = $year; // SETS THE CURRENT CONTEST'S YEAR
-$first_year = 2006;
+// $first_year = 2006;
+$first_year = 2003;
 $last_year = $current_year;
 $total_years = $last_year - $first_year;
 
