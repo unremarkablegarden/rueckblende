@@ -64,11 +64,14 @@ $total_years = $last_year - $first_year;
     <div class="archive-filter-wrap" data-section="archive">
       <div class="tabs archive-filter">
         <ul>
-          <li data-category="Foto" class="is-active">
+          <li data-category="foto" class="is-active">
             <a>Fotografie</a>
           </li>
-          <li data-category="Karikatur">
+          <li data-category="karikatur">
             <a>Karikatur</a>
+          </li>
+          <li data-category="serie">
+            <a>Serie</a>
           </li>
         </ul>
       </div>
@@ -99,6 +102,14 @@ $total_years = $last_year - $first_year;
           <div class="column is-3" data-prize="cartoon_prize_2"></div>
           <div class="column is-3" data-prize="cartoon_prize_3"></div>
           <div class="column is-3" data-prize="cartoon_public"></div>
+        </div>
+
+        <strong class="pad">Serie</strong>
+        <div class="columns is-multiline is-loading">
+          <div class="column is-3" data-prize="series_prize_1"></div>
+          <!-- <div class="column is-3" data-prize="cartoon_prize_2"></div>
+          <div class="column is-3" data-prize="cartoon_prize_3"></div>
+          <div class="column is-3" data-prize="cartoon_public"></div> -->
         </div>
 
       </div>
