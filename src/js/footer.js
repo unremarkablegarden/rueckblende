@@ -495,9 +495,9 @@
                 postCaption = '<div class="caption">' + post.caption + '</div><div class="shade"></div>';
 
                 if(post.series_name && catt === 'serie') {
-                  var img = '<a href="' + post.link + '" taget="_blank"><div class="'+winnerBadge+'"><div class="image' + seriesClass + '" style="background-image: url(' + post.thumb + ')">&nbsp;</div></div><div class="name">' + post.fullname + ' <span class="year">(' + post.year + ')</span></div></a>' + seriesName + postCaption;
+                  var img = '<a href="' + post.link + '" target="_blank"><div class="'+winnerBadge+'"><div class="image' + seriesClass + '" style="background-image: url(' + post.thumb + ')">&nbsp;</div></div><div class="name">' + post.fullname + ' <span class="year">(' + post.year + ')</span></div></a>' + seriesName + postCaption;
                 } else {
-                  var img = '<a href="' + post.link + '" taget="_blank"><div class="image' + seriesClass + winnerBadge + '" style="background-image: url(' + post.thumb + ')">&nbsp;</div><div class="name">' + post.fullname + ' <span class="year">(' + post.year + ')</span></div></a>' + seriesName + postCaption;
+                  var img = '<a href="' + post.link + '" target="_blank"><div class="image' + seriesClass + winnerBadge + '" style="background-image: url(' + post.thumb + ')">&nbsp;</div><div class="name">' + post.fullname + ' <span class="year">(' + post.year + ')</span></div></a>' + seriesName + postCaption;
                 }
 
 
