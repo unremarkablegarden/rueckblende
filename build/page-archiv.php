@@ -104,12 +104,17 @@ $total_years = $last_year - $first_year;
           <div class="column is-3" data-prize="cartoon_public"></div>
         </div>
 
-        <strong class="pad">Serie</strong>
-        <div class="columns is-multiline is-loading">
-          <div class="column is-3" data-prize="series_prize_1"></div>
-          <!-- <div class="column is-3" data-prize="cartoon_prize_2"></div>
-          <div class="column is-3" data-prize="cartoon_prize_3"></div>
-          <div class="column is-3" data-prize="cartoon_public"></div> -->
+        
+
+        <div id='series_archive_wrapper'>
+          <hr>
+          <strong class="pad">Serie</strong>
+          <div class="columns is-multiline is-loading">
+            <div class="column is-3" data-prize="series_prize_1"></div>
+            <!-- <div class="column is-3" data-prize="cartoon_prize_2"></div>
+            <div class="column is-3" data-prize="cartoon_prize_3"></div>
+            <div class="column is-3" data-prize="cartoon_public"></div> -->
+          </div>
         </div>
 
       </div>
