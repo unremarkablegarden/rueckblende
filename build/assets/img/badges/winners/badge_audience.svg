@@ -4,31 +4,28 @@
     <title>badge_audience</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <path d="M44.8816222,89.7632444 C69.6690577,89.7632444 89.7632444,69.6690577 89.7632444,44.8816222 C89.7632444,20.0941867 69.6690577,0 44.8816222,0 C42.7273041,0 39.5869665,0.330140162 35.4606095,0.990420485 L1.88157085,33.8277031 C0.627190284,38.5684054 0,42.2530451 0,44.8816222 C0,69.6690577 20.0941867,89.7632444 44.8816222,89.7632444 Z" id="path-1"></path>
-        <filter x="-3.9%" y="-2.8%" width="107.8%" height="107.8%" filterUnits="objectBoundingBox" id="filter-2">
+        <filter x="-6.1%" y="-6.1%" width="112.3%" height="112.3%" filterUnits="objectBoundingBox" id="filter-1">
             <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
         </filter>
-        <linearGradient x1="54.4545369%" y1="50%" x2="32.7701431%" y2="27.3702739%" id="linearGradient-3">
+        <linearGradient x1="54.4545369%" y1="50%" x2="32.7701431%" y2="27.3702739%" id="linearGradient-2">
             <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"></stop>
             <stop stop-color="#000000" stop-opacity="0.5" offset="100%"></stop>
         </linearGradient>
     </defs>
     <g id="Tournee-/-exhibition" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard" transform="translate(-99.000000, -84.000000)">
-            <g id="badge_audience" transform="translate(93.000000, 78.000000)">
+        <g id="Artboard" transform="translate(-121.000000, -107.000000)">
+            <g id="badge_audience" filter="url(#filter-1)" transform="translate(115.000000, 101.000000)">
                 <g transform="translate(52.759628, 52.759628) rotate(-11.000000) translate(-52.759628, -52.759628) translate(7.759628, 7.759628)">
                     <g id="Group-7">
-                        <g id="Oval-4">
-                            <g id="path-1-link" fill="#000000">
-                                <path d="M44.8816222,89.7632444 C69.6690577,89.7632444 89.7632444,69.6690577 89.7632444,44.8816222 C89.7632444,20.0941867 69.6690577,0 44.8816222,0 C42.7273041,0 39.5869665,0.330140162 35.4606095,0.990420485 L1.88157085,33.8277031 C0.627190284,38.5684054 0,42.2530451 0,44.8816222 C0,69.6690577 20.0941867,89.7632444 44.8816222,89.7632444 Z" id="path-1"></path>
-                            </g>
+                        <g id="Oval-4" fill="#FFFFFF">
                             <g id="path-1-link">
-                                <g id="path-1">
-                                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
-                                </g>
+                                <path d="M44.8816222,89.7632444 C69.6690577,89.7632444 89.7632444,69.6690577 89.7632444,44.8816222 C89.7632444,20.0941867 69.6690577,0 44.8816222,0 C42.7273041,0 39.5869665,0.330140162 35.4606095,0.990420485 L1.88157085,33.8277031 C0.627190284,38.5684054 0,42.2530451 0,44.8816222 C0,69.6690577 20.0941867,89.7632444 44.8816222,89.7632444 Z" id="path-1"></path>
                             </g>
                         </g>
                         <g id="Oval-4-Copy" transform="translate(4.000000, 3.000000)">
@@ -38,7 +35,7 @@
                             <g id="path-4-link" fill="#DBDBDB">
                                 <path d="M0.36349105,31.2845725 C17.8505106,26.8676327 28.9663155,15.7565779 32.1545885,0.11803433 C32.2014318,-0.11173331 0.36349105,31.2845725 0.36349105,31.2845725 Z" id="path-4"></path>
                             </g>
-                            <g id="path-4-link" fill="url(#linearGradient-3)">
+                            <g id="path-4-link" fill="url(#linearGradient-2)">
                                 <path d="M0.36349105,31.2845725 C17.8505106,26.8676327 28.9663155,15.7565779 32.1545885,0.11803433 C32.2014318,-0.11173331 0.36349105,31.2845725 0.36349105,31.2845725 Z" id="path-4"></path>
                             </g>
                         </g>
@@ -49,7 +46,7 @@
                             <g id="path-6-link" fill="#DBDBDB">
                                 <path d="M0.87006759,32.6612166 C19.3857353,28.0675993 31.1554111,16.5121022 34.5312296,0.24801693 C34.5808284,0.00905859 0.87006759,32.6612166 0.87006759,32.6612166 Z" id="path-6"></path>
                             </g>
-                            <g id="path-6-link" fill="url(#linearGradient-3)">
+                            <g id="path-6-link" fill="url(#linearGradient-2)">
                                 <path d="M0.87006759,32.6612166 C19.3857353,28.0675993 31.1554111,16.5121022 34.5312296,0.24801693 C34.5808284,0.00905859 0.87006759,32.6612166 0.87006759,32.6612166 Z" id="path-6"></path>
                             </g>
                         </g>
