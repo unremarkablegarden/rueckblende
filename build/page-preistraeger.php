@@ -182,8 +182,10 @@ endwhile; endif; wp_reset_query();
           </p>
           <p class="loc-date">
             <?
-            if($series[0]['location']) echo $series[0]['location'].', ';
-            echo $series[0]['date']; ?>
+            if($series[0]['location']) echo $series[0]['location'];
+            if($series[0]['location'] && $series[0]['date']) echo ', ';
+            if($series[0]['date']) echo $series[0]['date']; 
+            ?>
           </p>
         </div>
         <div class="column is-8">
