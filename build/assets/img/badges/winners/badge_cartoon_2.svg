@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="89px" height="90px" viewBox="0 0 89 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="94px" height="94px" viewBox="0 0 94 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
     <title>badge_cartoon_2</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <linearGradient x1="54.4545369%" y1="50%" x2="32.7701431%" y2="27.3702739%" id="linearGradient-1">
+        <path d="M44.4206902,88.8413805 C68.95356,88.8413805 88.8413805,68.95356 88.8413805,44.4206902 C88.8413805,19.8878204 68.95356,0 44.4206902,0 C42.2884969,0 39.1804104,0.326749639 35.0964308,0.980248917 L1.86224722,33.4802943 C0.620749072,38.1723098 0,41.8191085 0,44.4206902 C0,68.95356 19.8878204,88.8413805 44.4206902,88.8413805 Z" id="path-1"></path>
+        <filter x="-3.9%" y="-2.8%" width="107.9%" height="107.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="54.4545369%" y1="50%" x2="32.7701431%" y2="27.3702739%" id="linearGradient-3">
             <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"></stop>
             <stop stop-color="#000000" stop-opacity="0.5" offset="100%"></stop>
         </linearGradient>
     </defs>
     <g id="Tournee-/-exhibition" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard-Copy-7" transform="translate(-54.000000, -114.000000)">
-            <g id="badge_cartoon_2" transform="translate(46.000000, 53.000000)">
-                <g transform="translate(190.582843, 79.460151) rotate(-11.000000) translate(-190.582843, -79.460151) translate(5.082843, 34.960151)">
+        <g id="Artboard-Copy-7" transform="translate(-51.000000, -114.000000)">
+            <g id="badge_cartoon_2" transform="translate(46.000000, 107.000000)">
+                <g transform="translate(52.173410, 52.364219) rotate(-11.000000) translate(-52.173410, -52.364219) translate(7.673410, 7.864219)">
                     <g id="Group-7" transform="translate(0.000000, -0.000000)">
                         <g id="Oval-4">
                             <g id="path-1-link" fill="#000000">
                                 <path d="M44.4206902,88.8413805 C68.95356,88.8413805 88.8413805,68.95356 88.8413805,44.4206902 C88.8413805,19.8878204 68.95356,0 44.4206902,0 C42.2884969,0 39.1804104,0.326749639 35.0964308,0.980248917 L1.86224722,33.4802943 C0.620749072,38.1723098 0,41.8191085 0,44.4206902 C0,68.95356 19.8878204,88.8413805 44.4206902,88.8413805 Z" id="path-1"></path>
                             </g>
-                            <g id="path-1-link" fill="#FFFFFF">
-                                <path d="M44.4206902,88.8413805 C68.95356,88.8413805 88.8413805,68.95356 88.8413805,44.4206902 C88.8413805,19.8878204 68.95356,0 44.4206902,0 C42.2884969,0 39.1804104,0.326749639 35.0964308,0.980248917 L1.86224722,33.4802943 C0.620749072,38.1723098 0,41.8191085 0,44.4206902 C0,68.95356 19.8878204,88.8413805 44.4206902,88.8413805 Z" id="path-1"></path>
+                            <g id="path-1-link">
+                                <g id="path-1">
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                </g>
                             </g>
                         </g>
                         <g id="Oval-4-Copy" transform="translate(4.000000, 3.000000)">
@@ -29,7 +38,7 @@
                             <g id="path-4-link" fill="#DBDBDB">
                                 <path d="M0.31867822,30.9324717 C17.626107,26.5608937 28.6277531,15.5639488 31.7832827,0.08601227 C31.829645,-0.14139566 0.31867822,30.9324717 0.31867822,30.9324717 Z" id="path-4"></path>
                             </g>
-                            <g id="path-4-link" fill="url(#linearGradient-1)">
+                            <g id="path-4-link" fill="url(#linearGradient-3)">
                                 <path d="M0.31867822,30.9324717 C17.626107,26.5608937 28.6277531,15.5639488 31.7832827,0.08601227 C31.829645,-0.14139566 0.31867822,30.9324717 0.31867822,30.9324717 Z" id="path-4"></path>
                             </g>
                         </g>
@@ -40,7 +49,7 @@
                             <g id="path-6-link" fill="#DBDBDB">
                                 <path d="M0.85086209,32.3155177 C19.1763749,27.7690765 30.8251767,16.3322538 34.1663257,0.23519986 C34.2154151,-0.001304391 0.85086209,32.3155177 0.85086209,32.3155177 Z" id="path-6"></path>
                             </g>
-                            <g id="path-6-link" fill="url(#linearGradient-1)">
+                            <g id="path-6-link" fill="url(#linearGradient-3)">
                                 <path d="M0.85086209,32.3155177 C19.1763749,27.7690765 30.8251767,16.3322538 34.1663257,0.23519986 C34.2154151,-0.001304391 0.85086209,32.3155177 0.85086209,32.3155177 Z" id="path-6"></path>
                             </g>
                         </g>
