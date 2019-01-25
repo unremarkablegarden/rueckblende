@@ -35,7 +35,7 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
         <div class="column is-5 info">
           <img class="badge" src="<? img(); ?>/winners/badge_photo.svg"/>
           <h2 class="title">
-            <a href="#artist"><? echo $name; ?></a>
+            <a href="<? the_permalink(); ?>"><? echo $name; ?></a>
           </h2>
           <div class="description">
             <? the_field('caption'); ?>
@@ -246,7 +246,7 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
         <div class="column is-5 info">
           <img class="badge" src="<? img(); ?>/winners/badge_cartoon.svg"/>
           <h2 class="title">
-            <a href="#artist"><? echo $name; ?></a>
+            <a href="<? the_permalink(); ?>"><? echo $name; ?></a>
           </h2>
           <div class="description">
             <? the_field('caption'); ?>
