@@ -119,7 +119,7 @@ $p_query = new WP_Query( $args ); ?>
                 <!-- <img src="<? the_entry_src($year, $imageid, true); ?>"/> -->
                 <? showImage(get_the_ID()); ?>
               </a>
-              <h3><a href="#honk"><? echo $name; ?></a></h3>
+              <h3><a href="<? the_permalink(); ?>"><? echo $name; ?></a></h3>
               <p><? the_field('caption'); ?></p>
 
             </div>
@@ -327,11 +327,11 @@ $p_query = new WP_Query( $args ); ?>
                 if($badge) echo $badge;
               ?>
 
-              <a href="#imagepage">
+              <a href="<? the_permalink(); ?>">
                 <!-- <img src="<? the_entry_src($year, $imageid, true); ?>"/> -->
                 <? showImage(get_the_ID()); ?>
               </a>
-              <h3><a href="#honk"><? echo $name; ?></a></h3>
+              <h3><a href="<? the_permalink(); ?>"><? echo $name; ?></a></h3>
               <p><? the_field('caption'); ?></p>
 
             </div>
