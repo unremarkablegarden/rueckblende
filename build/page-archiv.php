@@ -70,7 +70,7 @@ $total_years = $last_year - $first_year;
           <li data-category="karikatur">
             <a>Karikatur</a>
           </li>
-          <li data-category="serie">
+          <li data-category="serie" class='series_archive_wrapper'>
             <a>Serie</a>
           </li>
         </ul>
@@ -106,7 +106,7 @@ $total_years = $last_year - $first_year;
 
         
 
-        <div id='series_archive_wrapper'>
+        <div class='series_archive_wrapper'>
           <hr>
           <strong class="pad">Serie</strong>
           <div class="columns is-multiline is-loading">

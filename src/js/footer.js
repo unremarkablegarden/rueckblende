@@ -422,9 +422,9 @@
         $('.more').remove();
 
         if(v < 2017) {
-          $('#series_archive_wrapper').hide();
+          $('.series_archive_wrapper').hide();
         } else {
-          $('#series_archive_wrapper').show();
+          $('.series_archive_wrapper').show();
         }
 
         ajaxState();
