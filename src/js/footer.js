@@ -595,6 +595,14 @@
           setSection();
         }
 
+        // shortlist hack
+        if(category == 'serie') {
+          console.log('shortlist hack');
+          $('.page-template-page-shortlist .loadmore.opacity0').removeClass('opacity0');
+        } else {
+          $('.page-template-page-shortlist .loadmore').addClass('opacity0');
+        }
+
         ajaxState();
         return false;
       });
