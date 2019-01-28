@@ -352,6 +352,9 @@ $p_query = new WP_Query( $args ); ?>
 .slider-item {
   width: 100%;
 }
+.photo_series h3 a:hover {
+  color: #ab002c !important;
+}
 </style>
 
 
