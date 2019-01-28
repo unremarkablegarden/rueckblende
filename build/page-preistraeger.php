@@ -164,6 +164,7 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
   $image['location'] = get_field('location');
   $image['date'] = get_field('date');
   $image['caption'] = get_field('caption');
+  $image['link'] = get_the_permalink();
   $series[] = $image;
 endwhile; endif; wp_reset_query();
 // debug($series);
@@ -175,7 +176,7 @@ endwhile; endif; wp_reset_query();
         <div class="column is-4 info">
           <img class="series_icon" src = "<? img(); ?>/archive/icon_series.svg">
           <h3>
-            <a href="<? the_permalink(); ?>">
+            <a href="<? echo $image['link']; ?>">
               <? echo $series[0]['name']; ?>
             </a>
           </h3>
