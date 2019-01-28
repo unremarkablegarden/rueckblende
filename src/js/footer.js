@@ -604,7 +604,7 @@
         }
         // shortlist hack remove empties
         $('.more.columns').each(function(){
-          if ($(this).find('*').length === 0) {
+          if(!$(this).html()) {
             $(this).remove();
           }
         })
