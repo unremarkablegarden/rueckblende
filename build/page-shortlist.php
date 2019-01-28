@@ -20,11 +20,9 @@ get_header();
           <li data-category="karikatur" class="<? if($c == 'karikatur') echo 'is-active'; ?>">
               <a>Karikatur</a>
           </li>
-
           <li data-category="foto" class="<? if($c == 'foto') echo 'is-active'; ?>">
               <a>Fotografie</a>
           </li>
-
           <li data-category="serie" class="<? if($c == 'serie') echo 'is-active'; ?>">
               <a>Serie</a>
           </li>
@@ -32,26 +30,24 @@ get_header();
     </div>
   </div>
 
-    <!-- <section class="content-grid paddy"> -->
-    <section class=" section container">
+  <section class="section container" data-section="shortlist">
+    <div class="columns is-multiline is-loading" id="results" data-state="empty">
+      <? // load page-fetch with ajax ?>
+    </div>
+  </section>
+
+
+  <!-- <section class="section archive" data-section="archive">
+    <div class="container">
       <div class="columns is-multiline is-loading" id="results" data-state="empty">
-        <? // load page-fetch with ajax ?>
       </div>
-    </section>
+    </div>
+  </section> -->
 
-    <!-- </section> -->
 
-    <!-- <div class="pagination is-hidden">
-      <a class="arrow prev" data-dir="prev">
-        <img src="<? img(); ?>/image_page/arrow_red_back.svg" alt="">
-      </a>
-      <div class="page">
-        <span>1</span>
-      </div>
-      <a class="arrow next" data-dir="next">
-        <img src="<? img(); ?>/image_page/arrow_red_forward.svg" alt="">
-      </a>
-    </div> -->
+  <section class="section has-text-centered loadmore is-hidden" data-section="shortlist">
+    <button type="button" name="load-more" id="load-more" class="button is-medium">Mehr laden</button>
+  </section>
 
 </div>
 <? get_footer(); ?>
