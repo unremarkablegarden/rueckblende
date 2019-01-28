@@ -50,4 +50,11 @@ get_header();
   </section>
 
 </div>
+
+<style>
+.is-hidden {
+  display: none;
+}
+</style>
+
 <? get_footer(); ?>
