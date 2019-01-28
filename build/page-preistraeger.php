@@ -174,7 +174,11 @@ endwhile; endif; wp_reset_query();
       <div class="columns">
         <div class="column is-4 info">
           <img class="series_icon" src = "<? img(); ?>/archive/icon_series.svg">
-          <h3><? echo $series[0]['name']; ?></h3>
+          <h3>
+            <a href="<? the_permalink(); ?>">
+              <? echo $series[0]['name']; ?>
+            </a>
+          </h3>
           <p class="description">
             <?
             if($series[0]['series']) echo $series[0]['series'];

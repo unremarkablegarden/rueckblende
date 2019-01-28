@@ -607,7 +607,7 @@
           if(!$(this).html()) {
             $(this).remove();
           }
-        })
+        });
 
         ajaxState();
         return false;
