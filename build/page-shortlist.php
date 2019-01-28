@@ -45,15 +45,15 @@ get_header();
   </section> -->
 
 
-  <section class="section has-text-centered loadmore is-hidden" data-section="shortlist">
+  <section class="section has-text-centered loadmore is-hidden opacity0" data-section="shortlist">
     <button type="button" name="load-more" id="load-more" class="button is-medium">Mehr laden</button>
   </section>
 
 </div>
 
 <style>
-.is-hidden {
-  display: none;
+.page-template-page-shortlist .opacity0 {
+  opacity: 0;
 }
 </style>
 
