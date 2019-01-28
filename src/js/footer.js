@@ -602,6 +602,11 @@
         } else {
           $('.page-template-page-shortlist .loadmore').addClass('opacity0');
         }
+        // shortlist hack remove empties
+        $('.more.columns.is-multiline').each(function(){
+          var tl = $(this).contents().length;
+          if(tl == 0) $(this).remove();
+        })
 
         ajaxState();
         return false;
