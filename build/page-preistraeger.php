@@ -75,7 +75,11 @@ $args = array(
         'value'   => 'Yes'
       ),
       array(
-        'key'     => 'das_scharfe_sehen_1',
+        'key'     => 'das_scharfe_sehen_2',
+        'value'   => 'Yes'
+      ),
+      array(
+        'key'     => 'photo_public',
         'value'   => 'Yes'
       ),
     ),
@@ -100,6 +104,7 @@ $p_query = new WP_Query( $args ); ?>
         elseif(!empty(get_field('photo_prize_3'))) $winner = 'photo_prize_3';
         elseif(!empty(get_field('das_scharfe_sehen_1'))) $winner = 'das_scharfe_sehen_1';
         elseif(!empty(get_field('das_scharfe_sehen_2'))) $winner = 'das_scharfe_sehen_2';
+        elseif(!empty(get_field('photo_public'))) $winner = 'photo_public';
         ?>
           <div class="column is-3 runnerup-item">
             <div class="inner">
@@ -110,6 +115,9 @@ $p_query = new WP_Query( $args ); ?>
                 }
                 elseif($winner == 'das_scharfe_sehen_1') {
                   $badge = $badge_start."/winners/badge_special_price.svg'>";
+                }
+                elseif($winner == 'photo_public') {
+                  $badge = $badge_start."/winners/badge_audience.svg'>";
                 }
 
                 if($badge) echo $badge;
@@ -291,7 +299,11 @@ $args = array(
       array(
         'key'     => 'auszeichnung_karikatur',
         'value'   => 'Yes'
-      )
+      ),
+      array(
+        'key'     => 'cartoon_public',
+        'value'   => 'Yes'
+      ),
     ),
     array(
       'key'     => 'year',
@@ -313,6 +325,7 @@ $p_query = new WP_Query( $args ); ?>
         elseif(!empty(get_field('cartoon_prize_2'))) $winner = 'cartoon_prize_2';
         elseif(!empty(get_field('cartoon_prize_3'))) $winner = 'cartoon_prize_3';
         elseif(!empty(get_field('auszeichnung_karikatur'))) $winner = 'auszeichnung_karikatur';
+        elseif(!empty(get_field('cartoon_public'))) $winner = 'cartoon_public';
 
         // sort
         ?>
@@ -329,6 +342,9 @@ $p_query = new WP_Query( $args ); ?>
                 }
                 elseif($winner == 'cartoon_prize_3') {
                   $badge = $badge_start."/winners/badge_cartoon_3.svg'>";
+                }
+                elseif($winner == 'cartoon_public') {
+                  $badge = $badge_start."/winners/badge_audience.svg'>";
                 }
 
                 if($badge) echo $badge;
