@@ -52,7 +52,7 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
 <?
 $args = array(
   'post_type'  => 'entry',
-  'posts_per_page' => 3,
+  'posts_per_page' => 10,
   'order' => 'ASC',
   'meta_query' => array(
     'relation' => 'AND',
@@ -90,7 +90,9 @@ $args = array(
   )
 );
 
-$p_query = new WP_Query( $args ); ?>
+$p_query = new WP_Query( $args );
+
+?>
   <section class="runnerup-section section">
     <div class="container">
       <div class="columns is-multiline">
@@ -279,7 +281,9 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
 $args = array(
   'post_type'  => 'entry',
   'order' => 'DESC',
-  'posts_per_page' => 4,
+  // 'order' => 'ASC',
+  'modified' => 'modified',
+  'posts_per_page' => 10,
   'meta_query' => array(
     'relation' => 'AND',
     array(
