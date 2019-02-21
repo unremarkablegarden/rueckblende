@@ -281,8 +281,6 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
 $args = array(
   'post_type'  => 'entry',
   'order' => 'DESC',
-  // 'order' => 'ASC',
-  'modified' => 'modified',
   'posts_per_page' => 10,
   'meta_query' => array(
     'relation' => 'AND',
