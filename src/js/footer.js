@@ -784,25 +784,54 @@
         $('#datum_19951').on('input', function(e){
           var val = $(this).val();
           console.log(val);
+
+          var sd = 20181130;
+
           var valA = val.split('.');
           var day = parseInt(valA[0]);
           var month = parseInt(valA[1]);
           var year = parseInt(valA[2]);
-          if(year == '2018') {
-            if (month == 11 || month == 12 ) {
-              if (day >= 1 && day <= 31) {
-                enableSubmit();
-              }
-            }
-          } else if (year == '2019') {
-            if (month >= 1 && month <= 12) {
-              if (day >= 1 && day <= 31) {
-                enableSubmit();
-              }
-            }
+          var ed = parseInt(year*10000 + month*100 + day);
+
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1;
+          var yyyy = today.getFullYear();
+          var td = parseInt(yyyy*10000 + mm*100 + dd);
+
+          console.log('ed = ' + ed);
+          console.log('td = ' + td);
+          
+
+          if (ed <= td && ed >= sd) {
+            console.log('entered date smaller than todays date & entered date is larger than start date');
+            enableSubmit();
           } else {
+            console.log('date out of range');
             disableSubmit();
           }
+
+          // if(year == '2018') {
+          //   if (month == 11 && day == 30) {
+          //     enableSubmit();
+          //   }
+          //   else if(month == 12 ) {
+          //     if (day >= 1 && day <= 31) {
+          //       enableSubmit();
+          //     }
+          //   }
+          // } else if (year == '2019') {
+          //   if (month >= 1 && month <= 11) {
+          //     if (day >= 1 && day <= 31) {
+          //       enableSubmit();
+          //     }
+          //   } else if (month == 12 && day == 1) {
+          //     enableSubmit();
+          //   }
+          // } else {
+          //   disableSubmit();
+          // }
+          
         });
 
         function disableSubmit() {
