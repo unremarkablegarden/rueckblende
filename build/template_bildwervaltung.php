@@ -190,7 +190,7 @@ foreach($submissions as $sub) {
 
                 <b>✅ Diese von Ihnen hochgeladenen Bilddateien nehmen am Wettbewerb teil.</b>
                 <br><br>
-                Sie können Ihre Auswahl noch bis zur Schließung des Wettbewerbsportals am 29. November, 12 Uhr, aktualisieren.
+                Sie können Ihre Auswahl noch bis zur Schließung des Wettbewerbsportals am 02. Dezember, 12 Uhr, aktualisieren.
                 <br><br>
                 <a href="/einreichen">Noch mehr einreichen</a>?
                 <!-- Sie können noch max X Bilder hochladen. -->
@@ -265,14 +265,14 @@ foreach($submissions as $sub) {
               $edit_page = (int) wpuf_get_option( 'edit_page_id', 'wpuf_frontend_posting' );
               $url = add_query_arg( array('pid' => $post->ID), get_permalink( $edit_page ) );
               ?>
-              <a  class="button" href="<?php echo wp_nonce_url( $url, 'wpuf_edit' ); ?>"><?php _e( 'Edit', 'wpuf' ); ?></a>
+              <a  class="button" href="<?php echo wp_nonce_url( $url, 'wpuf_edit' ); ?>"><?php _e( 'Bearbeiten', 'wpuf' ); ?></a>
 
               <?
               $del_url = add_query_arg( array('action' => 'del', 'pid' => $post->ID) );
               $message = __( 'Wirklich löschen?', 'wpuf' );
               ?>
               <a class="button" href="<?php echo wp_nonce_url( $del_url, 'wpuf_del' ) ?>" onclick="return confirm('<?php echo $message ?>');">
-                <?php _e( 'Delete', 'wpuf' ); ?>
+                <?php _e( 'Löschen', 'wpuf' ); ?>
               </a>
             </div>
           </div>

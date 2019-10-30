@@ -778,6 +778,42 @@
 
         // $('.wpuf-el').not('.kategorie').hide();
 
+        // ============ date check hack ============
+        // 30. November 2018 bis einschließlich 1. Dezember 2019
+
+        $('#datum_19951').on('input', function(e){
+          var val = $(this).val();
+          console.log(val);
+          var valA = val.split('.');
+          var day = parseInt(valA[0]);
+          var month = parseInt(valA[1]);
+          var year = parseInt(valA[2]);
+          if(year == '2018') {
+            if (month == 11 || month == 12 ) {
+              if (day >= 1 && day <= 31) {
+                enableSubmit();
+              }
+            }
+          } else if (year == '2019') {
+            if (month >= 1 && month <= 12) {
+              if (day >= 1 && day <= 31) {
+                enableSubmit();
+              }
+            }
+          } else {
+            disableSubmit();
+          }
+        });
+
+        function disableSubmit() {
+          $('#datum_19951').css('background', '#FFF5F5');
+          $('.wpuf_submit_19951').prop("disabled", true).css('cursor', 'default');
+        }
+        function enableSubmit() {
+          $('#datum_19951').css('background', '#FFF');
+          $('.wpuf_submit_19951').prop("disabled", false).css('cursor', 'pointer');
+        }
+
         $('.wpuf-submit-button').on('click', function(){
           setTimeout(function(){
             console.log('fix english form errors');
@@ -802,6 +838,7 @@
             img.src = url;
             img.onload = function() { callback(this.width, this.height); }
         }
+
         var largeImg = false;
         $(document).on('DOMSubtreeModified',function(){
           if (!largeImg) {
@@ -818,10 +855,23 @@
 
               getMeta(largeImg, function(width, height) {
                 // console.log(width + 'px ' + height + 'px');
-                if (width < 1200) {
-                  alert('Dieses Bild ist zu klein. Bitte lade in höherer Auflösung hoch.');
-                  $('a.attachment-delete').trigger('click');
+                if (width < 1200 && width > 1) {
+                  console.log('too small');
+                  disableSubmit();
+
+                  var warning = $('<div class="file-warning" style="color: red; font-weight: bold;">Dieses Bild ist zu klein. Bitte lade in höherer Auflösung hoch.</div>');
+
+                  if ($('.file-warning').length < 1) {
+                    $('#wpuf-datei-19951-upload-container').after(warning);
+                  }
+
+                  // alert('Dieses Bild ist zu klein. Bitte lade in höherer Auflösung hoch.');
+                  // $('a.attachment-delete').trigger('click');
+
                   largeImg = false;
+                } else {
+                  $('.file-warning').remove();
+                  enableSubmit();
                 }
               });
             }
