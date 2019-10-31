@@ -14,7 +14,14 @@ $current_page = $post->post_name;
       <? include('cms-menu.php');  ?>
     </div>
     <div class="column is-9 main content">
+
+      <? //$form = '[ultimatemember form_id="20049"]';  ?>
+      
+        <? //echo(do_shortcode($form)); ?>
       <? echo wpautop(do_shortcode(get_the_content())); ?>
+      
+      <? //the_content(); ?>
+
     </div>
   </div>
 </section>

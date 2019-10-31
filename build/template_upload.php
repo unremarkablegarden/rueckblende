@@ -7,7 +7,12 @@ get_header();
 global $post;
 $current_page = $post->post_name;
 
-$action = $_GET['action'];
+if(isset($_GET['action'])) {
+  $action = $_GET['action'];
+} else {
+  $action = false;
+}
+
 if ($action == 'juryedit') $juryedit = true;
 else $juryedit = false;
 
@@ -58,7 +63,14 @@ foreach($all_submissions as $sub) {
     $all_series[$array_place] = $n;
   }
 }
-$state['totalseriescount'] = count($all_series) - 1;
+
+// Notice: Undefined variable: all_series in /var/www/html/wp-content/themes/rueckblende/build/template_upload.php on line 66
+if( isset($all_series) ) {
+  $state['totalseriescount'] = count($all_series) - 1;
+} else {
+  $state['totalseriescount'] = 0;
+}
+
 
 foreach($submissions as $sub) {
   $cf = get_post_custom($sub->ID);
@@ -113,6 +125,8 @@ foreach($submissions as $sub) {
       <?
       if (!$profession) {
         $profession = 'unknown';
+      } else {
+        $profession = strtolower($profession[0]);
       }
       echo '<div class="hidden usertype" data-usertype="'.$profession.'"></div>';      
       ?>
