@@ -602,11 +602,19 @@ if (!is_admin()) {
 
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1' );
+    wp_enqueue_script('jquery');
+    
     wp_deregister_script( 'jquery-migrate' );
     wp_register_script( 'jquery-migrate', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js', array(), '3.1.0' );
+    wp_enqueue_script('jquery-migrate');
+    
   }
   add_action( 'wp_enqueue_scripts', 'replace_core_jquery_version' );
 }
+
+
+add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_style' );
+add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
 
 
 
