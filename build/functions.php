@@ -174,11 +174,16 @@ function relevanssi_rest() {
 
 
 add_filter('relevanssi_search_ok', 'search_trigger');
+
 function search_trigger($search_ok) {
   global $wp_query, $Rquery;
-  if ( !isset($wp_query->query['s']) && $Rquery->query_vars['magic'] ) {
-    $search_ok = true;
+
+  if ( !isset($wp_query) && isset($Rquery) ) {
+    if ( !isset($wp_query->query['s']) && $Rquery->query_vars['magic'] ) {
+      $search_ok = true;
+    }
   }
+
   return $search_ok;
 }
 

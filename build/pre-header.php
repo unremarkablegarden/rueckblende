@@ -160,7 +160,7 @@ else $bigheader = false;
     $slug === 'guestlist'
     ): ?>
       <div class="badge">
-        <img src="<? img(); ?>/badges/badge_rueck2018.svg" alt="">
+        <img src="<? img(); ?>/badges/rueck_badge_2019.svg" alt="">
       </div>
 
     <? // SEARCH

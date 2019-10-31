@@ -110,6 +110,12 @@ foreach($submissions as $sub) {
     <? endif; ?>
 
     <div class="column is-9 main">
+      <?
+      if (!$profession) {
+        $profession = 'unknown';
+      }
+      echo '<div class="hidden usertype" data-usertype="'.$profession.'"></div>';      
+      ?>
       <? the_content(); ?>
     </div>
   </div>

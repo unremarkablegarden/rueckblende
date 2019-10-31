@@ -38,11 +38,26 @@
       <div class="site-branding">
         <h1 class="site-title">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-            <? // GET ONE PAGE by slug
-            $q = new WP_Query(array( 'page_id' => get_ID_by_slug('header-logo') ));
-            if($q->have_posts()): while($q->have_posts()): $q->the_post();
-              echo get_the_content();
-            endwhile; wp_reset_postdata(); endif; ?>
+            <? 
+            if ($slug === 'login' || 
+              $slug === 'register' ||
+              $slug === 'passwort' ||
+              $slug === 'konto' ||
+              $slug === 'bildverwaltung' ||
+              $slug === 'konto' ||
+              $slug === 'einreichen' ||
+              $slug === 'guestlist'
+            ): ?>
+              <img src="<? img(); ?>/logo_subline_2019.svg" alt="">
+            <? else: ?>
+
+              <? // GET ONE PAGE by slug
+              $q = new WP_Query(array( 'page_id' => get_ID_by_slug('header-logo') ));
+              if($q->have_posts()): while($q->have_posts()): $q->the_post();
+                echo get_the_content();
+              endwhile; wp_reset_postdata(); endif; ?>
+
+            <? endif; ?>
           </a>
         </h1>
       </div>

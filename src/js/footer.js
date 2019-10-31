@@ -780,7 +780,6 @@
 
         // ============ date check hack ============
         // 30. November 2018 bis einschließlich 1. Dezember 2019
-
         $('#datum_19951').on('input', function(e){
           var val = $(this).val();
           console.log(val);
@@ -798,11 +797,7 @@
           var mm = today.getMonth()+1;
           var yyyy = today.getFullYear();
           var td = parseInt(yyyy*10000 + mm*100 + dd);
-
-          console.log('ed = ' + ed);
-          console.log('td = ' + td);
           
-
           if (ed <= td && ed >= sd) {
             console.log('entered date smaller than todays date & entered date is larger than start date');
             enableSubmit();
@@ -810,27 +805,6 @@
             console.log('date out of range');
             disableSubmit();
           }
-
-          // if(year == '2018') {
-          //   if (month == 11 && day == 30) {
-          //     enableSubmit();
-          //   }
-          //   else if(month == 12 ) {
-          //     if (day >= 1 && day <= 31) {
-          //       enableSubmit();
-          //     }
-          //   }
-          // } else if (year == '2019') {
-          //   if (month >= 1 && month <= 11) {
-          //     if (day >= 1 && day <= 31) {
-          //       enableSubmit();
-          //     }
-          //   } else if (month == 12 && day == 1) {
-          //     enableSubmit();
-          //   }
-          // } else {
-          //   disableSubmit();
-          // }
           
         });
 
@@ -1004,6 +978,12 @@
             serie.hide(); // foto.hide(); karikatur.show();
             $('label[for="datum"]').html('Erscheinungsdatum <span class="required">*</span>');
             $('label[for="standort"]').html('Veröffentlicht in folgender Zeitung <span class="required">*</span>');
+
+            $('label[for="datum_19951"]').html('Erscheinungsdatum <span class="required">*</span>');
+            $('label[for="standort_19951"]').html('Veröffentlicht in folgender Zeitung <span class="required">*</span>');
+
+            standort_19951
+
           }
 
           if (state.total[val] < rules[val].max && state.total[val] < rules.val.min) {
