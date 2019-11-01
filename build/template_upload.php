@@ -35,7 +35,15 @@ $state['juryedit'] = $juryedit;
 
 um_fetch_user(get_current_user_id());
 $profession = um_user('user_profession');
-$state['usertype'] = strtolower($profession[0]);
+$profession = strtolower($profession[0]);
+
+if ($profession == '0') {
+  $profession = 'fotograf';
+} elseif ($profession == '1') {
+  $profession = 'karikaturist';
+}
+
+$state['usertype'] = $profession;
 $state['username'] = um_user('user_login');
 
 // count total series
@@ -123,12 +131,11 @@ foreach($submissions as $sub) {
 
     <div class="column is-9 main">
       <?
-      if (!$profession) {
+      if (!isset($profession[0])) {
         $profession = 'unknown';
-      } else {
-        $profession = strtolower($profession[0]);
       }
-      echo '<div class="hidden usertype" data-usertype="'.$profession.'"></div>';      
+      
+      echo '<div class="xhidden usertype" data-usertype="'.$profession.'">'.$profession.'</div>';      
       ?>
       <? the_content(); ?>
     </div>

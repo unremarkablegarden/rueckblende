@@ -18,9 +18,9 @@ $current_page = $post->post_name;
       <? //$form = '[ultimatemember form_id="20049"]';  ?>
       
         <? //echo(do_shortcode($form)); ?>
-      <? echo wpautop(do_shortcode(get_the_content())); ?>
+      <? // echo wpautop(do_shortcode(get_the_content())); ?>
       
-      <? //the_content(); ?>
+      <? the_content(); ?>
 
     </div>
   </div>
