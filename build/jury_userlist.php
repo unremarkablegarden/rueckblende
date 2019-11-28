@@ -112,6 +112,7 @@ if ($_GET['method'] == 'export') {
             'first_name' => $usermeta['first_name'][0],
             'last_name' => $usermeta['last_name'][0],
             'full_name' => $usermeta['first_name'][0]." ".$usermeta['last_name'][0],
+            'type' => $usermeta['user_profession'][0],
             'e-mail' => $email,
             'count' => $state['total'],
             'meta' => $usermeta
@@ -165,6 +166,7 @@ if ($_GET['method'] == 'export') {
         <table id='usertable' width='100%'>
           <tr>
             <td><b>Name</b></td>
+            <td><b>Type</b></td>
             <td><b>E-Mail</b></td>
             <td><b>Foto #</b></td>
             <td><b>Serie #</b></td>
@@ -175,7 +177,16 @@ if ($_GET['method'] == 'export') {
               <td width='20%'>
                 <? echo $user['full_name']; ?>
               </td>
-              <td width='50%'>
+              <td width='10%'>
+                <? 
+                $usr = $user['type']; 
+                if ($usr) {
+                  $usr = explode('"', $usr);
+                  echo $usr[1];
+                }
+                ?>
+              </td>
+              <td width='40%'>
                 <? echo $user['e-mail']; ?>
               </td>
               <td width='10%'>
