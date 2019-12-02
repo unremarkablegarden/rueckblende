@@ -27,7 +27,7 @@
 <body <?php body_class(); ?>>
   <div id="page" class="hfeed site">
 
-    <? include('pre-header-submissions.php'); ?>
+    <? // include('pre-header-submissions.php'); ?>
     <? include('pre-header.php'); ?>
 
     <header id="header" class="flex-space-between">
@@ -85,11 +85,12 @@
       <div class="menu-wrapper">
         <div class="inner">
           
-          <a href="/login/">
+          
+          <!-- <a href="/login/">
             <img src="<? img(); ?>/competition2019.svg" style="width: 380px; margin-right: -54px;"/>
           </a>
 
-          <hr/>
+          <hr/> -->
 
           <div id="responsive-menu"><?php wp_nav_menu( array( 'theme_location' => 'header', 'menu_id' => 'menu-header', 'menu_class' => 'menu-inline' ) ); ?></div>
           
