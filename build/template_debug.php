@@ -31,16 +31,25 @@ $current_page = $post->post_name;
       <h1 class='title'>Serienliste</h1>
     </div>
   </div>
-
   <?
   $user = wp_get_current_user();
   $allowed_roles = array('editor', 'administrator');
   if (array_intersect($allowed_roles, $user->roles)) :
     ?>
-
+    <style>
+      td {
+        padding: 4px;
+      }
+    </style>
     <div class="columns">
       <div class="column">
-
+        <table border="1" style="font-size: 14px;">
+          <tr style="font-weight: bold;">
+            <td>author</td>
+            <td>series</td>
+            <td>title</td>
+            <td>time</td>
+          </tr>
         <?
 
 
@@ -48,6 +57,7 @@ $current_page = $post->post_name;
   $args = array(
     'posts_per_page' => -1,
     'year'          => date('Y'),
+    'orderby'         => 'date',
   );
   $all_submissions = get_posts($args);
   $all_seris = array();
@@ -60,7 +70,21 @@ $current_page = $post->post_name;
       $series_name = $cf['serienname'][0];
       $author_series = $author . "_" . $series_name;
       $array_place = sanitize_title($author_series);
-      // echo $array_place."<br />";
+
+      echo '<tr>';
+        echo '<td>';
+        echo $author;
+        echo '</td>';
+        echo '<td>';
+        echo $series_name;
+        echo '</td>';
+        echo '<td>';
+        echo get_the_title();
+        echo '</td>';
+        echo '<td>';
+        echo gmdate('Y-m-d H:i:s', get_post_time('U', false, $sub->ID));
+        echo '</td>';
+      echo '</tr>';
 
       $n = $all_series[$array_place];
       if (!$n) {
@@ -75,10 +99,7 @@ $current_page = $post->post_name;
   }
 
         ?>
-
-        <xmp><? print_r($all_series); ?></xmp>
-        <? echo count($all_series) - 1; ?>
-
+        </table>
       </div>
     </div>
 </section>
