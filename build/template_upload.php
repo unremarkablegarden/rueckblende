@@ -108,10 +108,10 @@ foreach($submissions as $sub) {
 
 ?>
 
-<div id='state' data-state='<? echo json_encode($state); ?>'>
-  <!-- <xmp>
+<div id='state' data-state='<? echo json_encode($state); ?>' style='display: none;'>
+  <xmp>
     <? print_r($state); ?>
-  </xmp> -->
+  </xmp>
 </div>
 
 <section class="upload-page">
@@ -134,8 +134,8 @@ foreach($submissions as $sub) {
       if (!isset($profession[0])) {
         $profession = 'unknown';
       }
-      
-      echo '<div class="xhidden usertype" data-usertype="'.$profession.'">'.$profession.'</div>';      
+
+      echo '<div class="is-hidden usertype" data-usertype="'.$profession.'">'.$profession.'</div>';
       ?>
       <? the_content(); ?>
     </div>
