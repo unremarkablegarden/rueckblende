@@ -969,7 +969,7 @@
               var seriesCounterText = 'Das Limit von 50 möglichen Serien-Einsendungen ist bereits erreicht.';
               var seriesCounterTag = '<p class="series_counter" style="border: 1px #aaa solid; background: #FFD; padding: 0.5em 1em; margin: 0 0 2em 0; font-size: 0.9em; border-radius: 4px;">' + seriesCounterText + '</p>';
               $('.wpuf-form .wpuf-el:first').after(seriesCounterTag);
-              $('.wpuf-el.serienname').hide();
+              // $('.wpuf-el.serienname').hide();
             }
 
             // foto.hide(); karikatur.hide();
