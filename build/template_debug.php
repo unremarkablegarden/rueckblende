@@ -79,7 +79,7 @@ $current_page = $post->post_name;
         echo $series_name;
         echo '</td>';
         echo '<td>';
-        echo get_the_title();
+        echo get_the_title($sub->ID);
         echo '</td>';
         echo '<td>';
         echo gmdate('Y-m-d H:i:s', get_post_time('U', false, $sub->ID));
