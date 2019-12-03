@@ -297,7 +297,7 @@
       // console.log('winners');
 
       $('.tabs li:first').addClass('is-active');
-      
+
       var catt = $('.tabs li:first').data('category');
       if(catt) catt = catt.toLowerCase();
 
@@ -797,7 +797,7 @@
           var mm = today.getMonth()+1;
           var yyyy = today.getFullYear();
           var td = parseInt(yyyy*10000 + mm*100 + dd);
-          
+
           if (ed <= td && ed >= sd) {
             console.log('entered date smaller than todays date & entered date is larger than start date');
             enableSubmit();
@@ -805,7 +805,7 @@
             console.log('date out of range');
             disableSubmit();
           }
-          
+
         });
 
         function disableSubmit() {
@@ -941,14 +941,15 @@
 
             // set series name if it exists, disable editing it
             // also hide if editing
-            // don't hide if there's only one series
+            // don't hide if there's only one series for the user
             if (state.total.serie >= 1) {
-              // console.log('honk1');
               if (state.serienname || isEdit) {
-                // console.log('honk2');
-                $('input[name="serienname"]').val(state.serienname);
-                $('li.serienname').css({ 'overflow': 'hidden', 'height': 0, 'opacity': 0, 'display': 'none !important', 'padding': 0, 'margin': 0 });
-                // $('li.serienname').css({ 'display': 'none !important'});
+                var seriesInput = $('input[name="serienname"]');
+                seriesInput.val(state.serienname);
+                seriesInput.attr('disabled', 'disabled').css('cursor', 'no-drop');
+                seriesInput.closest('.wpuf-fields').find('.wpuf-help').not('.wpuf-wordlimit-message').text('');
+                // $('li.serienname').css({ 'overflow': 'hidden', 'height': 0, 'opacity': 0, 'display': 'none !important', 'padding': 0, 'margin': 0 });
+
               }
             }
 
@@ -968,6 +969,7 @@
               var seriesCounterText = 'Das Limit von 50 möglichen Serien-Einsendungen ist bereits erreicht.';
               var seriesCounterTag = '<p class="series_counter" style="border: 1px #aaa solid; background: #FFD; padding: 0.5em 1em; margin: 0 0 2em 0; font-size: 0.9em; border-radius: 4px;">' + seriesCounterText + '</p>';
               $('.wpuf-form .wpuf-el:first').after(seriesCounterTag);
+              $('.wpuf-el.serienname').hide();
             }
 
             // foto.hide(); karikatur.hide();
