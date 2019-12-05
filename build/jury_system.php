@@ -248,11 +248,13 @@ $showname = $_GET['showname'];
             (Alle)
           </a>
           <?
+          $i = 0;
           foreach($taglist as $t): ?>
             <a href="?filter=<? echo $_GET['filter']; ?>&tag=<? echo $t->slug; ?>" class="dropdown-item">
               <?
-              // echo $t->name." <span class='tagcount'>".$tagcount[$t->slug]."</span>";
-              echo $t->name;
+              echo $t->name." <span class='tagcount' data-tag='".$t->slug."'>".$tagcount[$t->slug]."</span>";
+              $i++;
+              // echo $t->name;
               ?>
             </a>
           <? endforeach;?>
@@ -459,11 +461,11 @@ $showname = $_GET['showname'];
                 if($isSaved) {
                   $val = 'false';
                   $href = '/edit-ajax/?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
-                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></span></a>';
+                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount" data-tag="'.$t->slug.'">'.$tagcount[$t->slug].'</span></span></a>';
                 } else {
                   $val = 'true';
                   $href = '/edit-ajax/?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
-                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small change-tag" href="'.$href.'"><span class="icon is-small is-hidden"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></a>';
+                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small change-tag" href="'.$href.'"><span class="icon is-small is-hidden"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount"  data-tag="'.$t->slug.'">'.$tagcount[$t->slug].'</span></a>';
                 }
               } ?>
             </div><!-- edit -->
@@ -528,11 +530,11 @@ $showname = $_GET['showname'];
                 if($isSaved) {
                   $val = 'false';
                   $href = '/edit-ajax/?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
-                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></span></a>';
+                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount" data-tag="'.$t->slug.'">'.$tagcount[$t->slug].'</span></span></a>';
                 } else {
                   $val = 'true';
                   $href = '/edit-ajax/?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
-                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small change-tag" href="'.$href.'"><span class="icon is-small is-hidden"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></a>';
+                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small change-tag" href="'.$href.'"><span class="icon is-small is-hidden"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount" data-tag="'.$t->slug.'">'.$tagcount[$t->slug].'</span></a>';
                 }
               } ?>
             </div><!-- edit -->

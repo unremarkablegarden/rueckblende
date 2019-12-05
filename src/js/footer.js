@@ -201,7 +201,13 @@
     function juryZoom() {
 
       $('a.change-tag').on('click', function(e){
+        e.preventDefault();
         var t1 = $(this);
+        var thistag = $(this).data('new_tag');
+        var tag = $('.tagcount[data-tag="'+thistag+'"]:first');
+        var alltags = $('.tagcount[data-tag="'+thistag+'"]');
+        var n = parseInt(tag.text());
+
         $('.loading').show();
         var href = $(this).attr('href');
         var t = $('a[href="'+href+'"');
@@ -224,10 +230,11 @@
               var link = t.attr('href');
               t.attr('href', link.replace('false', 'true'));
 
-              var count = t1.find('.tagcount').text();
-              count = parseInt(count);
-              count -= 1;
-              counter.text(count);
+              // var count = t1.find('.tagcount').text();
+              // count = parseInt(count);
+              // count -= 1;
+              // counter.text(count);
+              n -= 1;
             } else {
               // ADD TAG
               t.addClass('is-light');
@@ -236,11 +243,13 @@
               var link = t.attr('href');
               t.attr('href', link.replace('true', 'false'));
 
-              var count = t1.find('.tagcount').text();
-              count = parseInt(count);
-              count += 1;
-              counter.text(count);
+              // var count = t1.find('.tagcount').text();
+              // count = parseInt(count);
+              // count += 1;
+              // counter.text(count);
+              n += 1;
             }
+            alltags.text(n);
           } else {
             alert('error saving tag');
           }
@@ -250,8 +259,6 @@
         // var post_to_tag = $(this).data('post_to_tag');
         // var new_tag = $(this).data('new_tag');
         // var value = $(this).data('value');
-
-        e.preventDefault();
       });
 
       $('a.zoom').on('click', function(e) {
