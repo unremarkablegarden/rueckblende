@@ -159,11 +159,19 @@ $showname = $_GET['showname'];
     border-radius: 25px;
      */
     /* background: rgba(0,0,0,0.8); */
-    left: 50vw;
-    top: 50vh;
+    /* left: 50vw;
+    top: 50vh; */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,255,255,0.5);
     z-index: 9999;
   }
   .loading img {
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
     width: 200px;
     height: auto;
     border-radius: 25px;
