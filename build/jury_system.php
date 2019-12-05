@@ -50,8 +50,13 @@ $showname = $_GET['showname'];
     color: white;
     border-radius: 3px;
     font-size: 0.8em;
-    padding: 1px 5px;
-    margin-left: 10px;
+    padding: 1px;
+    margin-left: 5px;
+    margin-bottom: -4px;
+    display: inline-block;
+    width: 17px;
+    overflow: hidden;
+    text-align: center;
   }
   #pre-header-spacer {
     height: 0 !important;
@@ -244,7 +249,10 @@ $showname = $_GET['showname'];
           <?
           foreach($taglist as $t): ?>
             <a href="?filter=<? echo $_GET['filter']; ?>&tag=<? echo $t->slug; ?>" class="dropdown-item">
-              <? echo $t->name." <span class='tagcount'>".$tagcount[$t->slug]."</span>"; ?>
+              <?
+              // echo $t->name." <span class='tagcount'>".$tagcount[$t->slug]."</span>";
+              echo $t->name;
+              ?>
             </a>
           <? endforeach;?>
         </div>
@@ -417,47 +425,47 @@ $showname = $_GET['showname'];
                 <img data-src="<? echo $large; ?>">
 
                 <div class='edit'>
-                  <?
-                  $tags = array();
-                  $tagNames = array();
-                  $tagIds = array();
-                  $saved_tags = wp_get_post_tags($postID);
-                  $taglist = get_tags(array( 'hide_empty' => false));
-                  foreach($taglist as $t) {
-                    $isSaved = false;
-                    foreach($saved_tags as $s) {
-                      if($s->term_id == $t->term_id) {
-                        // tag is saved
-                        $isSaved = true;
-                        break;
-                      }
-                    }
-                    if ($_GET['filter'] == 'serie') {
-                      if (!in_array($postID, $seriesIDs)) {
-                        $seriesIDs[] = $postID;
-                      }
-                      $seriesString = implode(',', $seriesIDs);
-                      $ids = '&series_to_tag='.$seriesString;
-                    }
-                    else {
-                      $ids = '&post_to_tag='.$postID;
-                    }
-                    if ($_GET['tag']) {
-                      $ct = '&tag='.$_GET['tag'];
-                    } else {
-                      $ct = '';
-                    }
-                    if($isSaved) {
-                      $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
-                      echo '<a class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></span></a>';
-                    } else {
-                      $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
-                      echo '<a class="button is-small change-tag" href="'.$href.'">';
-                      echo $t->name." <span class='tagcount'>".$tagcount[$t->slug]."</span>";
-                      echo '</a>';
-                    }
-                  } ?>
-                </div><!-- edit -->
+              <?
+              $tags = array();
+              $tagNames = array();
+              $tagIds = array();
+              $saved_tags = wp_get_post_tags($postID);
+              $taglist = get_tags(array( 'hide_empty' => false));
+              foreach($taglist as $t) {
+                $isSaved = false;
+                foreach($saved_tags as $s) {
+                  if($s->term_id == $t->term_id) {
+                    // tag is saved
+                    $isSaved = true;
+                    break;
+                  }
+                }
+                if ($_GET['filter'] == 'serie') {
+                  if (!in_array($postID, $seriesIDs)) {
+                    $seriesIDs[] = $postID;
+                  }
+                  $seriesString = implode(',', $seriesIDs);
+                  $ids = '&series_to_tag='.$seriesString;
+                }
+                else {
+                  $ids = '&post_to_tag='.$postID;
+                }
+                if ($_GET['tag']) {
+                  $ct = '&tag='.$_GET['tag'];
+                } else {
+                  $ct = '';
+                }
+                if($isSaved) {
+                  $val = 'false';
+                  $href = '/edit-ajax/?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
+                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></span></a>';
+                } else {
+                  $val = 'true';
+                  $href = '/edit-ajax/?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
+                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small change-tag" href="'.$href.'"><span class="icon is-small is-hidden"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></a>';
+                }
+              } ?>
+            </div><!-- edit -->
 
 
                 <? // echo $largeImg; ?>
@@ -517,13 +525,13 @@ $showname = $_GET['showname'];
                   $ct = '';
                 }
                 if($isSaved) {
-                  $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
-                  echo '<a class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></span></a>';
+                  $val = 'false';
+                  $href = '/edit-ajax/?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
+                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></span></a>';
                 } else {
-                  $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
-                  echo '<a class="button is-small change-tag" href="'.$href.'">';
-                  echo $t->name." <span class='tagcount'>".$tagcount[$t->slug]."</span>";
-                  echo '</a>';
+                  $val = 'true';
+                  $href = '/edit-ajax/?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
+                  echo '<a data-post_to_tag="'.$postID.'" data-new_tag="'.$t->slug.'" data-value="'.$val.'" class="button is-small change-tag" href="'.$href.'"><span class="icon is-small is-hidden"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></a>';
                 }
               } ?>
             </div><!-- edit -->

@@ -56,11 +56,10 @@
       if ($('body').hasClass('page-template-jury_system')) {
 
         $(window).bind( 'load', function() {
-          var load = $('.loading')
-          load.fadeOut(500);
-          setTimeout(function(){
-            load.remove();
-          }, 550);
+          $('.loading').fadeOut(500);
+          // setTimeout(function(){
+            // load.remove();
+          // }, 550);
         });
 
         // bootstrap
@@ -200,6 +199,61 @@
     } // end jury_system()
 
     function juryZoom() {
+
+      $('a.change-tag').on('click', function(e){
+        var t1 = $(this);
+        $('.loading').show();
+        var href = $(this).attr('href');
+        var t = $('a[href="'+href+'"');
+        // var t = $(this);
+
+        var counter = t.find('.tagcount');
+        // /edit-ajax/?filter=foto&post_to_tag=20504&new_tag=round-3&value=true#1
+
+        $.ajax({
+          url: href
+        }).done(function(res) {
+          // console.log(res);
+          $('.loading').hide();
+          if (res == 'true') {
+            if (t.hasClass('is-light')) {
+              // REMOVE TAG
+              t.removeClass('is-light');
+              t.find('.icon').addClass('is-hidden');
+              // change href to opposite true/false
+              var link = t.attr('href');
+              t.attr('href', link.replace('false', 'true'));
+
+              var count = t1.find('.tagcount').text();
+              count = parseInt(count);
+              count -= 1;
+              counter.text(count);
+            } else {
+              // ADD TAG
+              t.addClass('is-light');
+              t.find('.icon').removeClass('is-hidden');
+              // change href to opposite true/false
+              var link = t.attr('href');
+              t.attr('href', link.replace('true', 'false'));
+
+              var count = t1.find('.tagcount').text();
+              count = parseInt(count);
+              count += 1;
+              counter.text(count);
+            }
+          } else {
+            alert('error saving tag');
+          }
+
+        });
+
+        // var post_to_tag = $(this).data('post_to_tag');
+        // var new_tag = $(this).data('new_tag');
+        // var value = $(this).data('value');
+
+        e.preventDefault();
+      });
+
       $('a.zoom').on('click', function(e) {
         $(this).parent().addClass('current');
         const zoom = $(this).data('zoom');
