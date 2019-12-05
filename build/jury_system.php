@@ -75,7 +75,8 @@ $showname = $_GET['showname'];
     width: auto;
   }
   .box img {
-    max-height: 95vh;
+    /* max-height: 95vh; */
+    max-height: 80vh;
     max-width: 100%;
   }
   .box .text {
