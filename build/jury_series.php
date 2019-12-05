@@ -70,11 +70,15 @@ $pid = $_GET['pid'];
           $d['standort'] = $meta['standort'][0];
           $d['datum'] = $meta['datum'][0];
           $d['serienname'] = $meta['serienname'][0];
-          $s = $d['serienname'];
+
+          $author = $s->post_author;
+          // $current = $d['serienname'];
+          $current = $author;
 
           $entry = "<div class='series'><h1>#".$counter." — ".$d['serienname']."</h1><div class='inner columns is-multiline'>";
 
-          if($last !== $s) {
+          if($last !== $current) {
+          // if($last !== $author) {
             if($first) {
               $counter++;
               echo $entry;
@@ -84,7 +88,8 @@ $pid = $_GET['pid'];
               $counter++;
               echo $entry;
             }
-            $last = $s;
+            $last = $current;
+            // $last = $s->post_author;
           }
 
           echo '<div class="column is-4 series-image">';
