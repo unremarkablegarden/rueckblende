@@ -204,7 +204,9 @@
         $(this).parent().addClass('current');
         const zoom = $(this).data('zoom');
         const img = '<img src="' + zoom + '">';
+
         $('#zoom .image').html(img);
+        // $('#zoom .image').html('test');
         $('#zoom').show();
         e.preventDefault();
       });

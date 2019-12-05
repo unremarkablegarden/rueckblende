@@ -45,6 +45,14 @@ $showname = $_GET['showname'];
 
 
 <style>
+  .tagcount {
+    background: #BBB;
+    color: white;
+    border-radius: 3px;
+    font-size: 0.8em;
+    padding: 1px 5px;
+    margin-left: 10px;
+  }
   #pre-header-spacer {
     height: 0 !important;
     min-height: 0 !important;
@@ -105,7 +113,19 @@ $showname = $_GET['showname'];
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 40px;
+    flex-direction: column;
+    /* padding: 0 40px; */
+    padding: 40px 40px 15px;
+    margin: 10px;
+    background: white;
+    border-radius: 5px;
+  }
+  /* .modal-contet .button.is-light {
+    background: #afb;
+  } */
+  .modal-close {
+    border: 1px white solid;
+    background: black;
   }
   .dropdown-item {
     cursor: pointer;
@@ -176,7 +196,26 @@ $showname = $_GET['showname'];
 
     <?
     $taglist = get_tags(array( 'hide_empty' => false));
+
+    // COUNT THE NUMBER OF IMAGES IN EACH TAG
+    $tagcount = array();
+    foreach($taglist as $t) {
+      $tid = $t->term_id;
+      $args = array(
+        'posts_per_page'  => -1,
+        'post_type'       => 'post',
+        'year'            => date('Y'),
+        'orderby'         => 'author',
+        'order'           => 'ASC',
+        'meta_key' => 'kategorie',
+        'meta_value' => $_GET['filter'],
+        'tag_id' => $tid
+      );
+      $taggedposts = get_posts($args);
+      $tagcount[$t->slug] = count($taggedposts);
+    }
     ?>
+    <!-- <xmp><? print_r($tagcount); ?></xmp> -->
 
     <div class="dropdown" style="float: left; margin-right: 1em;">
       <div class="dropdown-trigger">
@@ -205,7 +244,7 @@ $showname = $_GET['showname'];
           <?
           foreach($taglist as $t): ?>
             <a href="?filter=<? echo $_GET['filter']; ?>&tag=<? echo $t->slug; ?>" class="dropdown-item">
-              <? echo $t->name; ?>
+              <? echo $t->name." <span class='tagcount'>".$tagcount[$t->slug]."</span>"; ?>
             </a>
           <? endforeach;?>
         </div>
@@ -226,7 +265,7 @@ $showname = $_GET['showname'];
         'post_type'       => 'post',
         'year'            => date('Y'),
         'orderby'         => 'author',
-        'order'           => 'ASC',
+        'order'           => 'DESC',
         'meta_key' => 'kategorie',
         'meta_value' => $_GET['filter'],
         'tag' => $_GET['tag']
@@ -376,6 +415,51 @@ $showname = $_GET['showname'];
               <div class="modal-background"></div>
               <div class="modal-content">
                 <img data-src="<? echo $large; ?>">
+
+                <div class='edit'>
+                  <?
+                  $tags = array();
+                  $tagNames = array();
+                  $tagIds = array();
+                  $saved_tags = wp_get_post_tags($postID);
+                  $taglist = get_tags(array( 'hide_empty' => false));
+                  foreach($taglist as $t) {
+                    $isSaved = false;
+                    foreach($saved_tags as $s) {
+                      if($s->term_id == $t->term_id) {
+                        // tag is saved
+                        $isSaved = true;
+                        break;
+                      }
+                    }
+                    if ($_GET['filter'] == 'serie') {
+                      if (!in_array($postID, $seriesIDs)) {
+                        $seriesIDs[] = $postID;
+                      }
+                      $seriesString = implode(',', $seriesIDs);
+                      $ids = '&series_to_tag='.$seriesString;
+                    }
+                    else {
+                      $ids = '&post_to_tag='.$postID;
+                    }
+                    if ($_GET['tag']) {
+                      $ct = '&tag='.$_GET['tag'];
+                    } else {
+                      $ct = '';
+                    }
+                    if($isSaved) {
+                      $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
+                      echo '<a class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></span></a>';
+                    } else {
+                      $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
+                      echo '<a class="button is-small change-tag" href="'.$href.'">';
+                      echo $t->name." <span class='tagcount'>".$tagcount[$t->slug]."</span>";
+                      echo '</a>';
+                    }
+                  } ?>
+                </div><!-- edit -->
+
+
                 <? // echo $largeImg; ?>
               </div>
               <button class="modal-close is-large" aria-label="close"></button>
@@ -400,18 +484,15 @@ $showname = $_GET['showname'];
               endforeach;
               ?>
             </div>
-            <div class='edit'>
 
-            <?
-            // if ($_GET['filter'] !== 'serie'):
+            <div class='edit'>
+              <?
               $tags = array();
               $tagNames = array();
               $tagIds = array();
               $saved_tags = wp_get_post_tags($postID);
               $taglist = get_tags(array( 'hide_empty' => false));
-
-              foreach($taglist as $t): ?>
-                <?
+              foreach($taglist as $t) {
                 $isSaved = false;
                 foreach($saved_tags as $s) {
                   if($s->term_id == $t->term_id) {
@@ -420,7 +501,6 @@ $showname = $_GET['showname'];
                     break;
                   }
                 }
-
                 if ($_GET['filter'] == 'serie') {
                   if (!in_array($postID, $seriesIDs)) {
                     $seriesIDs[] = $postID;
@@ -431,38 +511,23 @@ $showname = $_GET['showname'];
                 else {
                   $ids = '&post_to_tag='.$postID;
                 }
-
                 if ($_GET['tag']) {
                   $ct = '&tag='.$_GET['tag'];
                 } else {
                   $ct = '';
                 }
-
-                if($isSaved):
-
+                if($isSaved) {
                   $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=false#'.($userN-1);
-                  ?>
-                  <a class="button is-small is-light change-tag" href="<? echo $href; ?>">
-                    <span class="icon is-small">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    <span><? echo $t->name;?></span>
-                  </a>
-                <? else: ?>
-                  <?
+                  echo '<a class="button is-small is-light change-tag" href="'.$href.'"><span class="icon is-small"><i class="fas fa-check"></i></span><span>'.$t->name.' <span class="tagcount">'.$tagcount[$t->slug].'</span></span></a>';
+                } else {
                   $href = '?filter='.$_GET['filter'].$ct.$ids.'&new_tag='.$t->slug.'&value=true#'.($userN-1);
-                  ?>
-                  <a class="button is-small change-tag" href="<? echo $href; ?>"><? echo $t->name;?></a>
-                <? endif;?>
+                  echo '<a class="button is-small change-tag" href="'.$href.'">';
+                  echo $t->name." <span class='tagcount'>".$tagcount[$t->slug]."</span>";
+                  echo '</a>';
+                }
+              } ?>
+            </div><!-- edit -->
 
-
-
-              <? endforeach; ?>
-
-
-              <? // endif; // if not series?>
-
-            </div>
           </div>
         </div>
         <?
