@@ -151,19 +151,25 @@ $showname = $_GET['showname'];
   }
   .loading {
     position: fixed;
-    bottom: 20px;
+    /* bottom: 20px;
     right: 20px;
     width: 50px;
     height: 50px;
     padding: 5px;
     border-radius: 25px;
-    background: rgba(0,0,0,0.8);
+     */
+    /* background: rgba(0,0,0,0.8); */
+    left: 50vw;
+    top: 50vh;
     z-index: 9999;
   }
   .loading img {
-    width: 40px;
+    width: 200px;
     height: auto;
     border-radius: 25px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    transform: translate(-50%, -50%);
   }
 </style>
 
