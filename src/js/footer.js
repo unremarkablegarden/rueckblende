@@ -56,7 +56,7 @@
       if ($('body').hasClass('page-template-jury_system')) {
 
         $(window).bind( 'load', function() {
-          $('.loading').fadeOut(500);
+          $('.loading').hide();
           // setTimeout(function(){
             // load.remove();
           // }, 550);
