@@ -102,6 +102,12 @@ $showname = $_GET['showname'];
     /* display: block; */
     /* opacity: 0.5; */
   }
+  .box .file {
+    margin-top: 10px;
+  }
+  .box .file.hide {
+    display: none;
+  }
   .user {
     display: none;
   }
@@ -382,6 +388,11 @@ $showname = $_GET['showname'];
         <input type="checkbox" class='showinfo' style='font-size: 20px; position: relative; top: -1px; left: -3px;'>
         Info
       </label>
+
+      <label class="checkbox" style='float: right; padding-top: 0.3em; padding-right: 1em;'>
+        <input type="checkbox" class='showfile' style='font-size: 20px; position: relative; top: -1px; left: -3px;'>
+        Filename
+      </label>
     </span>
     <!-- </ul> -->
 
@@ -529,6 +540,14 @@ $showname = $_GET['showname'];
                   echo '</span>';
                 }
               endforeach;
+              ?>
+            </div>
+
+            <div class="file hide">
+              <?
+              // * userID-category-ID
+              $file = $user->ID.'-'.$_GET['filter'].'-'.$postID;
+              echo "<b>Filename:</b>&nbsp;&nbsp;".$file;
               ?>
             </div>
 

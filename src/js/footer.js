@@ -137,6 +137,14 @@
           }
         });
 
+        $('.showfile').change(function(e){
+          if($(this).is(":checked")) {
+            $('.box .file.hide').removeClass('hide');
+          } else {
+            $('.box .file').addClass('hide');
+          }
+        });
+
         $('button.pager').on('click', function(e) {
           console.log($(this));
           if ($(this).hasClass('next')) {
