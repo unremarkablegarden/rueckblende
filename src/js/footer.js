@@ -54,13 +54,14 @@
 
     function jury_system() {
       if ($('body').hasClass('page-template-jury_system')) {
+        $('.loading').hide();
 
-        $(window).bind( 'load', function() {
-          $('.loading').hide();
-          // setTimeout(function(){
-            // load.remove();
-          // }, 550);
-        });
+        // $(window).bind( 'load', function() {
+        //   $('.loading').hide();
+        //   // setTimeout(function(){
+        //     // load.remove();
+        //   // }, 550);
+        // });
 
         // bootstrap
         var total = $('div.user').length;
