@@ -232,7 +232,26 @@ $showname = $_GET['showname'];
         'tag_id' => $tid
       );
       $taggedposts = get_posts($args);
-      $tagcount[$t->slug] = count($taggedposts);
+
+      if ($f == 'serie') {
+        // echo '<xmp>';
+        $lastauthor = '';
+        $seriescount = 0;
+        foreach ($taggedposts as $p) {
+          if ($p->post_author !== $lastauthor) {
+            $seriescount++;
+            $lastauthor = $p->post_author;
+          }
+        }
+        $tagcount[$t->slug] = $seriescount;
+        // echo '</xmp>';
+        // echo '<xmp>';
+        // print_r($taggedposts);
+        // echo '</xmp>';
+        // $tagcount[$t->slug] = count($taggedposts);
+      } else {
+        $tagcount[$t->slug] = count($taggedposts);
+      }
     }
     ?>
     <!-- <xmp><? print_r($tagcount); ?></xmp> -->
