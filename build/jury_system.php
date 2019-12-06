@@ -121,7 +121,7 @@ $showname = $_GET['showname'];
     align-items: center;
     flex-direction: column;
     /* padding: 0 40px; */
-    padding: 40px 40px 15px;
+    padding: 40px;
     margin: 10px;
     background: white;
     border-radius: 5px;
@@ -129,6 +129,9 @@ $showname = $_GET['showname'];
   /* .modal-contet .button.is-light {
     background: #afb;
   } */
+  .modal .edit {
+    margin-bottom: -25px;
+  }
   .modal-close {
     border: 1px white solid;
     background: black;
