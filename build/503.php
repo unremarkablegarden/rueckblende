@@ -43,13 +43,13 @@
 		</style>
 	</head>
 	<body>
-		
+
 		<!-- <img src="https://rueckblende.rlp.de/wp-content/uploads/2018/01/logo_subline.svg" /> -->
-		<img src="http://165.227.164.168/wp-content/uploads/2018/10/Rueckblende_2018.svg" id="logotop" />
+		<img src="https://rueckblende.rlp.de/wp-content/themes/rueckblende/build/assets/img/logo_subline_2019.svg" id="logotop" />
 		<img src="http://165.227.164.168/wp-content/uploads/2018/03/soon_here@2x.png" style="width: 150px; height: auto;">
 		<div class='text'>
-		Die neue Rückblende 2018 steht kurz bevor —<br/>
-		nach der Preisverleihung am 28. Januar 2019<br/>
+		Die neue Rückblende <? echo date('Y') - 1; ?> steht kurz bevor —<br/>
+		nach der Preisverleihung am 28. Januar <? echo date('Y'); ?><br/>
 		finden Sie hier ab 19 Uhr die neuen Webseiten.
 		</div>
 	</body>
