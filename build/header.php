@@ -38,8 +38,8 @@
       <div class="site-branding">
         <h1 class="site-title">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-            <? 
-            if ($slug === 'login' || 
+            <?
+            if ($slug === 'login' ||
               $slug === 'register' ||
               $slug === 'passwort' ||
               $slug === 'konto' ||
@@ -52,10 +52,12 @@
             <? else: ?>
 
               <? // GET ONE PAGE by slug
-              $q = new WP_Query(array( 'page_id' => get_ID_by_slug('header-logo') ));
-              if($q->have_posts()): while($q->have_posts()): $q->the_post();
-                echo get_the_content();
-              endwhile; wp_reset_postdata(); endif; ?>
+              // $q = new WP_Query(array( 'page_id' => get_ID_by_slug('header-logo') ));
+              // if($q->have_posts()): while($q->have_posts()): $q->the_post();
+              //   echo get_the_content();
+              // endwhile; wp_reset_postdata(); endif;
+              ?>
+              <img src="<? img(); ?>/logo_subline_2019.svg" alt="">
 
             <? endif; ?>
           </a>
@@ -84,8 +86,8 @@
 
       <div class="menu-wrapper">
         <div class="inner">
-          
-          
+
+
           <!-- <a href="/login/">
             <img src="<? img(); ?>/competition2019.svg" style="width: 380px; margin-right: -54px;"/>
           </a>
@@ -93,7 +95,7 @@
           <hr/> -->
 
           <div id="responsive-menu"><?php wp_nav_menu( array( 'theme_location' => 'header', 'menu_id' => 'menu-header', 'menu_class' => 'menu-inline' ) ); ?></div>
-          
+
           <hr/>
 
           <div class="small-links">
