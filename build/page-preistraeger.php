@@ -168,7 +168,7 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
 
   // $image['image'] = get_entry_src($year, $imageid);
   $image['image'] = getImage(get_the_ID());
-  
+
   $image['name'] = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
   $image['series'] = get_field('series_name');
   $image['location'] = get_field('location');
@@ -199,7 +199,7 @@ endwhile; endif; wp_reset_query();
             <?
             if($series[0]['location']) echo $series[0]['location'];
             if($series[0]['location'] && $series[0]['date']) echo ', ';
-            if($series[0]['date']) echo $series[0]['date']; 
+            if($series[0]['date']) echo $series[0]['date'];
             ?>
           </p>
         </div>
@@ -280,16 +280,13 @@ if( $p_query->have_posts() ): while( $p_query->have_posts() ) : $p_query->the_po
 <?
 $args = array(
   'post_type'  => 'entry',
+  'orderby' => 'modified',
   'order' => 'DESC',
   'posts_per_page' => 10,
   'meta_query' => array(
     'relation' => 'AND',
     array(
       'relation' => 'OR',
-      // array(
-      //   'key'     => 'cartoon_prize_1',
-      //   'value'   => 'Yes'
-      // ),
       array(
         'key'     => 'cartoon_prize_2',
         'value'   => 'Yes'
@@ -313,6 +310,8 @@ $args = array(
     )
   )
 );
+
+
 
 $p_query = new WP_Query( $args ); ?>
   <section class="runnerup-section section">
