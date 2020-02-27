@@ -314,9 +314,9 @@ $args = array(
 
 $p_query = new WP_Query( $args ); ?>
 
-<xmp>
-  <? print_r($p_query); ?>
-</xmp>
+<!-- <xmp> -->
+  <!-- <? print_r($p_query); ?> -->
+<!-- </xmp> -->
 
   <section class="runnerup-section section">
     <div class="container">
