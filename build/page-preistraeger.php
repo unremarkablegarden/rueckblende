@@ -1,7 +1,8 @@
 <? get_header();
 
 
-$year = date('Y', strtotime('-1 year') );
+// $year = date('Y', strtotime('-1 year') );
+$year = "2019";
 
 $args = array(
   'post_type'	=> 'entry',
@@ -311,9 +312,12 @@ $args = array(
   )
 );
 
-
-
 $p_query = new WP_Query( $args ); ?>
+
+<xmp>
+  <? print_r($p_query); ?>
+</xmp>
+
   <section class="runnerup-section section">
     <div class="container">
       <div class="columns is-multiline">
