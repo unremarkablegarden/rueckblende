@@ -72,7 +72,7 @@
             }
             ?>
             
-            <div class="eventtext"><? the_field('text'); ?></div>
+            <div class="eventtext" style="font-size: 0.9em; margin-top: 1em;"><? the_field('text'); ?></div>
           </div>
           <div class="bottom">
             <div class="info _1"><? the_field('info_1'); ?></div>
