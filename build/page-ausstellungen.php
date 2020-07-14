@@ -71,12 +71,12 @@
               if($link) echo "</a>";
             }
             ?>
+            
+            <div class="eventtext"><? the_field('text'); ?></div>
           </div>
           <div class="bottom">
             <div class="info _1"><? the_field('info_1'); ?></div>
             <div class="info _2"><? the_field('info_2'); ?></div>
-            <div class="eventtext"><? the_field('text'); ?></div>
-            
           </div>
         </div>  <!-- end square text -->
 
