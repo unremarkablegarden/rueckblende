@@ -140,7 +140,22 @@ $year = date('Y', strtotime('-1 year') );
             }
             ?>
           </div>
-          <div class="sm"><? the_field('text'); ?></div>
+          
+          <?
+          $info1 = get_field('info_1');
+          $info1 = get_field('info_1');
+          $eventtext = get_field('text');
+          ?>
+          <? if($info1): ?>
+            <div class="sm"><? echo $info1; ?></div>
+          <? endif; ?>
+          <? if($info2): ?>
+            <div class="sm"><? echo $info2; ?></div>
+          <? endif; ?>
+          <? if($eventtext): ?>
+            <div class="sm"><? echo $eventtext; ?></div>
+          <? endif; ?>
+          
         </div>
       <? endwhile; wp_reset_postdata(); endif; ?>
 
@@ -193,7 +208,22 @@ $year = date('Y', strtotime('-1 year') );
             }
             ?>
           </div>
-          <div class="sm"><? the_field('text'); ?></div>
+          
+          <?
+          $info1 = get_field('info_1');
+          $info1 = get_field('info_1');
+          $eventtext = get_field('text');
+          ?>
+          <? if($info1): ?>
+            <div class="sm"><? echo $info1; ?></div>
+          <? endif; ?>
+          <? if($info2): ?>
+            <div class="sm"><? echo $info2; ?></div>
+          <? endif; ?>
+          <? if($eventtext): ?>
+            <div class="sm"><? echo $eventtext; ?></div>
+          <? endif; ?>
+          
         </div>
         <div class="column is-3 image bw is-hidden-mobile" style="background-image: url(<? echo acf_image('medium', true); ?>);"></div>
       <? endwhile; wp_reset_postdata(); endif; ?>
