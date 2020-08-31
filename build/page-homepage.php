@@ -104,6 +104,12 @@ $year = date('Y', strtotime('-1 year') );
     	    )
         )
       );
+      
+      $debug = $_GET['debug'];
+      if ($debug == 'true' || $debug == true) {
+        echo "<h1>".date('Ymd')."</h1>";
+      }
+      
       $q = new WP_Query($args);
       if($q->have_posts()): while($q->have_posts()): $q->the_post(); ?>
         <div class="column is-3 image" style="background-image: url(<? echo acf_image('medium', true); ?>);"></div>
