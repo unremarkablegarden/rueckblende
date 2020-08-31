@@ -121,7 +121,9 @@ else $bigheader = false;
     elseif ($slug === 'ausstellungen'): ?>
       <div class="badge">
         <!-- <img src="<? img(); ?>/badges/badge_tournee.svg" alt=""> -->
-        <img src="<? img(); ?>/badges/badge_tournee@2x.png" alt="">
+        <!-- <img src="<? img(); ?>/badges/badge_tournee@2x.png" alt=""> -->
+        <img src="/wp-content/themes/rueckblende/2020/badge_tour.svg" alt="">
+        
       </div>
 
     <? // KATALOG
