@@ -190,7 +190,7 @@ foreach($submissions as $sub) {
 
                 <b>✅ Diese von Ihnen hochgeladenen Bilddateien nehmen am Wettbewerb teil.</b>
                 <br><br>
-                Sie können Ihre Auswahl noch bis zur Schließung des Wettbewerbsportals am 02. Dezember, 10 Uhr, aktualisieren.
+                Sie können Ihre Auswahl noch bis zur Schließung des Wettbewerbsportals am 30. November 2020, 12 Uhr, aktualisieren.
                 <br><br>
                 <a href="/einreichen">Noch mehr einreichen</a>?
                 <!-- Sie können noch max X Bilder hochladen. -->

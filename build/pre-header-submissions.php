@@ -7,6 +7,6 @@
 		</div>
 		<div class="logo">
 			<!-- <img src="/wp-content/themes/rueckblende/build/assets/img/badges/r_2018@2x.png" alt="Rueckblende 2018"/> -->
-			<img src="/wp-content/themes/rueckblende/build/assets/img/badges/rueck_badge_2019.png" alt="Rueckblende 2018" style="height: 95%; padding-top: 8%"/>
+			<img src="/wp-content/themes/rueckblende/build/assets/img/badges/rueck_badge_2020.png" alt="Rueckblende 2020" style="height: 95%; padding-top: 8%"/>
 		</div>
 </div>

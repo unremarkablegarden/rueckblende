@@ -27,10 +27,14 @@ else $bigheader = false;
 
 <div id="header-logos">
   <div class="logo left">
-    <img src="<? img(); ?>/index/logos/1_RP.svg" alt="RheinlandPlfalz">
+    <a href="https://landesvertretung.rlp.de/de/startseite/" target="_blank">
+      <img src="<? img(); ?>/index/logos/1_RP.svg" alt="RheinlandPlfalz">
+      </a>
   </div>
   <div class="logo right">
-    <img src="<? img(); ?>/index/logos/2_BDZV.svg" alt="BDZV">
+    <a href="https://www.bdzv.de/" target="_blank">
+      <img src="<? img(); ?>/index/logos/2_BDZV.svg" alt="BDZV">
+    </a>
   </div>
 </div>
 
@@ -162,7 +166,7 @@ else $bigheader = false;
     $slug === 'guestlist'
     ): ?>
       <div class="badge">
-        <img src="<? img(); ?>/badges/rueck_badge_2019.svg" alt="">
+        <img src="<? img(); ?>/badges/badge_2020.svg" alt="">
       </div>
 
     <? // SEARCH

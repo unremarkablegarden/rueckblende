@@ -48,7 +48,7 @@
               $slug === 'einreichen' ||
               $slug === 'guestlist'
             ): ?>
-              <img src="<? img(); ?>/logo_subline_2019.svg" alt="">
+              <img src="<? img(); ?>/logo_subline_2020.svg" alt="">
             <? else: ?>
 
               <? // GET ONE PAGE by slug
