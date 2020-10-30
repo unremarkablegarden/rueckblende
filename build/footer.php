@@ -21,6 +21,7 @@
           <ul class="lower">
             <li><a href="/impressum/">Impressum</a></li>
             <li><a href="/datenschutz/">Datenschutz</a></li>
+            <li><a href="/barrierefreiheit/">Barrierefreiheit</a></li>
           </ul>
         </div>
       </div>
