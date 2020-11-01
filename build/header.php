@@ -46,7 +46,8 @@
               $slug === 'bildverwaltung' ||
               $slug === 'konto' ||
               $slug === 'einreichen' ||
-              $slug === 'guestlist'
+              $slug === 'guestlist' || 
+              $slug === 'registrieren'
             ): ?>
               <img src="<? img(); ?>/logo_subline_2020.svg" alt="">
             <? else: ?>

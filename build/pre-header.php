@@ -17,6 +17,7 @@ $slugswithheader = array(
   'bildverwaltung',
   'einreichen',
   'guestlist',
+  'registrieren'
 );
 
 $post_type = get_post_type();
@@ -163,7 +164,8 @@ else $bigheader = false;
     $slug === 'bildverwaltung' ||
     $slug === 'konto' ||
     $slug === 'einreichen' ||
-    $slug === 'guestlist'
+    $slug === 'guestlist' || 
+    $slug === 'registrieren'
     ): ?>
       <div class="badge">
         <img src="<? img(); ?>/badges/badge_2020.svg" alt="">
