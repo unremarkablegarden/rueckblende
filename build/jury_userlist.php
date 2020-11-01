@@ -16,6 +16,7 @@ if ($_GET['method'] == 'export') {
 if ($_GET['series'] == 'true') {
   $series_only = true;
   $series_count = 0;
+  $series_count2 = 0;
 }
 ?>
 
@@ -273,7 +274,9 @@ if ($_GET['series'] == 'true') {
         </table>
 
       <? endif; ?>
-    <h1>series count: <? echo $series_count; ?></h1>
+      <? if($series_only): ?>
+        <h1>series count: <? echo $series_count; ?></h1>
+      <?endif;?>
     </div>
   </div>
 </section>
