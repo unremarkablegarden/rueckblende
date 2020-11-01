@@ -139,25 +139,26 @@ textarea, input, button, *:focus
   background: $lg
 
 
-// $preheadersubmissionsHdesktop: 88px
-// $preheadersubmissionsHmobile: 61px
+$preheadersubmissionsHdesktop: 88px
+$preheadersubmissionsHmobile: 61px
 
-$preheadersubmissionsHdesktop: 0px
-$preheadersubmissionsHmobile: 0px
+// $preheadersubmissionsHdesktop: 0px
+// $preheadersubmissionsHmobile: 0px
 
 
 #pre-header-submissions
-  display: none !important
+  // display: none !important
   background: rgb(247,247,247)
   position: fixed
   top: 0
   width: 100vw
   overflow: hidden
   z-index: 1
-  +desktop
-    height: $preheadersubmissionsHdesktop
-  +mobile
-    height: $preheadersubmissionsHmobile
+  // +desktop
+  //   height: $preheadersubmissionsHdesktop
+  // +mobile
+  //   height: $preheadersubmissionsHmobile
+  height: 0
   display: flex
   justify-content: center
   align-items: center
@@ -180,26 +181,49 @@ $preheadersubmissionsHmobile: 0px
       height: 100%
       width: auto
 
-#pre-header-spacer, #header-logos
-  +desktop
-    margin-top: $preheadersubmissionsHdesktop
-  +mobile
-    margin-top: $preheadersubmissionsHmobile
+  
+body.home
+  #pre-header-submissions
+    +desktop
+      height: $preheadersubmissionsHdesktop
+    +mobile
+      height: $preheadersubmissionsHmobile    
+  
 
+#pre-header-spacer, #header-logos
+  margin-top: 0
+  
+body.home
+  #pre-header-spacer, #header-logos
+    +desktop
+      margin-top: $preheadersubmissionsHdesktop
+    +mobile
+      margin-top: $preheadersubmissionsHmobile
+
+
+  
 #pre-header-spacer, #pre-header
   width: 100vw
   z-index: 0
-  // min-height: 250px
-  // position: fixed
-  // top: 0
   +desktop
-    top: $preheadersubmissionsHdesktop
-    min-height: (250px + $preheadersubmissionsHdesktop)
+    top: 0
+    min-height: 250px
   +mobile
-    top: $preheadersubmissionsHmobile
-    // min-height: (250px + $preheadersubmissionsHmobile)
-    min-height: (370px + $preheadersubmissionsHmobile)
+    top: 0
+    min-height: 370px
 
+body.home
+  #pre-header-spacer, #pre-header
+    width: 100vw
+    z-index: 0
+    +desktop
+      top: $preheadersubmissionsHdesktop
+      min-height: (250px + $preheadersubmissionsHdesktop)
+    +mobile
+      top: $preheadersubmissionsHmobile
+      min-height: (370px + $preheadersubmissionsHmobile)
+
+  
 .home #prizes-gallery
   +mobile
     .owl-stage

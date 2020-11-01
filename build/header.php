@@ -27,7 +27,14 @@
 <body <?php body_class(); ?>>
   <div id="page" class="hfeed site">
 
-    <? // include('pre-header-submissions.php'); ?>
+    <? 
+    
+    if ($_SERVER['REQUEST_URI'] == '/') { // is_home() not working?
+      include('pre-header-submissions.php');   
+    }
+    ?>
+    
+    
     <? include('pre-header.php'); ?>
 
     <header id="header" class="flex-space-between">
