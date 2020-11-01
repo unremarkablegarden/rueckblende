@@ -69,7 +69,7 @@ $pid = $_GET['pid'];
     <hr />
 
       <?
-      $authorN = 0;
+      $authorN = 1;
       
       foreach($submissions as $s):
         $postID = $s->ID;
