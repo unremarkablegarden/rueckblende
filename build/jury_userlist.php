@@ -12,6 +12,10 @@ if ($_GET['method'] == 'export') {
 } else {
   $export = false;
 }
+
+if ($_GET['method'] == 'series') {
+  $series_only = true;
+}
 ?>
 
 <? if($export): ?>
