@@ -86,7 +86,9 @@ $current_page = $post->post_name;
       }
       
       // if (!in_array($series_name, $series_names)) 
-      $series_names[] = $author."\t".$series_name;
+      
+      $series_names[] = $author."\t".$series_name . " (".$titleCount.")";
+      if ($series_name) $titleCount++;
       
       
       
