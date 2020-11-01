@@ -1056,15 +1056,17 @@
             $('label[for="datum_19951"]').html('Erscheinungsdatum <span class="required">*</span>');
             $('label[for="standort_19951"]').html('Veröffentlicht in folgender Zeitung <span class="required">*</span>');
 
-            standort_19951
+            // standort_19951
 
           }
 
-          if (state.total[val] < rules[val].max && state.total[val] < rules.val.min) {
+          // if (state.total[val] < rules[val].max && state.total[val] < rules.val.min) {
+          if (state.total[val] < rules[val].max && state.total[val] < rules[val].min) {
             // too few
             console.log('too few '+val);
           }
-          if (state.total[val] < rules[val].max && state.total[val] > rules.val.min) {
+          // if (state.total[val] < rules[val].max && state.total[val] > rules.val.min) {
+          if (state.total[val] < rules[val].max && state.total[val] > rules[val].min) {
             // not too few, not too many
             console.log('not too few, not too many '+val);
           }
