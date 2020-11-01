@@ -10,7 +10,10 @@ $current_page = $post->post_name;
 if(isset($_GET['debug'])) {
   if ($_GET['debug'] == true || $_GET['debug'] == 'true') {
     $debug = true;
-    debug($debug);
+    debug('debug = '.$debug);
+  }
+  else {
+    $debug = false;
   }
 }
 
@@ -77,6 +80,10 @@ foreach($all_submissions as $sub) {
     // this array has an index which is a slug made of author name and series name, and contains the total count of images that user submitted in that series.
     $all_series[$array_place] = $n;
   }
+}
+
+if ($debug) {
+  d($all_series);
 }
 
 // Notice: Undefined variable: all_series in /var/www/html/wp-content/themes/rueckblende/build/template_upload.php on line 66
