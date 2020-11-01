@@ -68,7 +68,7 @@ $current_page = $post->post_name;
   $all_submissions = get_posts($args);
   $all_seris = array();
   
-  $titleCount = 0;
+  $titleCount = -1;
   $unique_titles = [];
   
   foreach ($all_submissions as $sub) {
@@ -86,9 +86,9 @@ $current_page = $post->post_name;
       }
       
       // if (!in_array($series_name, $series_names)) 
-      
-      $series_names[] = $author."\t".$series_name . " (".$titleCount.")";
       if ($series_name) $titleCount++;
+      $series_names[] = $author."\t".$series_name . " (".$titleCount.")";
+      
       
       
       
