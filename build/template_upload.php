@@ -74,7 +74,7 @@ foreach($all_submissions as $sub) {
 
 // Notice: Undefined variable: all_series in /var/www/html/wp-content/themes/rueckblende/build/template_upload.php on line 66
 if( isset($all_series) ) {
-  $state['totalseriescount'] = count($all_series) + 2;
+  $state['totalseriescount'] = count($all_series) + 3;
   // $state['totalseriescount'] = count($all_series);
 } else {
   $state['totalseriescount'] = 0;
