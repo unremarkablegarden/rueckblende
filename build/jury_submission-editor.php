@@ -91,6 +91,7 @@ $pid = $_GET['pid'];
         if ($author !== $last_author) {
           $last_author = $author;
           $title = "<a name='".$author."' style='display: block; position: relative; top: -90px; visibility: hidden;'></a><h2 class='title'>#".$authorN." ".$author."</h2>\n<div class='columns is-multiline'>";
+          $authorN++;
           if ($first) {
             $first = false;
             echo $title;
