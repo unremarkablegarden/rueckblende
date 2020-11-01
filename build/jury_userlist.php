@@ -17,6 +17,7 @@ if ($_GET['series'] == 'true') {
   $series_only = true;
   $series_count = 0;
   $series_count2 = 0;
+  $series_users = [];
 }
 ?>
 
@@ -210,6 +211,7 @@ if ($_GET['series'] == 'true') {
                   echo '<b>'.$c.'</b>';
                   if ($series_only) {
                     $series_count++;
+                    $series_names[] = $user['full_name'];
                   }
                 }
                 ?>
@@ -276,6 +278,7 @@ if ($_GET['series'] == 'true') {
       <? endif; ?>
       <? if($series_only): ?>
         <h1>series count: <? echo $series_count; ?></h1>
+        <? debug($series_names); ?>
       <?endif;?>
     </div>
   </div>
