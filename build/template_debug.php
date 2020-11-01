@@ -53,6 +53,9 @@ $current_page = $post->post_name;
         <?
 
 
+  $unique_users = [];
+  $series_names = [];
+
   // count total series
   $args = array(
     'posts_per_page' => -1,
@@ -73,6 +76,8 @@ $current_page = $post->post_name;
       $author_series = $author . "_" . $series_name;
       $array_place = sanitize_title($author_series);
 
+      if (!in_array($author, $unique_users)) $unique_users[] = $author;
+      
       echo '<tr>';
         echo '<td>';
         echo $author;
@@ -102,6 +107,8 @@ $current_page = $post->post_name;
 
         ?>
         </table>
+        
+        <? debug($unique_users); ?>
       </div>
     </div>
 </section>
