@@ -57,7 +57,9 @@ $current_page = $post->post_name;
   $args = array(
     'posts_per_page' => -1,
     'year'          => date('Y'),
-    'orderby'         => 'date',
+    // 'orderby'         => 'date',
+    'orderby'         => 'author',
+    'order'           => 'ASC',
   );
   $all_submissions = get_posts($args);
   $all_seris = array();
