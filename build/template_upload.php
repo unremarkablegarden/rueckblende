@@ -70,8 +70,8 @@ foreach($all_submissions as $sub) {
     $sub->kat = $kat;
     $author = get_author_name($sub->post_author);
     $series_name = $cf['serienname'][0];
-    // $author_series = $author."_".$series_name;
-    $author_series = $author;
+    $author_series = $author."_".$series_name;
+    if ($debug) $author_series = $author;
     $array_place = sanitize_title($author_series);
     // echo $array_place."<br />";
 
