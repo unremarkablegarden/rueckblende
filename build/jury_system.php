@@ -4,6 +4,8 @@
  **/
 get_header();
 
+$thisYear = 2020;
+
 // einzel, karikatur
 if ( is_user_logged_in() && isset( $_GET['post_to_tag']) && isset($_GET['new_tag'])  && $_GET['value'] == 'true' ) {
   wp_set_post_tags($_GET['post_to_tag'], $_GET['new_tag'], $_GET['value'] );
@@ -233,7 +235,7 @@ $showname = $_GET['showname'];
       $args = array(
         'posts_per_page'  => -1,
         'post_type'       => 'post',
-        'year'            => 2019, // date('Y'),
+        'year'            => $thisYear, // date('Y'),
         'orderby'         => 'author',
         'order'           => 'ASC',
         'meta_key' => 'kategorie',
@@ -316,7 +318,7 @@ $showname = $_GET['showname'];
       $args = array(
         'posts_per_page'  => -1,
         'post_type'       => 'post',
-        'year'            => 2019, // date('Y'),
+        'year'            => $thisYear, // date('Y'),
         'orderby'         => 'author',
         'order'           => 'ASC',
         'meta_key' => 'kategorie',
