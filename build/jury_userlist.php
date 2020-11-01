@@ -13,7 +13,7 @@ if ($_GET['method'] == 'export') {
   $export = false;
 }
 
-if ($_GET['method'] == 'series') {
+if ($_GET['series'] == 'true') {
   $series_only = true;
   $series_count = 0;
 }
