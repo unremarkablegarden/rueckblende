@@ -67,6 +67,10 @@ $current_page = $post->post_name;
   );
   $all_submissions = get_posts($args);
   $all_seris = array();
+  
+  $titleCount = 0;
+  $unique_titles = [];
+  
   foreach ($all_submissions as $sub) {
     $cf = get_post_custom($sub->ID);
     $kat = $cf['kategorie'][0];
@@ -79,7 +83,7 @@ $current_page = $post->post_name;
 
       if (!in_array($author, $unique_users)) $unique_users[] = $author;
       
-      if (!in_array($series_name, $series_names)) $series_names[] = $author."\t".$series_name;
+      if (!in_array($author, $unique_users)) if (!in_array($series_name, $series_names)) $series_names[] = $author."\t".$series_name;
       
       if ($series_name) if (!in_array($author_series, $both)) $both[] = $author_series;
       
