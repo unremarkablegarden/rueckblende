@@ -79,8 +79,8 @@ $current_page = $post->post_name;
 
       if (!in_array($author, $unique_users)) $unique_users[] = $author;
       
-      if ($series_name) if (!in_array($series_name, $series_names)) $series_names[] = $series_name;
-      if ($series_name) if (!in_array($author_series, $both)) $both[] = $author_series;
+      if (!in_array($series_name, $series_names)) $series_names[] = $series_name;
+      if (!in_array($author_series, $both)) $both[] = $author_series;
       
       echo '<tr>';
         echo '<td>';
