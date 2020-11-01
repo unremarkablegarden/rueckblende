@@ -7,6 +7,13 @@ get_header();
 global $post;
 $current_page = $post->post_name;
 
+if(isset($_GET['debug'])) {
+  if ($_GET['debug'] == true || $_GET['debug'] == 'true') {
+    $debug = true;
+    debug($debug);
+  }
+}
+
 if(isset($_GET['action'])) {
   $action = $_GET['action'];
 } else {
