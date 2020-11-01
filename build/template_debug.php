@@ -82,9 +82,11 @@ $current_page = $post->post_name;
       $array_place = sanitize_title($author_series);
 
       if (!in_array($author, $unique_users)) {
-        $unique_users[] = $author;
-        if (!in_array($series_name, $series_names)) $series_names[] = $author."\t".$series_name;
+        $unique_users[] = $author;  
       }
+      
+      // if (!in_array($series_name, $series_names)) 
+      $series_names[] = $author."\t".$series_name;
       
       
       
