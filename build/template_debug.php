@@ -81,9 +81,12 @@ $current_page = $post->post_name;
       $author_series = $author . "_" . $series_name;
       $array_place = sanitize_title($author_series);
 
-      if (!in_array($author, $unique_users)) $unique_users[] = $author;
+      if (!in_array($author, $unique_users)) {
+        $unique_users[] = $author;
+        if (!in_array($series_name, $series_names)) $series_names[] = $author."\t".$series_name;
+      }
       
-      if (!in_array($author, $unique_users)) if (!in_array($series_name, $series_names)) $series_names[] = $author."\t".$series_name;
+      
       
       if ($series_name) if (!in_array($author_series, $both)) $both[] = $author_series;
       
