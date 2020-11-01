@@ -10,7 +10,7 @@ $current_page = $post->post_name;
 if(isset($_GET['debug'])) {
   if ($_GET['debug'] == true || $_GET['debug'] == 'true') {
     $debug = true;
-    debug('debug = '.$debug);
+    debug('---debug on---');
   }
   else {
     $debug = false;
@@ -83,7 +83,7 @@ foreach($all_submissions as $sub) {
 }
 
 if ($debug) {
-  d($all_series);
+  debug($all_series);
 }
 
 // Notice: Undefined variable: all_series in /var/www/html/wp-content/themes/rueckblende/build/template_upload.php on line 66
