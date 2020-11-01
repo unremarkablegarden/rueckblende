@@ -69,6 +69,8 @@ $pid = $_GET['pid'];
     <hr />
 
       <?
+      $authorN = 0;
+      
       foreach($submissions as $s):
         $postID = $s->ID;
         $meta = get_post_meta($s->ID);
@@ -88,7 +90,7 @@ $pid = $_GET['pid'];
 
         if ($author !== $last_author) {
           $last_author = $author;
-          $title = "<a name='".$author."' style='display: block; position: relative; top: -90px; visibility: hidden;'></a><h2 class='title'>".$author."</h2>\n<div class='columns is-multiline'>";
+          $title = "<a name='".$author."' style='display: block; position: relative; top: -90px; visibility: hidden;'></a><h2 class='title'>#".$authorN." ".$author."</h2>\n<div class='columns is-multiline'>";
           if ($first) {
             $first = false;
             echo $title;
