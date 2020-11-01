@@ -70,8 +70,9 @@ foreach($all_submissions as $sub) {
     $sub->kat = $kat;
     $author = get_author_name($sub->post_author);
     $series_name = $cf['serienname'][0];
-    $author_series = $author."_".$series_name;
-    if ($debug) $author_series = $author;
+    // $author_series = $author."_".$series_name;
+    // if ($debug) $author_series = $author;
+    $author_series = $author;
     $array_place = sanitize_title($author_series);
     // echo $array_place."<br />";
 
@@ -85,6 +86,7 @@ foreach($all_submissions as $sub) {
 
 if ($debug) {
   debug($all_series);
+  // debug(count($all_series) + 3);
 }
 
 // Notice: Undefined variable: all_series in /var/www/html/wp-content/themes/rueckblende/build/template_upload.php on line 66
@@ -94,7 +96,9 @@ if( isset($all_series) ) {
 } else {
   $state['totalseriescount'] = 0;
 }
-
+if ($debug) {
+  debug($state['totalseriescount']);
+}
 
 foreach($submissions as $sub) {
   $cf = get_post_custom($sub->ID);
