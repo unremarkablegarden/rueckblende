@@ -81,6 +81,8 @@ $current_page = $post->post_name;
       
       if (!in_array($series_name, $series_names)) $series_names[] = $series_name;
       
+      if (!in_array($author_series, $both)) $both[] = $author_series;
+      
       echo '<tr>';
         echo '<td>';
         echo $author;
@@ -113,6 +115,7 @@ $current_page = $post->post_name;
         
         <? debug($unique_users); ?>
         <? debug($series_names); ?>
+        <? debug($both); ?>
         
       </div>
     </div>
