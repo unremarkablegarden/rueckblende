@@ -1045,7 +1045,7 @@
             }
 
             // foto.hide(); karikatur.hide();
-            $('label[for="serienname"]').html('Serientitel <span class="required">*</span>');
+            $('.wpuf-el.serienname label').html('Serientitel <span class="required">*</span>');
           }
 
           else if (val == 'karikatur') {
