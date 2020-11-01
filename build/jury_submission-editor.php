@@ -54,11 +54,13 @@ $pid = $_GET['pid'];
       $first = true;
 
       $shown = array();
+      $userN = 1;
       foreach($submissions as $s):
         $user = get_userdata($s->post_author);
         $author = $user->display_name;
         if( !in_array($author, $shown) ) {
-          echo "<li><a href='#$author'>$author</a></li>";
+          echo "<li>".$userN.". <a href='#$author'>$author</a></li>";
+          $userN++;
           $shown[] = $author;
         }
       endforeach;
