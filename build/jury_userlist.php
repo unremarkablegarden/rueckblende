@@ -15,6 +15,7 @@ if ($_GET['method'] == 'export') {
 
 if ($_GET['method'] == 'series') {
   $series_only = true;
+  $series_count = 0;
 }
 ?>
 
@@ -204,7 +205,12 @@ if ($_GET['method'] == 'series') {
                 <?
                 $c = $user['count']['serie'];
                 if($c == 0) echo '<span class="zero">'.$c.'</span>';
-                else echo '<b>'.$c.'</b>';
+                else {
+                  echo '<b>'.$c.'</b>';
+                  if ($series_only) {
+                    $series_count++;
+                  }
+                }
                 ?>
               </td>
               <td width='10%'>
@@ -267,7 +273,7 @@ if ($_GET['method'] == 'series') {
         </table>
 
       <? endif; ?>
-
+    <h1>series count: <? echo $series_count; ?></h1>
     </div>
   </div>
 </section>
