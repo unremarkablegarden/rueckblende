@@ -1070,7 +1070,17 @@
             // not too few, not too many
             console.log('not too few, not too many '+val);
           }
-          if (state.total[val] >= rules[val].max) {
+          
+          // pid=41687&_wpnonce=8135f1e4fd
+          var queryString = window.location.search;
+          var urlParams = new URLSearchParams(queryString);
+          var func = urlParams.getAll('function');
+          if (func && func[0] == 'bearbeiten') var bearbeiten = true;
+          else var bearbeiten = false;
+          
+
+          
+          if (state.total[val] >= rules[val].max || !bearbeiten) {
             // max
             console.log('max '+val);
             all.hide();

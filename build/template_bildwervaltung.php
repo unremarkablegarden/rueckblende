@@ -263,7 +263,7 @@ foreach($submissions as $sub) {
 
               <?
               $edit_page = (int) wpuf_get_option( 'edit_page_id', 'wpuf_frontend_posting' );
-              $url = add_query_arg( array('pid' => $post->ID), get_permalink( $edit_page ) );
+              $url = add_query_arg( array('pid' => $post->ID, 'function' => 'bearbeiten'), get_permalink( $edit_page ) );
               ?>
               <a  class="button" href="<?php echo wp_nonce_url( $url, 'wpuf_edit' ); ?>"><?php _e( 'Bearbeiten', 'wpuf' ); ?></a>
 
