@@ -1081,18 +1081,19 @@
 
           
           if (state.total[val] >= rules[val].max) {
-            // max
-            console.log('max '+val);
-            all.hide();
-            serie.hide();
+            if (!bearbeiten) {
+              // max
+              console.log('max '+val);
+              all.hide();
+              serie.hide();
 
-            if (!$('.error.max').length) {
-              var text = "Sollten Sie ihre Bildauswahl ändern wollen, löschen Sie bitte zuerst unter &bdquo;Bildaktualisierung&ldquo; die Datei/Dateien, die Sie nicht zum Wettbewerb einreichen möchten und laden dann die neuen Bilddateien hoch.";
-              $('.kategorie').after('<li class="error max"><p><b>'+text+'</b></p></li>');
-            } else {
-              $('.max').show();
+              if (!$('.error.max').length) {
+                var text = "Sollten Sie ihre Bildauswahl ändern wollen, löschen Sie bitte zuerst unter &bdquo;Bildaktualisierung&ldquo; die Datei/Dateien, die Sie nicht zum Wettbewerb einreichen möchten und laden dann die neuen Bilddateien hoch.";
+                $('.kategorie').after('<li class="error max"><p><b>'+text+'</b></p></li>');
+              } else {
+                $('.max').show();
+              }
             }
-
           }
 
         }
