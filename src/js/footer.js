@@ -1080,7 +1080,7 @@
           
 
           
-          if (state.total[val] >= rules[val].max || !bearbeiten) {
+          if (state.total[val] >= rules[val].max) {
             // max
             console.log('max '+val);
             all.hide();
