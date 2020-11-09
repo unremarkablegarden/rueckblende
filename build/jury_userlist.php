@@ -61,6 +61,10 @@ if ($_GET['series'] == 'true') {
       $users = get_users( $args );
 
       $userlist = array();
+      
+      $allTotal['foto'] = 0;
+      $allTotal['series'] = 0;
+      $allTotal['karikatur'] = 0;
 
       foreach($users as $user) {
 
@@ -93,6 +97,10 @@ if ($_GET['series'] == 'true') {
           $state['total']['foto'] = 0;
           $state['total']['serie'] = 0;
           $state['total']['karikatur'] = 0;
+          
+          // echo "<xmp>";
+          // print_r($submissions);
+          // echo "</xmp>";
 
           foreach($submissions as $sub) {
             $cf = get_post_custom($sub->ID);
@@ -105,12 +113,15 @@ if ($_GET['series'] == 'true') {
             }
             if($kat == 'foto') {
               $state['total']['foto'] = $state['total']['foto'] + 1;
+              $allTotal['foto']++;
             }
             else if($kat == 'serie') {
               $state['total']['serie'] = $state['total']['serie'] + 1;
+              $allTotal['series']++;
             }
             else if($kat == 'karikatur') {
               $state['total']['karikatur'] = $state['total']['karikatur'] + 1;
+              $allTotal['karikatur']++;
             }
           }
 
@@ -131,7 +142,10 @@ if ($_GET['series'] == 'true') {
       }
       ?>
 
-
+      Total fotos: <? echo $allTotal['foto'] ?><br/>
+      Total series fotos: <? echo $allTotal['series'] ?><br/>
+      Total karikaturen: <? echo $allTotal['karikatur'] ?><br/><br/>
+      
       <?
       // [0] => Array
       // (
@@ -150,6 +164,7 @@ if ($_GET['series'] == 'true') {
       // echo '<xmp> ';
       // print_r($users);
       // echo '</xmp>';
+      
       ?>
 
       <?
