@@ -138,7 +138,11 @@ if ($_GET['series'] == 'true') {
             'meta' => $usermeta
           );
           
-          if ($state['total']['foto'] == 0 && $state['total']['serie'] == 0 && $state['total']['karikatur'] = 0) {
+          // echo "<xmp>";
+          // echo $state['total']['foto']." ".$state['total']['serie']." ".$state['total']['karikatur'];
+          // echo "</xmp>";
+          
+          if ($state['total']['foto'] == 0 && $state['total']['serie'] == 0 && $state['total']['karikatur'] == 0) {
             $blankusers[] = $user;
           } else {
             $participants[] = $user;
@@ -158,6 +162,7 @@ if ($_GET['series'] == 'true') {
       Users total: <? echo count($userlist) ?><br/>
       Users without entries: <? echo count($blankusers) ?><br/>
       Users with entries: <? echo count($participants) ?><br/>
+      <br/>
       
       <?
       // [0] => Array
