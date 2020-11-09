@@ -126,6 +126,11 @@ if ($_GET['series'] == 'true') {
               $allTotal['karikatur']++;
             }
           }
+          
+          $blankUser = false;
+          if ($state['total']['foto'] == 0 && $state['total']['serie'] == 0 && $state['total']['karikatur'] == 0) {
+            $blankusers = true;
+          }
 
           // set user array
           $user = array(
@@ -135,7 +140,8 @@ if ($_GET['series'] == 'true') {
             'type' => $usermeta['user_profession'][0],
             'e-mail' => $email,
             'count' => $state['total'],
-            'meta' => $usermeta
+            'meta' => $usermeta,
+            'blank_user' => $blankUser
           );
           
           // echo "<xmp>";
@@ -196,7 +202,8 @@ if ($_GET['series'] == 'true') {
               $sortArray[$key][] = $value;
           }
       }
-      $orderby = "last_name";
+      // $orderby = "last_name";
+      $orderby = "blank_user";
       array_multisort($sortArray[$orderby],SORT_ASC,$people);
       $userlist = $people;
       ?>
