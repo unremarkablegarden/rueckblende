@@ -61,6 +61,8 @@ if ($_GET['series'] == 'true') {
       $users = get_users( $args );
 
       $userlist = array();
+      $blankusers = array();
+      $participants = array();
       
       $allTotal['foto'] = 0;
       $allTotal['series'] = 0;
@@ -135,6 +137,12 @@ if ($_GET['series'] == 'true') {
             'count' => $state['total'],
             'meta' => $usermeta
           );
+          
+          if ($state['total']['foto'] == 0 && $state['total']['serie'] == 0 && $state['total']['karikatur'] = 0) {
+            $blankusers[] = $user;
+          } else {
+            $participants[] = $user;
+          }
 
           $userlist[] = $user;
         }
@@ -147,6 +155,9 @@ if ($_GET['series'] == 'true') {
       Total karikaturen: <? echo $allTotal['karikatur'] ?><br/>
       Total entries (alle): <? echo $allTotal['foto']+$allTotal['series']+$allTotal['karikatur'] ?><br/>
       <br/>
+      Users total: <? echo count($userlist) ?><br/>
+      Users without entries: <? echo count($blankusers) ?><br/>
+      Users with entries: <? echo count($participants) ?><br/>
       
       <?
       // [0] => Array
