@@ -202,8 +202,8 @@ if ($_GET['series'] == 'true') {
               $sortArray[$key][] = $value;
           }
       }
-      // $orderby = "last_name";
-      $orderby = "blank_user";
+      $orderby = "last_name";
+      // $orderby = "blank_user";
       array_multisort($sortArray[$orderby],SORT_ASC,$people);
       $userlist = $people;
       ?>
