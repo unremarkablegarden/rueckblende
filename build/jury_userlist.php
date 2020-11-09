@@ -144,7 +144,9 @@ if ($_GET['series'] == 'true') {
 
       Total fotos: <? echo $allTotal['foto'] ?><br/>
       Total series fotos: <? echo $allTotal['series'] ?><br/>
-      Total karikaturen: <? echo $allTotal['karikatur'] ?><br/><br/>
+      Total karikaturen: <? echo $allTotal['karikatur'] ?><br/>
+      Total entries (alle): <? echo $allTotal['foto']+$allTotal['series']+$allTotal['karikatur'] ?><br/>
+      <br/>
       
       <?
       // [0] => Array
