@@ -54,7 +54,9 @@
               $slug === 'konto' ||
               $slug === 'einreichen' ||
               $slug === 'guestlist' || 
-              $slug === 'registrieren'
+              $slug === 'registrieren' || 
+              $slug === 'preise' || 
+              $slug === 'teilnahmebedingungen'
             ): ?>
               <img src="<? img(); ?>/logo_subline_2020.svg" alt="">
             <? else: ?>

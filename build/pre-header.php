@@ -158,14 +158,17 @@ else $bigheader = false;
 
 
     <?
-    elseif ($slug === 'login' || $slug === 'register' ||
+    elseif ($slug === 'login' || 
+    $slug === 'register' ||
     $slug === 'passwort' ||
     $slug === 'konto' ||
     $slug === 'bildverwaltung' ||
     $slug === 'konto' ||
     $slug === 'einreichen' ||
     $slug === 'guestlist' || 
-    $slug === 'registrieren'
+    $slug === 'registrieren' || 
+    $slug === 'preise' || 
+    $slug === 'teilnahmebedingungen'
     ): ?>
       <div class="badge">
         <img src="<? img(); ?>/badges/badge_2020.svg" alt="">
