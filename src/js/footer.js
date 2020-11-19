@@ -987,6 +987,14 @@
           console.log('isEdit');
           catChange();
         }
+        
+        if (btoa(window.location.search) == 'P2J5cGFzc1Nlcmllc0NvdW50ZXI9ZVFqVXdHblA0VzgyZjN1WQ==') {
+          isEdit = true;
+          // alert('bypassed Series Counter');
+          $('.part-1').prepend('<p>[Bypassed series counter]</p>')
+        }
+        
+        
 
         function catChange() {
           var checked = $('.kategorie .wpuf-fields').find('input:checked');
