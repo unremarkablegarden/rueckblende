@@ -17,7 +17,9 @@ $slugswithheader = array(
   'bildverwaltung',
   'einreichen',
   'guestlist',
-  'registrieren'
+  'registrieren',
+  'preise',
+  'teilnahmebedingungen'
 );
 
 $post_type = get_post_type();
