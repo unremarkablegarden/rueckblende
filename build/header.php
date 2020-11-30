@@ -30,7 +30,7 @@
     <? 
     
     if ($_SERVER['REQUEST_URI'] == '/') { // is_home() not working?
-      include('pre-header-submissions.php');   
+      // include('pre-header-submissions.php');   
     }
     ?>
     
@@ -96,13 +96,11 @@
 
       <div class="menu-wrapper">
         <div class="inner">
-
-
-          <a href="/login/">
+          
+          <!-- <a href="/login/">
             <img src="<? img(); ?>/competition2020.svg" style="width: 380px; margin-right: -54px;"/>
           </a>
-
-          <hr/>
+          <hr/> -->
 
           <div id="responsive-menu"><?php wp_nav_menu( array( 'theme_location' => 'header', 'menu_id' => 'menu-header', 'menu_class' => 'menu-inline' ) ); ?></div>
 
