@@ -988,7 +988,8 @@
           catChange();
         }
         
-        if (btoa(window.location.search) == 'P2J5cGFzc1Nlcmllc0NvdW50ZXI9ZVFqVXdHblA0VzgyZjN1WQ==') {
+        // if (btoa(window.location.search) == 'P2J5cGFzc1Nlcmllc0NvdW50ZXI9ZVFqVXdHblA0VzgyZjN1WQ==') {
+        if (btoa(window.location.search) == 'UFlwN2Z3RWVneEJEU005ZA==') {
           isEdit = true;
           // alert('bypassed Series Counter');
           $('.part-1').prepend('<p>[Bypassed series counter]</p>')
