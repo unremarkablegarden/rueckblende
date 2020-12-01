@@ -66,9 +66,9 @@ if ($_GET['filter'] == 'empty') {
       );
       $users = get_users( $args );
       
-      echo "<xmp>";
-      print_r($users);
-      echo "</xmp>";
+      // echo "<xmp>";
+      // print_r($users);
+      // echo "</xmp>";
 
       $userlist = array();
       $blankusers = array();
@@ -88,6 +88,14 @@ if ($_GET['filter'] == 'empty') {
         $email = $usermeta['e-mail'][0];
         if(!$email) $email = $user->data->user_email;
 
+        if ($id == 347) {
+          echo "<xmp>";
+          echo $name;
+          echo $usermeta;
+          echo $email;
+          echo "</xmp>";
+        }
+        
         if (!$user->caps['administrator'] && $usermeta['first_name'][0] && $usermeta['_wp_http_referer'][0] == '/registrieren/') {
           // not admin, has firstname (* required at signup), signed up from registration page
 
