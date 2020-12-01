@@ -158,6 +158,12 @@ if ($_GET['filter'] == 'empty') {
             'count' => $state['total'],
             'meta' => $usermeta
           );
+          if ($user['user_profession'] == 0) {
+            $user['user_profession'] = 'Fotograf';
+          }
+          if ($user['user_profession'] == 1) {
+            $user['user_profession'] = 'Karikaturist';
+          }
           
           // echo "<xmp>";
           // echo $state['total']['foto']." ".$state['total']['serie']." ".$state['total']['karikatur'];
