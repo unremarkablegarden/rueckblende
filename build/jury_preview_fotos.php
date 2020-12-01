@@ -75,7 +75,7 @@ $pid = $_GET['pid'];
           // $current = $d['serienname'];
           $current = $author;
 
-          $entry = "<div class='series'><h1>#".$counter." — "."</h1><div class='inner columns is-multiline'>";
+          $entry = "<div class='series'><h1>#".$counter."</h1><div class='inner columns is-multiline'>";
 
           if($last !== $current) {
           // if($last !== $author) {
