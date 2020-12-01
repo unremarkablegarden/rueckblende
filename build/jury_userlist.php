@@ -19,9 +19,15 @@ if ($_GET['series'] == 'true') {
   $series_count2 = 0;
   $series_users = [];
 }
+
+if ($_GET['filter'] == 'empty') {
+  $filterempty = true;
+} else {
+  $filterempty = false;
+}
 ?>
 
-<? if($export): ?>
+<? if($export || $filterempty): ?>
 <style>
 #pre-header-spacer {
   height: 0 !important;
@@ -154,6 +160,7 @@ if ($_GET['series'] == 'true') {
       }
       ?>
 
+      <? if(!$filterempty && !$export): ?>
       Total fotos: <? echo $allTotal['foto'] ?><br/>
       Total series fotos: <? echo $allTotal['series'] ?><br/>
       Total karikaturen: <? echo $allTotal['karikatur'] ?><br/>
@@ -163,6 +170,8 @@ if ($_GET['series'] == 'true') {
       Users without entries: <? echo count($blankusers) ?><br/>
       Users with entries: <? echo count($participants) ?><br/>
       <br/>
+      <? endif; ?>
+      
       
       <?
       // [0] => Array
@@ -186,7 +195,12 @@ if ($_GET['series'] == 'true') {
       ?>
 
       <?
-      $people = $userlist;
+      if($filterempty) {
+        $people = $participants;  
+      } else {
+        $people = $userlist;  
+      }
+      
       $sortArray = array();
       foreach($people as $person){
           foreach($person as $key=>$value){
