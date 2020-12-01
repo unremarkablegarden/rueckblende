@@ -65,6 +65,10 @@ if ($_GET['filter'] == 'empty') {
         'number' => '999',
       );
       $users = get_users( $args );
+      
+      echo "<xmp>";
+      print_r($users);
+      echo "</xmp>";
 
       $userlist = array();
       $blankusers = array();
