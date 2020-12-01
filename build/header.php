@@ -56,7 +56,8 @@
               $slug === 'guestlist' || 
               $slug === 'registrieren' || 
               $slug === 'preise' || 
-              $slug === 'teilnahmebedingungen'
+              $slug === 'teilnahmebedingungen' || 
+              $slug === 'series-preview'
             ): ?>
               <img src="<? img(); ?>/logo_subline_2020.svg" alt="">
             <? else: ?>
