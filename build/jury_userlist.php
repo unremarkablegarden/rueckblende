@@ -147,23 +147,39 @@ if ($_GET['filter'] == 'empty') {
               $allTotal['karikatur']++;
             }
           }
-
+          
+          $type = $usermeta['user_profession'][0];
+          $t = explode('"', $type);
+          $type = $t[1];
+          
+          // if (strpos($type, 'Fotograf') !== false) {
+          //   $type = 'Fotograf';
+          // }
+          if ($type == '0') $type = 'Fotograf';
+          if ($type == '1') $type = 'Karikaturist';
+          
+          
+          
+          // || $type == '')
+          // if ($type !== 'Fotograf' && $type !== 'Karikaturist') {
+            // echo $type;
+            // echo "<br>";
+          // }
+            //  'Fotograf';
+            //  'Karikaturist';
+          
           // set user array
           $user = array(
             'first_name' => $usermeta['first_name'][0],
             'last_name' => $usermeta['last_name'][0],
             'full_name' => $usermeta['first_name'][0]." ".$usermeta['last_name'][0],
-            'type' => $usermeta['user_profession'][0],
+            // 'type' => $usermeta['user_profession'][0],
+            'type' => $type,
             'e-mail' => $email,
             'count' => $state['total'],
             'meta' => $usermeta
           );
-          if ($user['type'] == 0) {
-            $user['type'] = 'Fotograf';
-          }
-          if ($user['type'] == 1) {
-            $user['type'] = 'Karikaturist';
-          }
+          
           
           // echo "<xmp>";
           // echo $state['total']['foto']." ".$state['total']['serie']." ".$state['total']['karikatur'];
@@ -261,8 +277,9 @@ if ($_GET['filter'] == 'empty') {
                 <? 
                 $usr = $user['type']; 
                 if ($usr) {
-                  $usr = explode('"', $usr);
-                  echo $usr[1];
+                  // $usr = explode('"', $usr);
+                  // echo $usr[1];
+                  echo $usr;
                 }
                 ?>
               </td>
