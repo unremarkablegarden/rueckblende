@@ -88,17 +88,18 @@ if ($_GET['filter'] == 'empty') {
         $email = $usermeta['e-mail'][0];
         if(!$email) $email = $user->data->user_email;
 
-        if ($id == 347) {
-          echo "<xmp>";
-          echo $name;
-          echo "\n";
-          print_r($usermeta);
-          echo "\n";
-          echo $email;
-          echo "</xmp>";
-        }
+        // if ($id == 347) {
+        //   echo "<xmp>";
+        //   echo $name;
+        //   echo "\n";
+        //   print_r($usermeta);
+        //   echo "\n";
+        //   echo $email;
+        //   echo "</xmp>";
+        // }
         
-        if (!$user->caps['administrator'] && $usermeta['first_name'][0] && $usermeta['_wp_http_referer'][0] == '/registrieren/') {
+        if (!$user->caps['administrator'] && $usermeta['first_name'][0]) {
+          // $usermeta['_wp_http_referer'][0] == '/registrieren/'
           // not admin, has firstname (* required at signup), signed up from registration page
 
           // echo '<xmp>';
