@@ -91,7 +91,9 @@ if ($_GET['filter'] == 'empty') {
         if ($id == 347) {
           echo "<xmp>";
           echo $name;
-          echo $usermeta;
+          echo "\n";
+          print_r($usermeta);
+          echo "\n";
           echo $email;
           echo "</xmp>";
         }
