@@ -57,6 +57,8 @@
               $slug === 'registrieren' || 
               $slug === 'preise' || 
               $slug === 'teilnahmebedingungen' || 
+              $slug === 'fotos-preview' || 
+              $slug === 'karikatur-preview' || 
               $slug === 'series-preview'
             ): ?>
               <img src="<? img(); ?>/logo_subline_2020.svg" alt="">
