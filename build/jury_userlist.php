@@ -219,6 +219,7 @@ if ($_GET['filter'] == 'empty') {
 
         <table id='usertable' width='100%'>
           <tr>
+            <td><b>#</b></td>
             <td><b>Name</b></td>
             <td><b>Type</b></td>
             <td><b>E-Mail</b></td>
@@ -226,8 +227,12 @@ if ($_GET['filter'] == 'empty') {
             <td><b>Serie #</b></td>
             <td><b>Karikatur #</b></td>
           </tr>
+          <? $i = 0; ?>
           <? foreach($userlist as $user): ?>
             <tr>
+              <td width='2%'>
+                <? $i++; echo $i; ?>
+              </td>
               <td width='20%'>
                 <? echo $user['full_name']; ?>
               </td>
