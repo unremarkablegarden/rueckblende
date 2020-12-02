@@ -25,6 +25,12 @@ if ($_GET['filter'] == 'empty') {
 } else {
   $filterempty = false;
 }
+
+if ($_GET['moreinfo'] == 'true') {
+  $moreinfo = true;
+} else {
+  $moreinfo = false;
+}
 ?>
 
 <? if($export || $filterempty): ?>
@@ -168,6 +174,20 @@ if ($_GET['filter'] == 'empty') {
             //  'Fotograf';
             //  'Karikaturist';
           
+            // AVAILABLE FIELDS
+            // $fields = array(
+            //   'country',
+            //   'user_profession',
+            //   'birth_date',
+            //   'user_street',
+            //   'user_address_additional',
+            //   'user_postcode',
+            //   'user_city',
+            //   'phone_number',
+            //   'user_public-phonenumber',
+            //   'user_public-email'
+            // );
+            
           // set user array
           $user = array(
             'first_name' => $usermeta['first_name'][0],
@@ -176,6 +196,9 @@ if ($_GET['filter'] == 'empty') {
             // 'type' => $usermeta['user_profession'][0],
             'type' => $type,
             'e-mail' => $email,
+            'public_e-mail' => $usermeta['user_public-email'][0],
+            'phone' => $usermeta['phone_number'][0],
+            'public_phone' => $usermeta['user_public-phonenumber'][0],
             'count' => $state['total'],
             'meta' => $usermeta
           );
@@ -259,11 +282,17 @@ if ($_GET['filter'] == 'empty') {
             <td><b>#</b></td>
             <td><b>Name</b></td>
             <td><b>Type</b></td>
-            <td><b>E-Mail</b></td>
+            <td><b>Private E-Mail</b></td> 
+<? if ($moreinfo): ?> <td><b>Public E-Mail</b></td>
+            <td><b>Private Phone</b></td>
+            <td><b>Public Phone</b></td>  <? endif;?>
             <td><b>Foto #</b></td>
             <td><b>Serie #</b></td>
             <td><b>Karikatur #</b></td>
           </tr>
+          
+            
+            
           <? $i = 0; ?>
           <? foreach($userlist as $user): ?>
             <tr>
@@ -283,9 +312,23 @@ if ($_GET['filter'] == 'empty') {
                 }
                 ?>
               </td>
-              <td width='40%'>
+              <td width='10%'>
                 <? echo $user['e-mail']; ?>
               </td>
+              
+              <? if ($moreinfo): ?> 
+                <td width='10%'>
+                <? echo $user['public_e-mail']; ?>
+              </td>
+              <td width='10%'>
+                <? echo $user['phone']; ?>
+              </td>
+              <td width='10%'>
+                <? echo $user['public_phone']; ?>
+              </td>
+              <? endif; ?>
+            
+              
               <td width='10%'>
                 <?
                 $c = $user['count']['foto'];
@@ -317,7 +360,7 @@ if ($_GET['filter'] == 'empty') {
           <? endforeach; ?>
         </table>
 
-      <? else: ?>
+      <? else: // is $export ?>
 
         <?
         $fields = array(
