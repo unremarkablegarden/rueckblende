@@ -445,7 +445,7 @@ $showname = $_GET['showname'];
         if ($author !== $last_author) {
           $last_author = $author;
           if (! $_GET['tag'] || $_GET['filter'] == 'serie') {
-            $title = "<div class='user' data-n='".$userN."'><a name='".$userN."' style='display: block; position: relative; top: -90px; visibility: hidden;'></a><h2 class='title name-on'>".$author."</h2><h2 class='title name-off'>Teilnehmer #".$userN.$seriestitle."<div style='display: inline-block; font-size: 12px; line-height: 1em; transform: translate(16px, -6px); border: 1px #ccc solid; padding: 2px 4px; border-radius: 3px; color: #999;'>ID ".$s->post_author."</div></h2>\n<div class='columns is-multiline'>";
+            $title = "<div class='user' data-n='".$userN."'><a name='".$userN."' style='display: block; position: relative; top: -90px; visibility: hidden;'></a><h2 class='title name-on'>".$author."</h2><h2 class='title name-off'>Teilnehmer #".$userN.$seriestitle."<div style='display: inline-block; font-size: 12px; line-height: 1em; transform: translate(16px, -6px); border: 1px #ccc solid; padding: 2px 4px; border-radius: 3px; color: #777;'>ID ".$s->post_author."</div></h2>\n<div class='columns is-multiline'>";
             
             // $title = "<div class='user' data-n='".$userN."'><a name='".$userN."' style='display: block; position: relative; top: -90px; visibility: hidden;'></a><h2 class='title name-on'>".$author."</h2><h2 class='title name-off'>Teilnehmer #".$s->post_author.$seriestitle."</h2>\n<div class='columns is-multiline'>";
           }
