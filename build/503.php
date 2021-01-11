@@ -48,9 +48,10 @@
 		<img src="https://rueckblende.rlp.de/wp-content/themes/rueckblende/build/assets/img/logo_subline_2020.svg" id="logotop" />
 		<img src="http://165.227.164.168/wp-content/uploads/2018/03/soon_here@2x.png" style="width: 150px; height: auto;">
 		<div class='text'>
-		Die neue Rückblende <? echo date('Y') - 1; ?> steht kurz bevor —<br/>
+		Die neue Rückblende <? echo date('Y') - 1; ?> steht kurz bevor
+		 <!-- —<br/>
 		nach der Preisverleihung am 25. Januar <? echo date('Y'); ?><br/>
-		finden Sie hier ab 21 Uhr die neuen Webseiten.
+		finden Sie hier ab 21 Uhr die neuen Webseiten. -->
 		</div>
 	</body>
 </html>
