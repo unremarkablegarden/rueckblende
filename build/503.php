@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Rueckblende 2018</title>
+		<title>Rueckblende 2021</title>
 		<style>
 			html, body {
 				height: 100vh;
@@ -45,11 +45,11 @@
 	<body>
 
 		<!-- <img src="https://rueckblende.rlp.de/wp-content/uploads/2018/01/logo_subline.svg" /> -->
-		<img src="https://rueckblende.rlp.de/wp-content/themes/rueckblende/build/assets/img/logo_subline_2019.svg" id="logotop" />
+		<img src="https://rueckblende.rlp.de/wp-content/themes/rueckblende/build/assets/img/logo_subline_2020.svg" id="logotop" />
 		<img src="http://165.227.164.168/wp-content/uploads/2018/03/soon_here@2x.png" style="width: 150px; height: auto;">
 		<div class='text'>
 		Die neue Rückblende <? echo date('Y') - 1; ?> steht kurz bevor —<br/>
-		nach der Preisverleihung am 27. Januar <? echo date('Y'); ?><br/>
+		nach der Preisverleihung am 25. Januar <? echo date('Y'); ?><br/>
 		finden Sie hier ab 21 Uhr die neuen Webseiten.
 		</div>
 	</body>
