@@ -7,6 +7,12 @@ get_header();
 global $post;
 $current_page = $post->post_name;
 
+if ($_GET['year']) {
+  $year = $_GET['year'];
+} else {
+  $year = date('Y');
+}
+
 if ($_GET['method'] == 'export') {
   $export = true;
 } else {
@@ -118,7 +124,7 @@ if ($_GET['moreinfo'] == 'true') {
             'orderby'       =>  'post_date',
             'order'         =>  'ASC',
             'posts_per_page' => -1,
-            'year'          => date('Y'),
+            'year'          => $year,
           );
           $submissions = get_posts( $args );
 
