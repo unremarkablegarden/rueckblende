@@ -7,10 +7,9 @@ get_header();
 global $post;
 $current_page = $post->post_name;
 
-if ($_GET['year']) {
-  $year = $_GET['year'];
-} else {
-  $year = date('Y');
+$year = date('Y');
+if ($_GET['y']) {
+  $year = $_GET['y'];
 }
 
 if ($_GET['method'] == 'export') {
