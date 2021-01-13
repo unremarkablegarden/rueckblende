@@ -19,7 +19,8 @@ $slugswithheader = array(
   'guestlist',
   'registrieren',
   'preise',
-  'teilnahmebedingungen'
+  'teilnahmebedingungen',
+  'video'
 );
 
 $post_type = get_post_type();
@@ -187,8 +188,10 @@ else $bigheader = false;
         <input type="text" name="s" placeholder="Name..." value="<? echo $s; ?>" autocomplete="off"/>
         <input type="submit" alt="Search" value="Search" />
       </form> -->
-
-
+    <? else: ?>
+      <div class="badge">
+        <img src="<? img(); ?>/badges/badge_2020.svg" alt="">
+      </div>
     <? endif;?>
   <? endif;?>
 </div>
