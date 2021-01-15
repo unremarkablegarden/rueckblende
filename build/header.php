@@ -70,7 +70,7 @@
               //   echo get_the_content();
               // endwhile; wp_reset_postdata(); endif;
               ?>
-              <!-- <img src="<? img(); ?>/logo_subline_2019.svg" alt=""> -->
+              <img src="<? img(); ?>/logo_subline.svg" alt="">
 
             <? endif; ?>
           </a>

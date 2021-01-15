@@ -189,9 +189,9 @@ else $bigheader = false;
         <input type="submit" alt="Search" value="Search" />
       </form> -->
     <? else: ?>
-      <div class="badge">
+      <!-- <div class="badge">
         <img src="<? img(); ?>/badges/badge_2020.svg" alt="">
-      </div>
+      </div> -->
     <? endif;?>
   <? endif;?>
 </div>
