@@ -376,7 +376,8 @@
       var filters = {
         target: target,
         category: catt,
-        year: 2019, // today.getFullYear() - 1,
+        // year: 2019, // today.getFullYear() - 1,
+        year: 2020,
         search: null,
         page: page,
         section: section,
