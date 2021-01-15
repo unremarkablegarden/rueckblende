@@ -90,7 +90,7 @@
     <nav id="menu" class="main-menu">
 
       <div class="badge">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<? img(); ?>/nav-badge.svg"/></a>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<? img(); ?>/badge.svg"/></a>
       </div>
 
       <div class="close">
