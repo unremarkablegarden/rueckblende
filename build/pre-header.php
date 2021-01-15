@@ -116,7 +116,7 @@ else $bigheader = false;
     <? // TEILNEHMER
     elseif ($slug === 'teilnehmer'): ?>
       <div class="badge">
-        <img src="<? img(); ?>/badges/badge_imagepage_search.svg" alt="">
+        <img src="<? img(); ?>/badges/badge_teilnehmer.svg" alt="">
       </div>
 
     <? // SHORTLIST
