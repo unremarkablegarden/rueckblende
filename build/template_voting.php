@@ -17,6 +17,8 @@ get_header();
 	</div>
 </section>
 <?
+$year = 2020;
+
 $Q_foto = array(
 	'post_type'	=> 'entry',
 	'posts_per_page' => -1,
@@ -28,7 +30,7 @@ $Q_foto = array(
 		),
 		array(
 			'key'	  	=> 'year',
-			'value'	  	=> 2017,
+			'value'	  	=> $year,
 			'compare' 	=> '=',
 		),
 		array(
@@ -53,7 +55,7 @@ $Q_karikatur = array(
 		),
 		array(
 			'key'	  	=> 'year',
-			'value'	  	=> 2017,
+			'value'	  	=> $year,
 			'compare' 	=> '=',
 		),
 		array(
@@ -78,7 +80,7 @@ $Q_series = array(
 		),
 		array(
 			'key'	  	=> 'year',
-			'value'	  	=> 2017,
+			'value'	  	=> $year,
 			'compare' 	=> '=',
 		),
 		array(
