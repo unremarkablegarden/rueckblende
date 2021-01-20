@@ -289,6 +289,7 @@ $('button.vote').on('click', function(e){
 	} else {
 		// alert('Vote for ' + vote + " " + category);
 		var votingURL = 'https://rueckblende.rlp.de/vote/?vote='+vote+'&email='+email+'&category='+category;
+		console.log(votingURL);
 		// var win = window.open(votingURL, '_blank');
 		// win.focus();
 		window.location.href = votingURL;
