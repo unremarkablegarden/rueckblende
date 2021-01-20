@@ -289,8 +289,9 @@ $('button.vote').on('click', function(e){
 	} else {
 		// alert('Vote for ' + vote + " " + category);
 		var votingURL = '/vote/?vote='+vote+'&email='+email+'&category='+category;
-		var win = window.open(votingURL, '_blank');
-		win.focus();
+		// var win = window.open(votingURL, '_blank');
+		// win.focus();
+		window.location.href = votingURL;
 	}
 });
 
