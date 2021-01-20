@@ -341,7 +341,7 @@ h1 {
 	max-width: 90vw;
 }
 .modal-content img {
-	max-height: 80vh;
+	max-height: 75vh;
 	
 }
 .button {
