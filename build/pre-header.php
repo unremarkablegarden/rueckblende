@@ -137,7 +137,8 @@ else $bigheader = false;
     <? // KATALOG
     elseif ($slug === 'katalog'): ?>
       <div class="badge katalog">
-        <img src="<? img(); ?>/badges/badge_book.png" alt="">
+        <!-- <img src="<? img(); ?>/badges/badge_book.png" alt=""> -->
+        <img src='https://rueckblende.rlp.de/wp-content/uploads/2021/01/katalog2020-600x586-600x586.jpg'/>
       </div>
 
     <? // ARCHIV
