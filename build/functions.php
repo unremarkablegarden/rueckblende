@@ -486,7 +486,7 @@ function showImage($postID) {
   }
 }
 
-function getImage($postID) {
+function getImage($postID, $size = 'large') {
   $content = get_the_content($postID);
 
   if (strpos($content, '<img') !== false) {
@@ -499,7 +499,7 @@ function getImage($postID) {
   } else {
     
     $imgID = get_field('attachment_id', $postID);
-    $img = wp_get_attachment_image_src($imgID, 'large');
+    $img = wp_get_attachment_image_src($imgID, $size);
     $img = $img[0];
     
     $retina = wr2x_get_retina_from_url($img);

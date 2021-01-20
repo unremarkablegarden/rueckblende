@@ -140,7 +140,6 @@ foreach($sections as $section):
 			
 			if($section->have_posts()): while($section->have_posts()) : $section->the_post();
 			
-				// echo '<li>'.get_the_title().' — '.get_field('category').'</li>';
 				$imageid = get_field('imageid');
 				$year = get_field('year');
 				$name = ucwords(get_field('vorname'))." ".ucwords(get_field('nachname'));
@@ -151,12 +150,11 @@ foreach($sections as $section):
 				$date = get_field('date');
 				$series_name = get_field('series_name');
 				$postId = get_the_ID();
-				// $year = get_field('year');
-				$img = get_entry_src($year, $imageid, false);
-				$thumb = get_entry_src($year, $imageid, true);
 				
-				
-				
+				// $img = get_entry_src($year, $imageid, false);
+				// $thumb = get_entry_src($year, $imageid, true);
+				$img = getImage($postId);
+				$thumb = getImage($postId, 'thumbnail');				
 				
 			
 				if ($category == 'serie' && $lastlastname !== $lastname) {
