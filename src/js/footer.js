@@ -11,6 +11,10 @@
     regFormHacks();
     juryZoom();
     jury_system();
+    
+    $('.modal-close').on('click', function(){
+      $(this).closest('.modal').removeClass('is-active');
+    })
 
     // set default filters
     var today = new Date();

@@ -20,7 +20,8 @@ $slugswithheader = array(
   'registrieren',
   'preise',
   'teilnahmebedingungen',
-  'video'
+  'video',
+  'showroom'
 );
 
 $post_type = get_post_type();
@@ -155,9 +156,9 @@ else $bigheader = false;
       </div>
 
     <? // IMPRESSUM / DATENSCHUTZ
-    elseif ($slug === 'impressum' || $slug === 'datenschutz'): ?>
+    elseif ($slug === 'impressum' || $slug === 'datenschutz' || $slug == 'showroom'): ?>
       <div class="badge">
-        <img src="<? img(); ?>/badges/nav-badge.svg" alt="">
+        <img src="<? img(); ?>/badge.svg" alt="">
       </div>
 
 
