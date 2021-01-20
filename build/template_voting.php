@@ -288,7 +288,7 @@ $('button.vote').on('click', function(e){
 		alert('Bitte geben Sie eine gültige E-Mail-Adresse ein!');
 	} else {
 		// alert('Vote for ' + vote + " " + category);
-		var votingURL = '/vote/?vote='+vote+'&email='+email+'&category='+category;
+		var votingURL = 'https://rueckblende.rlp.de/vote/?vote='+vote+'&email='+email+'&category='+category;
 		// var win = window.open(votingURL, '_blank');
 		// win.focus();
 		window.location.href = votingURL;
