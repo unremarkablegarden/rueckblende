@@ -154,7 +154,7 @@ foreach($sections as $section):
 				// $img = get_entry_src($year, $imageid, false);
 				// $thumb = get_entry_src($year, $imageid, true);
 				$img = getImage($postId);
-				$thumb = getImage($postId, 'thumbnail');				
+				$thumb = getImage($postId, 'medium');				
 				
 			
 				if ($category == 'serie' && $lastlastname !== $lastname) {
@@ -339,6 +339,10 @@ h1 {
 .modal-card, .modal-content {
 	width: auto;
 	max-width: 90vw;
+}
+.modal-content img {
+	max-height: 80vh;
+	
 }
 .button {
 	font-weight: bold;
