@@ -9,49 +9,53 @@ get_header();
 		<div class='columns'>
 			<div class='column is-8'>
 				<?
-				if (isset($_GET['title'])) $title = $_GET['title'];
+				if (isset($_GET['type'])) $type = $_GET['type'];
 				if (isset($_GET['msg'])) $msg = $_GET['msg'];
 				
-				if(isset($msg) && isset($title)):
-				?>
-					<h1><? echo $title; ?></h1>
-					<br>
-					<p><? echo $msg; ?></p>
+				if (isset($type) && $type == 'danke'): ?>
+					<div class='info'><strong>Vielen Dank</strong>, dass Sie dieses Foto / diese Karikatur als Ihren Favoriten gekennzeichnet haben. <strong>Sie erhalten in Kürze eine E-Mail</strong>, mit der Sie Ihre Auswahl bestätigen können So stellen wir sicher, dass nur reale Rückblende-Fans abstimmen und keine Roboter. Bitte prüfen Sie ggf. Ihr Spam-Postfach.</div>
+				
+				<? elseif(isset($msg) && isset($type)): ?>
+					<div class='<? echo $type; ?>'>
+						<strong><? echo ucwords($type); ?></strong>
+						<br>
+						<p><? echo $msg; ?></p>
+					</div>
+				
 				<? else: ?>
-<h1>Showroom der aktuellen Ausstellung</h1>
+					<h1>Showroom der aktuellen Ausstellung</h1>
 
-<p>Kleines Virus - große Wirkung:<br/>
-Seit 2020 ist alles anders. <br/>
-Das betrifft auch die Rückblende, den deutschen Preis für politische Fotografie und Karikatur.</p>
- 
-Wir bieten Ihnen hier gerne die Möglichkeit, <br/>
-<h5>die aktuelle Ausstellung Rückblende2020 digital</h5>
-anzuschauen.
- 
-<p>Freuen Sie sich auf die <br/>
-100 besten Fotos, <br/>
-fünf besten Fotoserien und <br/>
-50 besten Karikaturen des Jahres 2020!</p>
- 
- 
-<p>Noch eine Neuheit - weil Sie uns derzeit  aufgrund des Lockdowns nicht in der Landesvertretung Rheinland-Pfalz in Berlin besuchen können:</p>
- 
-<h6>Machen Sie mit bei der Wahl zum Publikumspreis!</h6>
- 
-<p>Wählen Sie das beliebteste Foto.<br/>
-Wählen Sie die beliebteste Karikatur.<br/>
-Hier, einfach per Mausklick.</p>
- 
-<p>Jede und jeder kann mitmachen. </p>
- 
-<p>Sie können ein Mal pro Mailadresse ein Foto aussuchen.<br/>
-Und einmal eine Karikatur.<br/>
-Bitte bleiben Sie fair und stimmen für jeden der beiden Publikumspreise nur ein Mal ab.</p>
- 
-<p><strong>Ihr Online-Voting ist möglich bis zum 17. Februar 2021, 24 Uhr.</strong></p>
- 
-<p>Am 18.Februar 2021 geben wir dann die Sieger bekannt.<br/>
-Wir freuen uns auf Ihre Meinung, machen Sie mit!</p>
+					<p>Kleines Virus - große Wirkung:<br/>
+					Seit 2020 ist alles anders. <br/>
+					Das betrifft auch die Rückblende, den deutschen Preis für politische Fotografie und Karikatur.</p>
+					
+					Wir bieten Ihnen hier gerne die Möglichkeit, <br/>
+					<h5>die aktuelle Ausstellung Rückblende2020 digital</h5>
+					anzuschauen.
+					
+					<p>Freuen Sie sich auf die <br/>
+					100 besten Fotos, <br/>
+					fünf besten Fotoserien und <br/>
+					50 besten Karikaturen des Jahres 2020!</p>
+					
+					<p>Noch eine Neuheit - weil Sie uns derzeit  aufgrund des Lockdowns nicht in der Landesvertretung Rheinland-Pfalz in Berlin besuchen können:</p>
+					
+					<h6>Machen Sie mit bei der Wahl zum Publikumspreis!</h6>
+					
+					<p>Wählen Sie das beliebteste Foto.<br/>
+					Wählen Sie die beliebteste Karikatur.<br/>
+					Hier, einfach per Mausklick.</p>
+					
+					<p>Jede und jeder kann mitmachen. </p>
+					
+					<p>Sie können ein Mal pro Mailadresse ein Foto aussuchen.<br/>
+					Und einmal eine Karikatur.<br/>
+					Bitte bleiben Sie fair und stimmen für jeden der beiden Publikumspreise nur ein Mal ab.</p>
+					
+					<p><strong>Ihr Online-Voting ist möglich bis zum 17. Februar 2021, 24 Uhr.</strong></p>
+					
+					<p>Am 18.Februar 2021 geben wir dann die Sieger bekannt.<br/>
+					Wir freuen uns auf Ihre Meinung, machen Sie mit!</p>
 				
 				<? endif; ?>
 			</div>
@@ -330,7 +334,7 @@ $('button.vote').on('click', function(e){
 		alert('Bitte geben Sie eine gültige E-Mail-Adresse ein!');
 	} else {
 		// alert('Vote for ' + vote + " " + category);
-		var votingURL = 'https://rueckblende.rlp.de/vote/?vote='+vote+'&email='+email+'&category='+category;
+		var votingURL = 'http://165.227.164.168/vote/?vote='+vote+'&email='+email+'&category='+category;
 		console.log(votingURL);
 		// var win = window.open(votingURL, '_blank');
 		// win.focus();
@@ -440,6 +444,21 @@ input {
 	background-repeat: no-repeat;
 	background-position: center;
 }
+.info {
+	padding: 1rem;
+	margin: 1rem;
+	border: 1px #3a3 solid;
+	background: #EFE;
+	border-radius: 0.5rem;
+}
+.error {
+	padding: 1rem;
+	margin: 1rem;
+	border: 1px #a33 solid;
+	background: #FEE;
+	border-radius: 0.5rem;
+}
+	
 </style>
 
 <? get_footer(); ?>
