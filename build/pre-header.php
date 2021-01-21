@@ -160,7 +160,7 @@ else $bigheader = false;
     // VOTING
     elseif ($slug == 'showroom'): ?>
       <div class="badge">
-        <img src="<? img(); ?>/badges/badge_audience.svg" alt="">
+        <img src="<? img(); ?>/badges/badge_audience.svg" alt="" style="width: 130px;">
       </div>
       
     <? // IMPRESSUM / DATENSCHUTZ
