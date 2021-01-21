@@ -155,8 +155,16 @@ else $bigheader = false;
         <img src="<? img(); ?>/badges/badge_imagepage_search.svg" alt="">
       </div>
 
+    
+    <? 
+    // VOTING
+    elseif ($slug == 'showroom'): ?>
+      <div class="badge">
+        <img src="<? img(); ?>/badges/badge_audience.svg" alt="">
+      </div>
+      
     <? // IMPRESSUM / DATENSCHUTZ
-    elseif ($slug === 'impressum' || $slug === 'datenschutz' || $slug == 'showroom'): ?>
+    elseif ($slug === 'impressum' || $slug === 'datenschutz'): ?>
       <div class="badge">
         <img src="<? img(); ?>/badge.svg" alt="">
       </div>
