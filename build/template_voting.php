@@ -8,10 +8,52 @@ get_header();
   <div class="container">
 		<div class='columns'>
 			<div class='column is-8'>
-					
-				<h1>Showroom</h1>
-				<br>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae suscipit consequuntur fugiat recusandae itaque quia voluptate eius voluptatem veniam excepturi ullam impedit provident quas fuga, accusamus, saepe reiciendis, consequatur nulla.</p>
+				<?
+				if (isset($_GET['title'])) $title = $_GET['title'];
+				if (isset($_GET['msg'])) $msg = $_GET['msg'];
+				
+				if(isset($msg) && isset($title)):
+				?>
+					<h1><? echo $title; ?></h1>
+					<br>
+					<p><? echo $msg; ?></p>
+				<? else: ?>
+<h1>Showroom der aktuellen Ausstellung</h1>
+
+<p>Kleines Virus - große Wirkung:<br/>
+Seit 2020 ist alles anders. <br/>
+Das betrifft auch die Rückblende, den deutschen Preis für politische Fotografie und Karikatur.</p>
+ 
+Wir bieten Ihnen hier gerne die Möglichkeit, <br/>
+<h5>die aktuelle Ausstellung Rückblende2020 digital</h5>
+anzuschauen.
+ 
+<p>Freuen Sie sich auf die <br/>
+100 besten Fotos, <br/>
+fünf besten Fotoserien und <br/>
+50 besten Karikaturen des Jahres 2020!</p>
+ 
+ 
+<p>Noch eine Neuheit - weil Sie uns derzeit  aufgrund des Lockdowns nicht in der Landesvertretung Rheinland-Pfalz in Berlin besuchen können:</p>
+ 
+<h6>Machen Sie mit bei der Wahl zum Publikumspreis!</h6>
+ 
+<p>Wählen Sie das beliebteste Foto.<br/>
+Wählen Sie die beliebteste Karikatur.<br/>
+Hier, einfach per Mausklick.</p>
+ 
+<p>Jede und jeder kann mitmachen. </p>
+ 
+<p>Sie können ein Mal pro Mailadresse ein Foto aussuchen.<br/>
+Und einmal eine Karikatur.<br/>
+Bitte bleiben Sie fair und stimmen für jeden der beiden Publikumspreise nur ein Mal ab.</p>
+ 
+<p><strong>Ihr Online-Voting ist möglich bis zum 17. Februar 2021, 24 Uhr.</strong></p>
+ 
+<p>Am 18.Februar 2021 geben wir dann die Sieger bekannt.<br/>
+Wir freuen uns auf Ihre Meinung, machen Sie mit!</p>
+				
+				<? endif; ?>
 			</div>
 		</div>
 	</div>
@@ -312,6 +354,19 @@ h2 {
 h3 {
 	font-weight: bold;
 }
+h5, h6 {
+  font-size: 1.4rem;
+	line-height: 1em;
+  color: #ab002c;
+	margin: 0;
+	padding: 0;
+	/* margin-bottom: 2rem; */
+	/* padding-bottom: 1rem; */
+	/* border-bottom: 2px #ab002c solid; */
+}
+h6 {
+	font-size: 1.2rem;
+}
 .series-button {
 	width: 300px;
 	margin-bottom: 2rem;
@@ -337,6 +392,9 @@ h3 {
 h1 {
 	font-size: 2rem;
 	font-weight: bold;
+}
+p {
+	margin: 1rem 0;
 }
 .modal-content {
 	padding: 2rem;
