@@ -210,7 +210,6 @@ foreach($sections as $section):
 					echo '<h4>'.$series_name.'</h4>';
 					echo '<div class="series-button">';
 					echo '<button class="button is-small vote-open">Auswählen</button>';	
-					echo $postId;
 					?>
 					<div class="vote-box is-hidden">
 						<p>Bitte geben Sie Ihre E-Mail-Adresse ein, um Ihre Abstimmung zu bestätigen.</p>
@@ -260,6 +259,7 @@ foreach($sections as $section):
 						// echo '<button class="button is-small vote-open">Auswählen '.$postId.'</button>';
 						if ($category !== 'serie') {
 							echo '<button class="button is-small vote-open">Auswählen</button>';	
+							echo $postId;
 							?>
 							<div class="vote-box is-hidden">
 								<p>Bitte geben Sie Ihre E-Mail-Adresse ein, um Ihre Abstimmung zu bestätigen.</p>
