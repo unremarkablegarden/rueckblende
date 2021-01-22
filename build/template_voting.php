@@ -40,15 +40,14 @@ get_header();
 					
 					<p>Noch eine Neuheit - weil Sie uns derzeit  aufgrund des Lockdowns nicht in der Landesvertretung Rheinland-Pfalz in Berlin besuchen können:</p>
 					
-					<h6>Machen Sie mit bei der Wahl zum Publikumspreis!</h6>
+					<h6>Machen Sie mit bei der Online-Wahl zum Publikumspreis!</h6>
 					
-					<p>Wählen Sie das beliebteste Foto.<br/>
+					<p>Wählen Sie das beliebteste Einzel-Foto.<br/>
 					Wählen Sie die beliebteste Karikatur.<br/>
-					Hier, einfach per Mausklick.</p>
+					Hier, einfach per Mausklick.<br/>
+					Jede und jeder kann mitmachen. </p>
 					
-					<p>Jede und jeder kann mitmachen. </p>
-					
-					<p>Sie können ein Mal pro Mailadresse ein Foto aussuchen.<br/>
+					<p>Sie können ein Mal pro Mailadresse ein Einzel-Foto aussuchen.<br/>
 					Und einmal eine Karikatur.<br/>
 					Bitte bleiben Sie fair und stimmen für jeden der beiden Publikumspreise nur ein Mal ab.</p>
 					
