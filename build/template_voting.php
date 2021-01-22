@@ -70,8 +70,12 @@ $Q_foto = array(
 	'posts_per_page' => -1,
 	'meta_query'	=> array(
 		'relation'		=> 'AND',
+		// array(
+		// 	'key'	 	=> 'shortlist',
+		// 	'value'	  	=> true
+		// ),
 		array(
-			'key'	 	=> 'shortlist',
+			'key'	 	=> 'showroom',
 			'value'	  	=> true
 		),
 		array(
@@ -95,8 +99,12 @@ $Q_karikatur = array(
 	'posts_per_page' => -1,
 	'meta_query'	=> array(
 		'relation'		=> 'AND',
+		// array(
+		// 	'key'	 	=> 'shortlist',
+		// 	'value'	  	=> true
+		// ),
 		array(
-			'key'	 	=> 'shortlist',
+			'key'	 	=> 'showroom',
 			'value'	  	=> true
 		),
 		array(
@@ -207,16 +215,16 @@ foreach($sections as $section):
 					echo '</div>';
 					echo '<h3>'.$name.'</h3>';
 					echo '<h4>'.$series_name.'</h4>';
-					echo '<div class="series-button">';
-					echo '<button class="button is-small vote-open">Auswählen</button>';	
+					// echo '<div class="series-button">';
+					// echo '<button class="button is-small vote-open">Auswählen</button>';	
 					?>
-					<div class="vote-box is-hidden">
+					<!-- <div class="vote-box is-hidden">
 						<p>Bitte geben Sie Ihre E-Mail-Adresse ein, um Ihre Abstimmung zu bestätigen.</p>
 						<input class="input email" type="email" placeholder="Deine E-Mail"><br/>
 						<button class="button is-small is-primary vote" data-vote="<? echo $voteId; ?>" data-category="<? echo $category; ?>">Auswählen</button>
-					</div>
+					</div> -->
 					<?
-					echo '</div>';
+					// echo '</div>';
 					
 					echo '<div class="columns is-multiline serien">';
 					$lastlastname = $lastname;
