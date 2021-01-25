@@ -3,7 +3,8 @@
 			<img src="/wp-content/themes/rueckblende/build/assets/img/book/red_arrow_15x20.svg"/>
 		</div>
 		<div class="text">
-			<a href="/showroom/">Hier geht's zum Showroom</a>
+			<a href="/showroom/">Hier geht's zum Ausstellungs-Showroom</a>
+			
 		</div>
 		<div class="logo">
 			<!-- <img src="/wp-content/themes/rueckblende/build/assets/img/badges/r_2018@2x.png" alt="Rueckblende 2018"/> -->
