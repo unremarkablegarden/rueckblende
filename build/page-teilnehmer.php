@@ -20,7 +20,8 @@ get_header();
     </div>
     <div class="phonebook">
       <div class="inner">
-        <a href="/telefonbuch">Alle Teilnehmer</a>
+        <!-- <a href="/telefonbuch">Alle Teilnehmer</a> -->
+        <a href="/telefonbuch">Kontakte</a>
       </div>
     </div>
 
