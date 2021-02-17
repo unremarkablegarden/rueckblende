@@ -121,7 +121,6 @@ textarea, input, button, *:focus
     font-size: 16px !important
     line-height: 38px !important
 
-
 .flex-center
   display: flex
   justify-content: center
@@ -138,13 +137,11 @@ textarea, input, button, *:focus
 #pre-header-spacer
   background: $lg
 
+// $preheadersubmissionsHdesktop: 88px
+// $preheadersubmissionsHmobile: 61px
 
-$preheadersubmissionsHdesktop: 88px
-$preheadersubmissionsHmobile: 61px
-
-// $preheadersubmissionsHdesktop: 0px
-// $preheadersubmissionsHmobile: 0px
-
+$preheadersubmissionsHdesktop: 0px
+$preheadersubmissionsHmobile: 0px
 
 #pre-header-submissions
   // display: none !important
@@ -182,18 +179,16 @@ $preheadersubmissionsHmobile: 61px
       height: 100%
       width: auto
 
-  
 body.home
   #pre-header-submissions
     +desktop
       height: $preheadersubmissionsHdesktop
     +mobile
-      height: $preheadersubmissionsHmobile    
-  
+      height: $preheadersubmissionsHmobile
 
 #pre-header-spacer, #header-logos
   margin-top: 0
-  
+
 body.home
   #pre-header-spacer, #header-logos
     +desktop
@@ -201,8 +196,6 @@ body.home
     +mobile
       margin-top: $preheadersubmissionsHmobile
 
-
-  
 #pre-header-spacer, #pre-header
   width: 100vw
   z-index: 0
@@ -224,7 +217,6 @@ body.home
       top: $preheadersubmissionsHmobile
       // min-height: (370px + $preheadersubmissionsHmobile)
 
-  
 .home #prizes-gallery
   +mobile
     .owl-stage
@@ -241,7 +233,6 @@ body.home
     min-height: (697px + $preheadersubmissionsHdesktop)
   +mobile
     min-height: calc(120vw + $preheadersubmissionsHmobile)
-
 
 #pre-header
   position: fixed
@@ -262,7 +253,7 @@ body.home
       color: #393939
       a
         color: #393939
-      float: right
+        float: right
       &:before
         content: ''
         display: inline-block
@@ -297,10 +288,6 @@ body.home
     .cartoon_public, .photo_public
       &:before
         background-image: url(/wp-content/themes/rueckblende/build/assets/img/winners/badge_audience.svg)
-
-
-
-
 
 .sticky-wrapper
   position: relative
@@ -362,7 +349,6 @@ body.home
     right: 30px
     +mobile
       right: 8px
-
 
 #katalog
   padding: 60px
@@ -448,8 +434,8 @@ body.home
     color: white
   .owl-stage
     +desktop
-        height: 558px !important
-        width: 100%
+      height: 558px !important
+      width: 100%
     +touch
       width: 100vw !important
       height: auto
@@ -472,9 +458,9 @@ body.home
           +touch
             width: 100vw !important
             height: auto
-        background-position: center
-        background-size: cover
-        background-repeat: no-repeat
+          background-position: center
+          background-size: cover
+          background-repeat: no-repeat
       .photo
         background-size: cover
       .cartoon
@@ -643,10 +629,6 @@ body.home
     margin-left: 20px
     border-radius: 5px
 
-
-
-
-
 .watermark
   // display: none !important
   // &:before
@@ -685,7 +667,6 @@ body.home
     background-size: auto 80%
     background-position: 50% 0
 
-
 .page-id-80 #events
   .column
     height: 25vw
@@ -715,7 +696,6 @@ body.home
     +mobile
       flex-direction: row
 
-
 .slider-section
   padding-top: 2rem
   padding-bottom: 3rem
@@ -726,8 +706,6 @@ body.home
     font-size: 36px
   .slider
     margin-top: 20px !important
-
-
 
 body.page-id-19949
   .wpuf-el, .wpuf-submit
@@ -756,17 +734,14 @@ body.page-id-20083
 .bw
   filter: gray !important
 
-
 // DISABLE USER UPLOADS
 // .wpuf-el.kategorie
 // .wpuf-el.kategorie label.kategorie span
   // display: none !important
 
-
 // .um-login .um-right.um-half .um-button
   // display: none !important
-  
-  
+
 .impressum.section
   ul, ol
     margin: 1rem
