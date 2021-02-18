@@ -33,7 +33,7 @@
 
     if ($_SERVER['REQUEST_URI'] == '/') { // is_home() not working?
       // include('pre-header-submissions.php');   
-      include('pre-header-showroom.php');
+      // include('pre-header-showroom.php');
     }
     ?>
 
