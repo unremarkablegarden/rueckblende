@@ -748,3 +748,41 @@ body.page-id-20083
   ul
     li
       list-style: disc
+
+  
+#zoomer
+  display: none
+  &.show
+    display: block
+  #curtain
+    display: block
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background: rgba(0,0,0,0.3)
+    z-index: 888
+  #close
+    cursor: pointer
+    font-size: 40px 
+    position: fixed
+    z-index: 1000
+    top: 76px
+    right: 20px
+    color: white
+    font-weight: bold
+  .image
+    z-index: 999
+    position: fixed
+    top: 50vh
+    left: 50vw
+    transform: translate(-50%, -50%)
+    padding: 20px
+    background: white
+    border-radius: 1rem
+    img
+      max-width: 80vw
+      max-height: 90vh
+      width: 100%
+      height: auto

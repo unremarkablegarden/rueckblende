@@ -11,6 +11,7 @@
     regFormHacks();
     juryZoom();
     jury_system();
+    thumbZoom();
     
     $('.modal-close').on('click', function(){
       $(this).closest('.modal').removeClass('is-active');
@@ -1133,6 +1134,19 @@
     // .um-field-block div')
     // .html('xxx Um Ihr Passwort zurückzusetzen, geben Sie bitte Ihre E-Mail-Adresse oder Benutzernamen unten ein.');
 
+    function thumbZoom() {
+      $('#thumb-zoom').after('<div id="zoomer"><div id="curtain"></div><div id="close">X</div><div class="image"></div></div>');
+      $('#thumb-zoom .image').click(function(e){
+        var src = $(this).find('img').attr('src')
+        $('#zoomer .image').html('<img src="'+src+'"/>')
+        $('#zoomer').addClass('show')
+      })
+      $('#zoomer #close, #zoomer #curtain').on('click', function(){
+        $(this).parent().removeClass('show')
+        
+      })
+    }
+    
   });
 
 }(jQuery));
