@@ -152,6 +152,12 @@ $year = date('Y', strtotime('-1 year') );
           $info1 = get_field('info_1');
           $info2 = get_field('info_2');
           $eventtext = get_field('text');
+          
+          if ($GET_['debug'] == 'true') {
+            echo "<xmp>";
+            print_r($info1);
+            echo "</xmp>";
+          }
           ?>
           <? if($info1): ?>
             <div class="sm"><? echo $info1; ?></div>
