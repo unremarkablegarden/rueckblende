@@ -150,7 +150,7 @@ $year = date('Y', strtotime('-1 year') );
           
           <?
           $info1 = get_field('info_1');
-          $info1 = get_field('info_1');
+          $info2 = get_field('info_2');
           $eventtext = get_field('text');
           ?>
           <? if($info1): ?>
