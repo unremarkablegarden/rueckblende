@@ -75,8 +75,12 @@
             <div class="eventtext" style="font-size: 0.9em; margin-top: 1em;"><? the_field('text'); ?></div>
           </div>
           <div class="bottom">
+            <? 
+            $info2 = get_field('info_2');
+            $info2 = preg_replace('~(^|[\s\.,;\n\(])([a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})~',  '$1<a href="mailto:$2">$2</a>', $info2); 
+            ?>
             <div class="info _1"><? the_field('info_1'); ?></div>
-            <div class="info _2"><? the_field('info_2'); ?></div>
+            <div class="info _2"><? echo $info2; ?></div>
           </div>
         </div>  <!-- end square text -->
 
